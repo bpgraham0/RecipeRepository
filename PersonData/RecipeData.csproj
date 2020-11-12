@@ -53,6 +53,7 @@
     <Compile Include="Models\AddressType.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="DataDelegates\SavePersonAddressDataDelegate.cs" />
+    <Compile Include="Models\Recipe.cs" />
     <Compile Include="SqlAddressRepository.cs" />
     <Compile Include="SqlPersonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
