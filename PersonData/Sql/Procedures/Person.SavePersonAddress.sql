@@ -1,6 +1,6 @@
 ﻿CREATE OR ALTER PROCEDURE Person.SavePersonAddress
    @PersonId INT,
-   @AddressTypeId TINYINT,
+   @AddressTypeId INT,
    @Line1 NVARCHAR(32),
    @Line2 NVARCHAR(32),
    @City NVARCHAR(64),

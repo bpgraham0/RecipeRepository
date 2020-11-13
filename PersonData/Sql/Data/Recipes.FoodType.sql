@@ -1,6 +1,6 @@
 ﻿DECLARE @FoodTypeStaging TABLE
 (
-   FoodTypeId TINYINT NOT NULL PRIMARY KEY,
+   FoodTypeId INT NOT NULL PRIMARY KEY,
    [Name] VARCHAR(64) NOT NULL UNIQUE
 );
 

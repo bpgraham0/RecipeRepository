@@ -3,8 +3,8 @@ BEGIN
    CREATE TABLE Recipe.Recipe
    (
     RecipeId INT NOT NULL IDENTITY(1, 1) ,
-	FoodTypeId TINYINT NOT NULL FOREIGN KEY REFERENCES Recipes.FoodType(FoodTypeId),
-	CourseTypeId TINYINT NOT NULL FOREIGN KEY REFERENCES Recipes.CourseType(CourseTypeId),
+	FoodTypeId INT NOT NULL FOREIGN KEY REFERENCES Recipes.FoodType(FoodTypeId),
+	CourseTypeId INT NOT NULL FOREIGN KEY REFERENCES Recipes.CourseType(CourseTypeId),
 	[Name] NVARCHAR(64) NOT NULL UNIQUE,
 	[Description] NVARCHAR(1024) NOT NULL,
 	ServingSize INT NOT NULL,

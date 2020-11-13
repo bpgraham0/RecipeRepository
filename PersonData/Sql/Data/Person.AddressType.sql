@@ -1,6 +1,6 @@
 ﻿DECLARE @AddressTypeStaging TABLE
 (
-   AddressTypeId TINYINT NOT NULL PRIMARY KEY,
+   AddressTypeId INT NOT NULL PRIMARY KEY,
    [Name] VARCHAR(8) NOT NULL UNIQUE
 );
 

@@ -4,7 +4,7 @@ BEGIN
    (
       PersonAddressId INT NOT NULL IDENTITY(1, 1),
       PersonId INT NOT NULL,
-      AddressTypeId TINYINT NOT NULL,
+      AddressTypeId INT NOT NULL,
       Line1 NVARCHAR(32) NOT NULL,
       Line2 NVARCHAR(32) NULL,
       City NVARCHAR(64) NOT NULL,

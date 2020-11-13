@@ -2,7 +2,7 @@
 BEGIN
    CREATE TABLE Person.AddressType
    (
-      AddressTypeId TINYINT NOT NULL,
+      AddressTypeId INT NOT NULL,
       [Name] VARCHAR(8) NOT NULL,
 
       CONSTRAINT PK_Person_AddressType_AddressTypeId PRIMARY KEY CLUSTERED

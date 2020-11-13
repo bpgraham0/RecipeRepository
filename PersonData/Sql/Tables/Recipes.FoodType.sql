@@ -2,7 +2,7 @@
 BEGIN
    CREATE TABLE Recipe.FoodType
    (
-      FoodTypeId TINYINT NOT NULL,
+      FoodTypeId INT NOT NULL,
       [Name] NVARCHAR(64) NOT NULL,
 
       CONSTRAINT PK_Recipe_FoodType_FoodTypeId PRIMARY KEY CLUSTERED

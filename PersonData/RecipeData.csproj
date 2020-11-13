@@ -7,8 +7,8 @@
     <ProjectGuid>{D51AA58C-05B9-4A7D-9F80-CCEBF8A0EAF0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PersonData</RootNamespace>
-    <AssemblyName>PersonData</AssemblyName>
+    <RootNamespace>RecipeData</RootNamespace>
+    <AssemblyName>RecipeData</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -51,6 +51,9 @@
     <Compile Include="IPersonRepository.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\AddressType.cs" />
+    <Compile Include="Models\CourseType.cs" />
+    <Compile Include="Models\FoodType.cs" />
+    <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="DataDelegates\SavePersonAddressDataDelegate.cs" />
     <Compile Include="Models\Recipe.cs" />
