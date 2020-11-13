@@ -8,12 +8,14 @@
 
 INSERT @FoodTypeStaging(FoodTypeId, [Name])
 VALUES
+   (0, 'Other'),
    (1, 'Vegitable'),
    (2, 'Fruit'),
    (3, 'Meat'),
    (4, 'Seafood'),
    (5, 'Dairy'),
    (6, 'Grain');
+   
 
 /******************************************************************************/
 

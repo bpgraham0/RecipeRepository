@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace RecipeData.Models
 {
-  
-    public class FoodType
+    public class Measurement
     {
-        public int FoodTypeId { get; }
+        public int MeasurementId { get; }
         public string Name { get; }
 
-        public FoodType(int foodTypeId, string name)
+        public Measurement(int measurementId, string name)
         {
-            FoodTypeId = foodTypeId;
+            MeasurementId = measurementId;
             Name = name;
         }
     }
