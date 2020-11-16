@@ -65,18 +65,15 @@
     <EmbeddedResource Include="Sql\Tables\DropTables.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sql\Procedures\Person.RetrievePersons.sql" />
-    <EmbeddedResource Include="Sql\Procedures\Person.GetPerson.sql" />
-    <EmbeddedResource Include="Sql\Procedures\Person.CreatePerson.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.add UpdateHistoryOfUsedRecipes.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.DeleteRecipe.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.UpdateHaveItem.sql" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Sql\Tables\Recipes.Recipe.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sql\Tables\Person.AddressType.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Sql\Tables\Person.PersonAddress.sql" />
+    <EmbeddedResource Include="Sql\Tables\Recipes.Measurements.sql" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Sql\Data\Person.AddressType.sql" />
@@ -88,25 +85,34 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sql\Schemas\Person.sql" />
+    <EmbeddedResource Include="Sql\Schemas\Recipes.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sql\Procedures\Person.SavePersonAddress.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.AddToIngredientList.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sql\Procedures\Person.RetrieveAddressesForPerson.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Sql\Procedures\Person.FetchPerson.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.CreateIngredient.sql" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sql\Data\Recipes.FoodType.sql" />
-    <Content Include="Sql\Tables\Recipes.CourseType.sql">
-      <SubType>Component</SubType>
-    </Content>
-    <Content Include="Sql\Tables\Recipes.FoodType.sql">
-      <SubType>Component</SubType>
-    </Content>
+    <EmbeddedResource Include="Sql\Procedures\Recipes.add UpdateHistoryOfUsedRecipes - Copy %282%29.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.RecentRecipesSorted.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.FetchFullHistory.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.FetchSteps.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.FetchAllHaveIngredients.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.FetchCourceType.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.FetchFoodType.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.FetchCookTime.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.FetchIngreadentList.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.CreateUpdateSteps.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.FetchAllRecipesCanMake.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.CreateUpdateRecipe.sql" />
+    <EmbeddedResource Include="Sql\Tables\Recipes.ingredientList.sql" />
+    <EmbeddedResource Include="Sql\Tables\Recipes.ingredient.sql" />
+    <EmbeddedResource Include="Sql\Tables\Recipes.Steps.sql" />
+    <EmbeddedResource Include="Sql\Tables\Recipes.FoodType.sql" />
+    <EmbeddedResource Include="Sql\Tables\Recipes.HistoryOfUsedRecipes.sql" />
+    <EmbeddedResource Include="Sql\Tables\Recipes.CourseType.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
