@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using DataAccess;
-using PersonData.Models;
-using PersonData.DataDelegates;
+using RecipeData.Models;
+using RecipeData.DataDelegates;
 using System;
 
-namespace PersonData
+namespace RecipeData
 {
    public class SqlPersonRepository : IPersonRepository
    {
@@ -26,19 +26,19 @@ namespace PersonData
          if (string.IsNullOrWhiteSpace(email))
             throw new ArgumentException("The parameter cannot be null or empty.", nameof(email));
 
-         var d = new CreatePersonDataDelegate(firstName, lastName, email);
+         var d = new CreateRecipeDataDelegate(firstName, lastName, email);
          return executor.ExecuteNonQuery(d);
       }
 
       public Person FetchPerson(int personId)
       {
-         var d = new FetchPersonDataDelegate(personId);
+         var d = new FetchRecipeDataDelegate(personId);
          return executor.ExecuteReader(d);
       }
 
       public Person GetPerson(string email)
       {
-         var d = new GetPersonDataDelegate(email);
+         var d = new GetRecipeDataDelegate(email);
          return executor.ExecuteReader(d);
       }
 

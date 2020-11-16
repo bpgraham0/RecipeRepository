@@ -42,24 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataDelegates\FetchPersonDataDelegate.cs" />
-    <Compile Include="DataDelegates\RetrieveAddressesForPersonDataDelegate.cs" />
-    <Compile Include="DataDelegates\RetrievePersonsDataDelegate.cs" />
-    <Compile Include="DataDelegates\GetPersonDataDelegate.cs" />
-    <Compile Include="DataDelegates\CreatePersonDataDelegate.cs" />
-    <Compile Include="IAddressRepository.cs" />
-    <Compile Include="IPersonRepository.cs" />
     <Compile Include="Models\CourseType.cs" />
     <Compile Include="Models\FoodType.cs" />
     <Compile Include="Models\HistoryOfUsedRecipes.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\IngredientList.cs" />
     <Compile Include="Models\Measurement.cs" />
-    <Compile Include="DataDelegates\SavePersonAddressDataDelegate.cs" />
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\Steps.cs" />
-    <Compile Include="SqlAddressRepository.cs" />
-    <Compile Include="SqlPersonRepository.cs" />
+    <Compile Include="RecipeList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +99,9 @@
     <Content Include="Sql\Tables\Recipes.FoodType.sql">
       <SubType>Component</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataDelegates\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
