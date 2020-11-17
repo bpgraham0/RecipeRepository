@@ -49,6 +49,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.uxNumbericUpDownRate = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownServingSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownPrepTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownCookTime)).BeginInit();
@@ -67,7 +71,7 @@
             // 
             // uxTextBoxName
             // 
-            this.uxTextBoxName.Location = new System.Drawing.Point(88, 130);
+            this.uxTextBoxName.Location = new System.Drawing.Point(88, 127);
             this.uxTextBoxName.Name = "uxTextBoxName";
             this.uxTextBoxName.Size = new System.Drawing.Size(542, 26);
             this.uxTextBoxName.TabIndex = 1;
@@ -76,7 +80,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.Location = new System.Drawing.Point(7, 131);
+            this.label2.Location = new System.Drawing.Point(7, 126);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 25);
             this.label2.TabIndex = 2;
@@ -105,7 +109,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label4.Location = new System.Drawing.Point(339, 318);
+            this.label4.Location = new System.Drawing.Point(334, 318);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 25);
             this.label4.TabIndex = 5;
@@ -115,7 +119,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label5.Location = new System.Drawing.Point(339, 363);
+            this.label5.Location = new System.Drawing.Point(334, 363);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(167, 25);
             this.label5.TabIndex = 6;
@@ -125,7 +129,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label6.Location = new System.Drawing.Point(339, 407);
+            this.label6.Location = new System.Drawing.Point(334, 407);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(114, 25);
             this.label6.TabIndex = 7;
@@ -264,11 +268,54 @@
             this.label9.TabIndex = 21;
             this.label9.Text = "Stars:";
             // 
+            // button1
+            // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.button1.Location = new System.Drawing.Point(805, 148);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(153, 50);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Remove Ingredient";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.button2.Location = new System.Drawing.Point(650, 148);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(149, 50);
+            this.button2.TabIndex = 24;
+            this.button2.Text = "Add Ingredient";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 20;
+            this.listBox2.Location = new System.Drawing.Point(650, 224);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(375, 364);
+            this.listBox2.TabIndex = 23;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label10.Location = new System.Drawing.Point(645, 117);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(63, 25);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Steps";
+            // 
             // AddRecipeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 621);
+            this.ClientSize = new System.Drawing.Size(1058, 621);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.listBox2);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.uxNumbericUpDownRate);
             this.Controls.Add(this.label8);
@@ -324,5 +371,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.NumericUpDown uxNumbericUpDownRate;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Label label10;
     }
 }

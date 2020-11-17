@@ -57,7 +57,7 @@
     <EmbeddedResource Include="Sql\Tables\DropTables.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sql\Procedures\Recipes.add UpdateHistoryOfUsedRecipes.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.AddUpdateHistoryOfUsedRecipes.sql" />
     <EmbeddedResource Include="Sql\Procedures\Recipes.DeleteRecipe.sql" />
     <EmbeddedResource Include="Sql\Procedures\Recipes.UpdateHaveItem.sql" />
   </ItemGroup>
@@ -66,9 +66,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Sql\Tables\Recipes.Measurements.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Sql\Data\Person.AddressType.sql" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
@@ -86,11 +83,6 @@
     <EmbeddedResource Include="Sql\Procedures\Recipes.CreateIngredient.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Sql\Data\Recipes.FoodType.sql" />
-    <EmbeddedResource Include="Sql\Procedures\Recipes.add UpdateHistoryOfUsedRecipes - Copy %282%29.sql" />
-    <EmbeddedResource Include="..\..\Recipes.RecentRecipesSorted.sql">
-      <Link>Sql\Procedures\Recipes.RecentRecipesSorted.sql</Link>
-    </EmbeddedResource>
     <EmbeddedResource Include="Sql\Procedures\Recipes.FetchFullHistory.sql" />
     <EmbeddedResource Include="Sql\Procedures\Recipes.FetchSteps.sql" />
     <EmbeddedResource Include="Sql\Procedures\Recipes.FetchAllHaveIngredients.sql" />
