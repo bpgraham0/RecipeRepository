@@ -12,6 +12,10 @@ namespace RecipeData.Repositories
 {
     public class SqlRecipeRepository : IRecipeRepository
     {
+        public SqlRecipeRepository()
+        {
+
+        }
         string connectionString = @"Data Source=(localdb)\LocalDBApp1;Initial Catalog=RecipeRepository;Integrated Security=True";
 
         public Recipe CreateUpdateRecipe(int foodTypeId, int courseTypeId, string name, string description, double servingSize, int prepTime, int cookTime)
@@ -52,7 +56,10 @@ namespace RecipeData.Repositories
 
                         command.ExecuteNonQuery();
 
+                        
+
                         transaction.Complete();
+                        
 
                         return new Recipe((int)command.Parameters["RecipeId"].Value, foodTypeId, courseTypeId, name, description, servingSize, prepTime, cookTime,
                             (DateTime)command.Parameters["CreatedOn"].Value,(DateTime)command.Parameters["UpdatedOn"].Value);

@@ -42,20 +42,22 @@
             this.uxButtonAddRecipe = new System.Windows.Forms.Button();
             this.uxButtonCancelRecipe = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.uxListBoxIngredients = new System.Windows.Forms.ListBox();
             this.uxButtonAddIngredient = new System.Windows.Forms.Button();
             this.uxButtonRemoveIngredient = new System.Windows.Forms.Button();
             this.uxButtonEditStep = new System.Windows.Forms.Button();
             this.uxButtonAddStep = new System.Windows.Forms.Button();
-            this.uxListBoxSteps = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.uxTextBoxFoodType = new System.Windows.Forms.TextBox();
             this.uxTextBoxCourseType = new System.Windows.Forms.TextBox();
+            this.uxDataGridViewIngredients = new System.Windows.Forms.DataGridView();
+            this.uxDataGridViewSteps = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownServingSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownPrepTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownCookTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxDataGridViewIngredients)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxDataGridViewSteps)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -185,15 +187,6 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Ingredients:";
             // 
-            // uxListBoxIngredients
-            // 
-            this.uxListBoxIngredients.FormattingEnabled = true;
-            this.uxListBoxIngredients.ItemHeight = 20;
-            this.uxListBoxIngredients.Location = new System.Drawing.Point(22, 334);
-            this.uxListBoxIngredients.Name = "uxListBoxIngredients";
-            this.uxListBoxIngredients.Size = new System.Drawing.Size(308, 204);
-            this.uxListBoxIngredients.TabIndex = 15;
-            // 
             // uxButtonAddIngredient
             // 
             this.uxButtonAddIngredient.Location = new System.Drawing.Point(22, 269);
@@ -202,6 +195,7 @@
             this.uxButtonAddIngredient.TabIndex = 16;
             this.uxButtonAddIngredient.Text = "Add Ingredient";
             this.uxButtonAddIngredient.UseVisualStyleBackColor = true;
+            this.uxButtonAddIngredient.Click += new System.EventHandler(this.uxButtonAddIngredient_Click);
             // 
             // uxButtonRemoveIngredient
             // 
@@ -211,6 +205,7 @@
             this.uxButtonRemoveIngredient.TabIndex = 17;
             this.uxButtonRemoveIngredient.Text = "Remove Ingredient";
             this.uxButtonRemoveIngredient.UseVisualStyleBackColor = true;
+            this.uxButtonRemoveIngredient.Click += new System.EventHandler(this.uxButtonRemoveIngredient_Click);
             // 
             // uxButtonEditStep
             // 
@@ -229,15 +224,6 @@
             this.uxButtonAddStep.TabIndex = 24;
             this.uxButtonAddStep.Text = "Add Step";
             this.uxButtonAddStep.UseVisualStyleBackColor = true;
-            // 
-            // uxListBoxSteps
-            // 
-            this.uxListBoxSteps.FormattingEnabled = true;
-            this.uxListBoxSteps.ItemHeight = 20;
-            this.uxListBoxSteps.Location = new System.Drawing.Point(655, 136);
-            this.uxListBoxSteps.Name = "uxListBoxSteps";
-            this.uxListBoxSteps.Size = new System.Drawing.Size(375, 404);
-            this.uxListBoxSteps.TabIndex = 23;
             // 
             // label10
             // 
@@ -283,22 +269,52 @@
             this.uxTextBoxCourseType.Size = new System.Drawing.Size(153, 26);
             this.uxTextBoxCourseType.TabIndex = 29;
             // 
+            // uxDataGridViewIngredients
+            // 
+            this.uxDataGridViewIngredients.AllowUserToAddRows = false;
+            this.uxDataGridViewIngredients.AllowUserToDeleteRows = false;
+            this.uxDataGridViewIngredients.AllowUserToOrderColumns = true;
+            this.uxDataGridViewIngredients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.uxDataGridViewIngredients.Location = new System.Drawing.Point(22, 333);
+            this.uxDataGridViewIngredients.Name = "uxDataGridViewIngredients";
+            this.uxDataGridViewIngredients.ReadOnly = true;
+            this.uxDataGridViewIngredients.RowHeadersWidth = 62;
+            this.uxDataGridViewIngredients.RowTemplate.Height = 28;
+            this.uxDataGridViewIngredients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.uxDataGridViewIngredients.Size = new System.Drawing.Size(308, 207);
+            this.uxDataGridViewIngredients.TabIndex = 30;
+            // 
+            // uxDataGridViewSteps
+            // 
+            this.uxDataGridViewSteps.AllowUserToAddRows = false;
+            this.uxDataGridViewSteps.AllowUserToDeleteRows = false;
+            this.uxDataGridViewSteps.AllowUserToOrderColumns = true;
+            this.uxDataGridViewSteps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.uxDataGridViewSteps.Location = new System.Drawing.Point(655, 136);
+            this.uxDataGridViewSteps.Name = "uxDataGridViewSteps";
+            this.uxDataGridViewSteps.ReadOnly = true;
+            this.uxDataGridViewSteps.RowHeadersWidth = 62;
+            this.uxDataGridViewSteps.RowTemplate.Height = 28;
+            this.uxDataGridViewSteps.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.uxDataGridViewSteps.Size = new System.Drawing.Size(375, 404);
+            this.uxDataGridViewSteps.TabIndex = 31;
+            // 
             // AddRecipeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1058, 558);
+            this.Controls.Add(this.uxDataGridViewSteps);
+            this.Controls.Add(this.uxDataGridViewIngredients);
             this.Controls.Add(this.uxTextBoxCourseType);
             this.Controls.Add(this.uxTextBoxFoodType);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.uxButtonEditStep);
             this.Controls.Add(this.uxButtonAddStep);
-            this.Controls.Add(this.uxListBoxSteps);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.uxButtonRemoveIngredient);
             this.Controls.Add(this.uxButtonAddIngredient);
-            this.Controls.Add(this.uxListBoxIngredients);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.uxButtonCancelRecipe);
             this.Controls.Add(this.uxButtonAddRecipe);
@@ -318,6 +334,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownServingSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownPrepTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownCookTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxDataGridViewIngredients)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxDataGridViewSteps)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,16 +357,16 @@
         private System.Windows.Forms.Button uxButtonAddRecipe;
         private System.Windows.Forms.Button uxButtonCancelRecipe;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ListBox uxListBoxIngredients;
         private System.Windows.Forms.Button uxButtonAddIngredient;
         private System.Windows.Forms.Button uxButtonRemoveIngredient;
         private System.Windows.Forms.Button uxButtonEditStep;
         private System.Windows.Forms.Button uxButtonAddStep;
-        private System.Windows.Forms.ListBox uxListBoxSteps;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox uxTextBoxFoodType;
         private System.Windows.Forms.TextBox uxTextBoxCourseType;
+        private System.Windows.Forms.DataGridView uxDataGridViewIngredients;
+        private System.Windows.Forms.DataGridView uxDataGridViewSteps;
     }
 }

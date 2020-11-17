@@ -28,17 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.uxAddRecipeButton = new System.Windows.Forms.Button();
-            this.uxListBox = new System.Windows.Forms.ListBox();
-            this.recipeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.recipeRepositoryDataSet = new RecipeRepositoryApp.RecipeRepositoryDataSet();
             this.uxFilterRecipesButton = new System.Windows.Forms.Button();
-            this.recipeTableAdapter = new RecipeRepositoryApp.RecipeRepositoryDataSetTableAdapters.RecipeTableAdapter();
             this.uxButtonViewRecipe = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeRepositoryDataSet)).BeginInit();
+            this.uxDataGridViewRecipes = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.uxDataGridViewRecipes)).BeginInit();
             this.SuspendLayout();
             // 
             // uxAddRecipeButton
@@ -51,28 +46,6 @@
             this.uxAddRecipeButton.UseVisualStyleBackColor = true;
             this.uxAddRecipeButton.Click += new System.EventHandler(this.uxAddRecipeButton_Click);
             // 
-            // uxListBox
-            // 
-            this.uxListBox.DataSource = this.recipeBindingSource;
-            this.uxListBox.DisplayMember = "Name";
-            this.uxListBox.FormattingEnabled = true;
-            this.uxListBox.ItemHeight = 20;
-            this.uxListBox.Location = new System.Drawing.Point(12, 70);
-            this.uxListBox.Name = "uxListBox";
-            this.uxListBox.ScrollAlwaysVisible = true;
-            this.uxListBox.Size = new System.Drawing.Size(487, 344);
-            this.uxListBox.TabIndex = 2;
-            // 
-            // recipeBindingSource
-            // 
-            this.recipeBindingSource.DataMember = "Recipe";
-            this.recipeBindingSource.DataSource = this.recipeRepositoryDataSet;
-            // 
-            // recipeRepositoryDataSet
-            // 
-            this.recipeRepositoryDataSet.DataSetName = "RecipeRepositoryDataSet";
-            this.recipeRepositoryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // uxFilterRecipesButton
             // 
             this.uxFilterRecipesButton.Location = new System.Drawing.Point(12, 12);
@@ -82,10 +55,6 @@
             this.uxFilterRecipesButton.Text = "Filter Recipes";
             this.uxFilterRecipesButton.UseVisualStyleBackColor = true;
             this.uxFilterRecipesButton.Click += new System.EventHandler(this.uxFilterRecipesButton_Click);
-            // 
-            // recipeTableAdapter
-            // 
-            this.recipeTableAdapter.ClearBeforeFill = true;
             // 
             // uxButtonViewRecipe
             // 
@@ -106,34 +75,45 @@
             this.button1.Text = "Clear Filter";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // uxDataGridViewRecipes
+            // 
+            this.uxDataGridViewRecipes.AllowUserToAddRows = false;
+            this.uxDataGridViewRecipes.AllowUserToDeleteRows = false;
+            this.uxDataGridViewRecipes.AllowUserToOrderColumns = true;
+            this.uxDataGridViewRecipes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.uxDataGridViewRecipes.Location = new System.Drawing.Point(13, 71);
+            this.uxDataGridViewRecipes.MultiSelect = false;
+            this.uxDataGridViewRecipes.Name = "uxDataGridViewRecipes";
+            this.uxDataGridViewRecipes.ReadOnly = true;
+            this.uxDataGridViewRecipes.RowHeadersWidth = 62;
+            this.uxDataGridViewRecipes.RowTemplate.Height = 28;
+            this.uxDataGridViewRecipes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.uxDataGridViewRecipes.Size = new System.Drawing.Size(486, 342);
+            this.uxDataGridViewRecipes.TabIndex = 6;
+            // 
             // RecipeRepositoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 496);
+            this.Controls.Add(this.uxDataGridViewRecipes);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.uxButtonViewRecipe);
             this.Controls.Add(this.uxFilterRecipesButton);
-            this.Controls.Add(this.uxListBox);
             this.Controls.Add(this.uxAddRecipeButton);
             this.Name = "RecipeRepositoryForm";
             this.Text = "RecipeRepository";
-            this.Load += new System.EventHandler(this.RecipeRepository_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.recipeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeRepositoryDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxDataGridViewRecipes)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Button uxAddRecipeButton;
-        private System.Windows.Forms.ListBox uxListBox;
         private System.Windows.Forms.Button uxFilterRecipesButton;
-        private RecipeRepositoryDataSet recipeRepositoryDataSet;
-        private System.Windows.Forms.BindingSource recipeBindingSource;
-        private RecipeRepositoryDataSetTableAdapters.RecipeTableAdapter recipeTableAdapter;
         private System.Windows.Forms.Button uxButtonViewRecipe;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView uxDataGridViewRecipes;
     }
 }
 

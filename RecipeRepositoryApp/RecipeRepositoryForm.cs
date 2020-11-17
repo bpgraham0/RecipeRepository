@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RecipeData.Models;
+using RecipeData.Repositories;
 
 
 
@@ -15,17 +16,17 @@ namespace RecipeRepositoryApp
 {
     public partial class RecipeRepositoryForm : Form
     {
-        public RecipeRepositoryForm()
+        public RecipeRepositoryForm(IRecipeRepository recipeRepository)
         {
             InitializeComponent();
-        }
-
-        private void RecipeRepository_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'recipeRepositoryDataSet.Recipe' table. You can move, or remove it, as needed.
-            this.recipeTableAdapter.Fill(this.recipeRepositoryDataSet.Recipe);
+            //uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeList();//Returns reader
+            //DataTable dt = new DataTable();
+            //dt.Load(command.ExecuteReader());
+            //return dt;
 
         }
+
+        
 
         
 

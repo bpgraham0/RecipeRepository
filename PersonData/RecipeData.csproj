@@ -91,7 +91,7 @@
     <EmbeddedResource Include="Sql\Procedures\Recipes.FetchCourceType.sql" />
     <EmbeddedResource Include="Sql\Procedures\Recipes.FetchFoodType.sql" />
     <EmbeddedResource Include="Sql\Procedures\Recipes.FetchCookTime.sql" />
-    <EmbeddedResource Include="Sql\Procedures\Recipes.FetchIngreadentList.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.FetchIngredientList.sql" />
     <EmbeddedResource Include="Sql\Procedures\Recipes.CreateUpdateSteps.sql" />
     <EmbeddedResource Include="Sql\Procedures\Recipes.FetchAllRecipesCanMake.sql" />
     <EmbeddedResource Include="Sql\Procedures\Recipes.CreateUpdateRecipe.sql" />

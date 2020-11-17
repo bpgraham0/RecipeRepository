@@ -33,20 +33,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.uxTextBoxName = new System.Windows.Forms.TextBox();
-            this.uxGroupBox = new System.Windows.Forms.GroupBox();
-            this.RadioButtonNo = new System.Windows.Forms.RadioButton();
-            this.uxRadioButtonYes = new System.Windows.Forms.RadioButton();
             this.uxNumericUpDownQuantity = new System.Windows.Forms.NumericUpDown();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.uxGroupBox.SuspendLayout();
+            this.uxComboBoxMeasurement = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownQuantity)).BeginInit();
             this.SuspendLayout();
             // 
             // uxButtonAddIngredient
             // 
-            this.uxButtonAddIngredient.Location = new System.Drawing.Point(30, 235);
+            this.uxButtonAddIngredient.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.uxButtonAddIngredient.Location = new System.Drawing.Point(30, 183);
             this.uxButtonAddIngredient.Name = "uxButtonAddIngredient";
             this.uxButtonAddIngredient.Size = new System.Drawing.Size(172, 83);
             this.uxButtonAddIngredient.TabIndex = 0;
@@ -55,7 +51,8 @@
             // 
             // uxButtonCancel
             // 
-            this.uxButtonCancel.Location = new System.Drawing.Point(236, 235);
+            this.uxButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.uxButtonCancel.Location = new System.Drawing.Point(236, 183);
             this.uxButtonCancel.Name = "uxButtonCancel";
             this.uxButtonCancel.Size = new System.Drawing.Size(172, 83);
             this.uxButtonCancel.TabIndex = 1;
@@ -92,54 +89,12 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Quantity of Item:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label4.Location = new System.Drawing.Point(25, 189);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(230, 29);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Currently have item?";
-            // 
             // uxTextBoxName
             // 
             this.uxTextBoxName.Location = new System.Drawing.Point(132, 28);
             this.uxTextBoxName.Name = "uxTextBoxName";
             this.uxTextBoxName.Size = new System.Drawing.Size(276, 26);
             this.uxTextBoxName.TabIndex = 6;
-            // 
-            // uxGroupBox
-            // 
-            this.uxGroupBox.Controls.Add(this.RadioButtonNo);
-            this.uxGroupBox.Controls.Add(this.uxRadioButtonYes);
-            this.uxGroupBox.Location = new System.Drawing.Point(261, 176);
-            this.uxGroupBox.Name = "uxGroupBox";
-            this.uxGroupBox.Size = new System.Drawing.Size(147, 42);
-            this.uxGroupBox.TabIndex = 10;
-            this.uxGroupBox.TabStop = false;
-            // 
-            // RadioButtonNo
-            // 
-            this.RadioButtonNo.AutoSize = true;
-            this.RadioButtonNo.Checked = true;
-            this.RadioButtonNo.Location = new System.Drawing.Point(85, 14);
-            this.RadioButtonNo.Name = "RadioButtonNo";
-            this.RadioButtonNo.Size = new System.Drawing.Size(54, 24);
-            this.RadioButtonNo.TabIndex = 1;
-            this.RadioButtonNo.TabStop = true;
-            this.RadioButtonNo.Text = "No";
-            this.RadioButtonNo.UseVisualStyleBackColor = true;
-            // 
-            // uxRadioButtonYes
-            // 
-            this.uxRadioButtonYes.AutoSize = true;
-            this.uxRadioButtonYes.Location = new System.Drawing.Point(17, 14);
-            this.uxRadioButtonYes.Name = "uxRadioButtonYes";
-            this.uxRadioButtonYes.Size = new System.Drawing.Size(62, 24);
-            this.uxRadioButtonYes.TabIndex = 0;
-            this.uxRadioButtonYes.Text = "Yes";
-            this.uxRadioButtonYes.UseVisualStyleBackColor = true;
             // 
             // uxNumericUpDownQuantity
             // 
@@ -148,24 +103,22 @@
             this.uxNumericUpDownQuantity.Size = new System.Drawing.Size(163, 26);
             this.uxNumericUpDownQuantity.TabIndex = 11;
             // 
-            // comboBox1
+            // uxComboBoxMeasurement
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(245, 80);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(163, 28);
-            this.comboBox1.TabIndex = 12;
+            this.uxComboBoxMeasurement.FormattingEnabled = true;
+            this.uxComboBoxMeasurement.Location = new System.Drawing.Point(245, 80);
+            this.uxComboBoxMeasurement.Name = "uxComboBoxMeasurement";
+            this.uxComboBoxMeasurement.Size = new System.Drawing.Size(163, 28);
+            this.uxComboBoxMeasurement.TabIndex = 12;
             // 
             // AddIngredientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 342);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(425, 289);
+            this.Controls.Add(this.uxComboBoxMeasurement);
             this.Controls.Add(this.uxNumericUpDownQuantity);
-            this.Controls.Add(this.uxGroupBox);
             this.Controls.Add(this.uxTextBoxName);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -173,8 +126,6 @@
             this.Controls.Add(this.uxButtonAddIngredient);
             this.Name = "AddIngredientForm";
             this.Text = "AddIngredientForm";
-            this.uxGroupBox.ResumeLayout(false);
-            this.uxGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownQuantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -188,12 +139,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox uxTextBoxName;
-        private System.Windows.Forms.GroupBox uxGroupBox;
-        private System.Windows.Forms.RadioButton RadioButtonNo;
-        private System.Windows.Forms.RadioButton uxRadioButtonYes;
         private System.Windows.Forms.NumericUpDown uxNumericUpDownQuantity;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox uxComboBoxMeasurement;
     }
 }

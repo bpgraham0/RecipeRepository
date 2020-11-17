@@ -5,7 +5,7 @@ CREATE OR ALTER PROCEDURE Recipes.CreateUpdateRecipe
 	@Name NVARCHAR (64),
 	@Description NVARCHAR(1024),
 	@ServingSize float(53),
-	@PrepTime INT
+	@PrepTime INT,
 	@CookTime INT,
 	@RecipeId INt Output
 AS
@@ -25,7 +25,7 @@ UPDATE Recipes.Recipe
 		PrepTime=@PrepTime,
 		CookTime=@CookTime,
 		CourseTypeId=@CourseTypeId,
-		FoodTypeId=@FoodTypeId
+		FoodTypeId=@FoodTypeId,
 		UpdatedOn=SYSDATETIMEOFFSET()
 	where [Name] = @Name
 	SET @RecipeId = SCOPE_IDENTITY();

@@ -29,15 +29,13 @@
         private void InitializeComponent()
         {
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.uxLabelRateStars = new System.Windows.Forms.Label();
             this.uxButtonRateRecipe = new System.Windows.Forms.Button();
             this.uxTextBoxCourseType = new System.Windows.Forms.TextBox();
             this.uxTextBoxFoodType = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.uxListBoxSteps = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.uxListBoxIngredients = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.uxButtonCancelRecipe = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,7 +50,11 @@
             this.uxNumbericUpDownRate = new System.Windows.Forms.NumericUpDown();
             this.uxTextBoxPrepTime = new System.Windows.Forms.TextBox();
             this.uxTextBoxCookTime = new System.Windows.Forms.TextBox();
+            this.uxDataGridIngredients = new System.Windows.Forms.DataGridView();
+            this.uxDataGridViewSteps = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumbericUpDownRate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxDataGridIngredients)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxDataGridViewSteps)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -65,15 +67,15 @@
             this.label9.TabIndex = 25;
             this.label9.Text = "Stars:";
             // 
-            // label8
+            // uxLabelRateStars
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label8.Location = new System.Drawing.Point(743, 14);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(283, 25);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "Currently Rated 0 out of 5 Stars";
+            this.uxLabelRateStars.AutoSize = true;
+            this.uxLabelRateStars.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxLabelRateStars.Location = new System.Drawing.Point(743, 14);
+            this.uxLabelRateStars.Name = "uxLabelRateStars";
+            this.uxLabelRateStars.Size = new System.Drawing.Size(283, 25);
+            this.uxLabelRateStars.TabIndex = 23;
+            this.uxLabelRateStars.Text = "Currently Rated 0 out of 5 Stars";
             // 
             // uxButtonRateRecipe
             // 
@@ -122,16 +124,6 @@
             this.label11.TabIndex = 51;
             this.label11.Text = "Food Type:";
             // 
-            // uxListBoxSteps
-            // 
-            this.uxListBoxSteps.FormattingEnabled = true;
-            this.uxListBoxSteps.ItemHeight = 20;
-            this.uxListBoxSteps.Location = new System.Drawing.Point(651, 127);
-            this.uxListBoxSteps.Name = "uxListBoxSteps";
-            this.uxListBoxSteps.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.uxListBoxSteps.Size = new System.Drawing.Size(375, 404);
-            this.uxListBoxSteps.TabIndex = 48;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -141,16 +133,6 @@
             this.label10.Size = new System.Drawing.Size(69, 25);
             this.label10.TabIndex = 47;
             this.label10.Text = "Steps:";
-            // 
-            // uxListBoxIngredients
-            // 
-            this.uxListBoxIngredients.FormattingEnabled = true;
-            this.uxListBoxIngredients.ItemHeight = 20;
-            this.uxListBoxIngredients.Location = new System.Drawing.Point(18, 265);
-            this.uxListBoxIngredients.Name = "uxListBoxIngredients";
-            this.uxListBoxIngredients.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.uxListBoxIngredients.Size = new System.Drawing.Size(308, 264);
-            this.uxListBoxIngredients.TabIndex = 44;
             // 
             // label7
             // 
@@ -296,11 +278,41 @@
             this.uxTextBoxCookTime.Size = new System.Drawing.Size(120, 26);
             this.uxTextBoxCookTime.TabIndex = 57;
             // 
+            // uxDataGridIngredients
+            // 
+            this.uxDataGridIngredients.AllowUserToAddRows = false;
+            this.uxDataGridIngredients.AllowUserToDeleteRows = false;
+            this.uxDataGridIngredients.AllowUserToOrderColumns = true;
+            this.uxDataGridIngredients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.uxDataGridIngredients.Location = new System.Drawing.Point(18, 257);
+            this.uxDataGridIngredients.Name = "uxDataGridIngredients";
+            this.uxDataGridIngredients.ReadOnly = true;
+            this.uxDataGridIngredients.RowHeadersWidth = 62;
+            this.uxDataGridIngredients.RowTemplate.Height = 28;
+            this.uxDataGridIngredients.Size = new System.Drawing.Size(298, 272);
+            this.uxDataGridIngredients.TabIndex = 58;
+            // 
+            // uxDataGridViewSteps
+            // 
+            this.uxDataGridViewSteps.AllowUserToAddRows = false;
+            this.uxDataGridViewSteps.AllowUserToDeleteRows = false;
+            this.uxDataGridViewSteps.AllowUserToOrderColumns = true;
+            this.uxDataGridViewSteps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.uxDataGridViewSteps.Location = new System.Drawing.Point(651, 127);
+            this.uxDataGridViewSteps.Name = "uxDataGridViewSteps";
+            this.uxDataGridViewSteps.ReadOnly = true;
+            this.uxDataGridViewSteps.RowHeadersWidth = 62;
+            this.uxDataGridViewSteps.RowTemplate.Height = 28;
+            this.uxDataGridViewSteps.Size = new System.Drawing.Size(384, 402);
+            this.uxDataGridViewSteps.TabIndex = 59;
+            // 
             // ViewRecipeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1056, 551);
+            this.Controls.Add(this.uxDataGridViewSteps);
+            this.Controls.Add(this.uxDataGridIngredients);
             this.Controls.Add(this.uxTextBoxCookTime);
             this.Controls.Add(this.uxTextBoxPrepTime);
             this.Controls.Add(this.uxTextBoxServingSize);
@@ -308,9 +320,7 @@
             this.Controls.Add(this.uxTextBoxFoodType);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.uxListBoxSteps);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.uxListBoxIngredients);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.uxButtonCancelRecipe);
             this.Controls.Add(this.label6);
@@ -323,11 +333,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.uxNumbericUpDownRate);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.uxLabelRateStars);
             this.Controls.Add(this.uxButtonRateRecipe);
             this.Name = "ViewRecipeForm";
             this.Text = "ViewRecipeForm";
             ((System.ComponentModel.ISupportInitialize)(this.uxNumbericUpDownRate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxDataGridIngredients)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxDataGridViewSteps)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,15 +348,13 @@
         #endregion
 
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label uxLabelRateStars;
         private System.Windows.Forms.Button uxButtonRateRecipe;
         private System.Windows.Forms.TextBox uxTextBoxCourseType;
         private System.Windows.Forms.TextBox uxTextBoxFoodType;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ListBox uxListBoxSteps;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ListBox uxListBoxIngredients;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button uxButtonCancelRecipe;
         private System.Windows.Forms.Label label6;
@@ -359,5 +369,7 @@
         private System.Windows.Forms.NumericUpDown uxNumbericUpDownRate;
         private System.Windows.Forms.TextBox uxTextBoxPrepTime;
         private System.Windows.Forms.TextBox uxTextBoxCookTime;
+        private System.Windows.Forms.DataGridView uxDataGridIngredients;
+        private System.Windows.Forms.DataGridView uxDataGridViewSteps;
     }
 }
