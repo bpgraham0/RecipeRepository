@@ -11,9 +11,9 @@ using RecipeData.Models;
 
 namespace RecipeRepositoryApp
 {
-    public partial class AddRecipeForm : Form
+    public partial class uxTextBoxCourseType : Form
     {
-        public AddRecipeForm()
+        public uxTextBoxCourseType()
         {
             InitializeComponent();
         }

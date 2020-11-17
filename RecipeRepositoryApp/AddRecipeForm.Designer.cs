@@ -1,6 +1,6 @@
 ﻿namespace RecipeRepositoryApp
 {
-    partial class AddRecipeForm
+    partial class uxTextBoxCourseType
     {
         /// <summary>
         /// Required designer variable.
@@ -53,6 +53,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownServingSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownPrepTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownCookTime)).BeginInit();
@@ -63,7 +67,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label1.Location = new System.Drawing.Point(11, 33);
+            this.label1.Location = new System.Drawing.Point(6, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(263, 32);
             this.label1.TabIndex = 0;
@@ -71,7 +75,7 @@
             // 
             // uxTextBoxName
             // 
-            this.uxTextBoxName.Location = new System.Drawing.Point(88, 127);
+            this.uxTextBoxName.Location = new System.Drawing.Point(88, 85);
             this.uxTextBoxName.Name = "uxTextBoxName";
             this.uxTextBoxName.Size = new System.Drawing.Size(542, 26);
             this.uxTextBoxName.TabIndex = 1;
@@ -80,7 +84,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.Location = new System.Drawing.Point(7, 126);
+            this.label2.Location = new System.Drawing.Point(7, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 25);
             this.label2.TabIndex = 2;
@@ -88,18 +92,18 @@
             // 
             // uxTextBoxDescription
             // 
-            this.uxTextBoxDescription.Location = new System.Drawing.Point(12, 190);
+            this.uxTextBoxDescription.Location = new System.Drawing.Point(12, 148);
             this.uxTextBoxDescription.Multiline = true;
             this.uxTextBoxDescription.Name = "uxTextBoxDescription";
             this.uxTextBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.uxTextBoxDescription.Size = new System.Drawing.Size(613, 93);
+            this.uxTextBoxDescription.Size = new System.Drawing.Size(618, 93);
             this.uxTextBoxDescription.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label3.Location = new System.Drawing.Point(7, 159);
+            this.label3.Location = new System.Drawing.Point(7, 117);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(115, 25);
             this.label3.TabIndex = 4;
@@ -218,7 +222,7 @@
             // uxButtonRateRecipe
             // 
             this.uxButtonRateRecipe.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.uxButtonRateRecipe.Location = new System.Drawing.Point(491, 79);
+            this.uxButtonRateRecipe.Location = new System.Drawing.Point(891, 72);
             this.uxButtonRateRecipe.Name = "uxButtonRateRecipe";
             this.uxButtonRateRecipe.Size = new System.Drawing.Size(134, 37);
             this.uxButtonRateRecipe.TabIndex = 18;
@@ -230,7 +234,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label8.Location = new System.Drawing.Point(347, 33);
+            this.label8.Location = new System.Drawing.Point(742, 33);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(283, 25);
             this.label8.TabIndex = 19;
@@ -243,7 +247,7 @@
             0,
             0,
             65536});
-            this.uxNumbericUpDownRate.Location = new System.Drawing.Point(417, 85);
+            this.uxNumbericUpDownRate.Location = new System.Drawing.Point(817, 78);
             this.uxNumbericUpDownRate.Maximum = new decimal(new int[] {
             5,
             0,
@@ -262,7 +266,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label9.Location = new System.Drawing.Point(347, 85);
+            this.label9.Location = new System.Drawing.Point(747, 78);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(64, 25);
             this.label9.TabIndex = 21;
@@ -307,11 +311,49 @@
             this.label10.TabIndex = 22;
             this.label10.Text = "Steps";
             // 
-            // AddRecipeForm
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label11.Location = new System.Drawing.Point(12, 254);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(113, 25);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "Food Type:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label12.Location = new System.Drawing.Point(334, 256);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(132, 25);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "Course Type:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(131, 255);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(194, 26);
+            this.textBox1.TabIndex = 28;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(477, 254);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(153, 26);
+            this.textBox2.TabIndex = 29;
+            // 
+            // uxTextBoxCourseType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1058, 621);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox2);
@@ -337,7 +379,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.uxTextBoxName);
             this.Controls.Add(this.label1);
-            this.Name = "AddRecipeForm";
+            this.Name = "uxTextBoxCourseType";
             this.Text = "AddRecipeForm";
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownServingSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownPrepTime)).EndInit();
@@ -375,5 +417,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
