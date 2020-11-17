@@ -13,7 +13,7 @@ namespace RecipeData
 
         public IList<Recipe> recipeList { get; set; }
 
-        public IList<IngredientList> ingredientList { get; set; }
+        public IList<IngredientList> IngredientList { get; set; }
 
 
     }

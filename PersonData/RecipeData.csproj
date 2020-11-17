@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRepositories\IRecipeRepository.cs" />
     <Compile Include="Models\CourseType.cs" />
     <Compile Include="Models\FoodType.cs" />
     <Compile Include="Models\HistoryOfUsedRecipes.cs" />
@@ -88,9 +89,6 @@
   <ItemGroup>
     <Content Include="Sql\Data\Recipes.FoodType.sql" />
     <EmbeddedResource Include="Sql\Procedures\Recipes.add UpdateHistoryOfUsedRecipes - Copy %282%29.sql" />
-    <EmbeddedResource Include="..\..\Recipes.RecentRecipesSorted.sql">
-      <Link>Sql\Procedures\Recipes.RecentRecipesSorted.sql</Link>
-    </EmbeddedResource>
     <EmbeddedResource Include="Sql\Procedures\Recipes.FetchFullHistory.sql" />
     <EmbeddedResource Include="Sql\Procedures\Recipes.FetchSteps.sql" />
     <EmbeddedResource Include="Sql\Procedures\Recipes.FetchAllHaveIngredients.sql" />
@@ -110,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataDelegates\" />
+    <Folder Include="SqlRepositories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

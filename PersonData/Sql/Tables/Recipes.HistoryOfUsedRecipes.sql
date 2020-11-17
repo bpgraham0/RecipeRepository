@@ -4,8 +4,8 @@ BEGIN
 create table Recipes.HistoryOfUsedRecipes
 (
 	RecipeId INT NOT NULL FOREIGN KEY REFERENCES Recipes.Recipe(RecipeId) PRIMARY KEY,
-	LastDateUsed DateTime2 NOT NULL,
-	Stars INT NOT NULL check (Stars>=0 and Stars <=5 )
+	LastDateUsed date NOT NULL,
+	Stars float(53) NOT NULL check (Stars>=0 and Stars <=5 )
 
       CONSTRAINT [PK_Recipes_HistoryOfUsedRecipes_RecipeId] PRIMARY KEY NONCLUSTERED
       (
@@ -16,7 +16,7 @@ create table Recipes.HistoryOfUsedRecipes
       CONSTRAINT FK_Recipes_HistoryOfUsedRecipes_Recipes_Recipe FOREIGN KEY(RecipeID)
       REFERENCES Recipe.Recipe(RecipeId),
 
-      CONSTRAINT [PK_Recipes_HistoryOfUsedRecipes_Stars] 
+      CONSTRAINT [PK_Recipes_HistoryOfUsedRecipes_Stars] cheack (Stars>=0 and Stars <=5 )
       (
          Stars
          
@@ -46,7 +46,7 @@ BEGIN
 END;
 
 
-IF NOT EXISTS
+IF NOT EXISTS   
    (
       SELECT *
       FROM sys.foreign_keys fk
