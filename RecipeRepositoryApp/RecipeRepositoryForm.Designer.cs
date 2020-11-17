@@ -47,7 +47,7 @@
             this.uxAddRecipeButton.Name = "uxAddRecipeButton";
             this.uxAddRecipeButton.Size = new System.Drawing.Size(230, 65);
             this.uxAddRecipeButton.TabIndex = 1;
-            this.uxAddRecipeButton.Text = "Add Recipe";
+            this.uxAddRecipeButton.Text = "Add/Edit Recipe";
             this.uxAddRecipeButton.UseVisualStyleBackColor = true;
             this.uxAddRecipeButton.Click += new System.EventHandler(this.uxAddRecipeButton_Click);
             // 
@@ -93,7 +93,7 @@
             this.uxButtonViewRecipe.Name = "uxButtonViewRecipe";
             this.uxButtonViewRecipe.Size = new System.Drawing.Size(230, 65);
             this.uxButtonViewRecipe.TabIndex = 4;
-            this.uxButtonViewRecipe.Text = "View/Edit Recipe";
+            this.uxButtonViewRecipe.Text = "View Recipe";
             this.uxButtonViewRecipe.UseVisualStyleBackColor = true;
             this.uxButtonViewRecipe.Click += new System.EventHandler(this.uxButtonViewRecipe_Click);
             // 

@@ -11,9 +11,9 @@ using RecipeData.Models;
 
 namespace RecipeRepositoryApp
 {
-    public partial class uxTextBoxCourseType : Form
+    public partial class AddRecipeForm : Form
     {
-        public uxTextBoxCourseType()
+        public AddRecipeForm()
         {
             InitializeComponent();
         }
@@ -24,9 +24,7 @@ namespace RecipeRepositoryApp
             return new Recipe(1, 1, 1, uxTextBoxName.Text, uxTextBoxDescription.Text, Convert.ToInt32(uxNumericUpDownServingSize.Value), Convert.ToInt32(uxNumericUpDownPrepTime.Value), Convert.ToInt32(uxNumericUpDownCookTime.Value), DateTime.Now, DateTime.Now);//use Repository to create Recipe Item
         }
 
-        private void uxButtonRateRecipe_Click(object sender, EventArgs e)
-        {
 
-        }
+        
     }
 }

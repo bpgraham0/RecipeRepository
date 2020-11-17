@@ -58,6 +58,12 @@
     <Compile Include="AddRecipeForm.Designer.cs">
       <DependentUpon>AddRecipeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddStepForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddStepForm.Designer.cs">
+      <DependentUpon>AddStepForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FilterRecipeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,11 +83,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RecipeRepositoryDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ViewRecipeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewRecipeForm.Designer.cs">
+      <DependentUpon>ViewRecipeForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddIngredientForm.resx">
       <DependentUpon>AddIngredientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddRecipeForm.resx">
       <DependentUpon>AddRecipeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddStepForm.resx">
+      <DependentUpon>AddStepForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FilterRecipeForm.resx">
       <DependentUpon>FilterRecipeForm.cs</DependentUpon>
@@ -97,6 +112,9 @@
     </Compile>
     <EmbeddedResource Include="RecipeRepositoryForm.resx">
       <DependentUpon>RecipeRepositoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewRecipeForm.resx">
+      <DependentUpon>ViewRecipeForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

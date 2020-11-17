@@ -36,7 +36,7 @@ namespace RecipeRepositoryApp
 
         private void uxAddRecipeButton_Click(object sender, EventArgs e)
         {
-            uxTextBoxCourseType addRecipe = new uxTextBoxCourseType();
+            AddRecipeForm addRecipe = new AddRecipeForm();
             DialogResult dl = addRecipe.ShowDialog();
             if (dl == DialogResult.OK)
             {
