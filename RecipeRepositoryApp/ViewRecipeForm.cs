@@ -24,12 +24,10 @@ namespace RecipeRepositoryApp
             uxTextBoxServingSize.Text = recipe.ServingSize.ToString();
             uxTextBoxPrepTime.Text = recipe.PrepTime.ToString();
             uxTextBoxCookTime.Text = recipe.CookTime.ToString();
-            //uxDataGridIngredients.DataSource = SqlRecipeRepository.GetIngredientList(recipe.RecipeId);
-            //uxDataGridSteps.DataSource = SqlRecipeRepository.GetStepList(recipe.RecipeId);
-            //uxLabelRateStars.Text = SqlHistoryRepository.GetStars(recipe.RecipeId);
+            uxDataGridIngredients.DataSource = SqlRecipeRepository.GetIngredientList(recipe.RecipeId);
+            uxDataGridSteps.DataSource = SqlRecipeRepository.GetStepList(recipe.RecipeId);
+            uxLabelRateStars.Text = SqlHistoryRepository.GetStars(recipe.RecipeId);
 
-            uxLabelRateStars.Text = recipe.ToString(); // use repository to get stars
-            uxTextBoxName.Text = recipe.Name;
 
             this.recipe = recipe;
 

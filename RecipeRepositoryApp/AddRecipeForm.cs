@@ -18,16 +18,32 @@ namespace RecipeRepositoryApp
         {
             InitializeComponent();
         }
+        public AddRecipeForm(Recipe recipe)
+        {
+            InitializeComponent();
+            uxTextBoxName.Text = recipe.Name;
+            uxTextBoxDescription.Text = recipe.Description;
+            uxTextBoxCourseType.Text = recipe.CourseTypeId.ToString(); //use repository to get course type
+            uxTextBoxFoodType.Text = recipe.FoodTypeId.ToString(); //use repository to get course type
+            uxNumericUpDownServingSize.Value = Convert.ToDecimal(recipe.ServingSize);
+            uxNumericUpDownPrepTime.Value = Convert.ToDecimal(recipe.PrepTime.ToString());
+            uxNumericUpDownCookTime.Value = Convert.ToDecimal(recipe.CookTime.ToString());
+            uxDataGridIngredients.DataSource = SqlRecipeRepository.GetIngredientList(recipe.RecipeId);
+            uxDataGridSteps.DataSource = SqlRecipeRepository.GetStepList(recipe.RecipeId);
 
-        public Recipe GetRecipeInfo()
+            this.recipe = recipe;
+        }
+        Recipe recipe;
+
+        public void CreateUpdateRecipeInfo()
         {
             SqlRecipeRepository recipeRepository = new SqlRecipeRepository();
 
             //recplace with REpository for creating recipe
-            //int foodTypeId = recipeRepository.GetOrAddFoodTypeId(uxTextBoxCourseType.Text); 
-            //int courseTypeId = recipeRepository.GetOrAddCourseTypeId(uxTextBoxCourseType.Text); 
+            int foodTypeId = recipeRepository.GetOrAddFoodTypeId(uxTextBoxCourseType.Text); 
+            int courseTypeId = recipeRepository.GetOrAddCourseTypeId(uxTextBoxCourseType.Text); 
 
-            return recipeRepository.CreateUpdateRecipe(1, 1, uxTextBoxName.Text, uxTextBoxDescription.Text,
+            recipeRepository.CreateUpdateRecipe(fooodTypeId, courseTypeId, uxTextBoxName.Text, uxTextBoxDescription.Text,
                 Convert.ToDouble(uxNumericUpDownServingSize.Value), Convert.ToInt32(uxNumericUpDownPrepTime.Value),
                 Convert.ToInt32(uxNumericUpDownCookTime.Value));
         }
@@ -35,10 +51,11 @@ namespace RecipeRepositoryApp
         
         private void uxButtonRemoveIngredient_Click(object sender, EventArgs e)
         {
+            IIngredientListRepository ingredientListRepository = new IIngredientListRepository();
             var selectedRows = uxDataGridViewIngredients.SelectedRows;
             foreach(DataGridViewSelectedRowCollection Row in selectedRows)
             {
-                //SqlIngredientListRepository.DeleteIngredient(Row[0].Cells[0].Value);
+                ingredientListRepository.DeleteIngredient(recipe.RecipeId, Row[0].Cells[0].Value);
 
             }
 
@@ -47,7 +64,38 @@ namespace RecipeRepositoryApp
 
         private void uxButtonAddIngredient_Click(object sender, EventArgs e)
         {
+            AddIngredientForm addIngredient = new AddIngredientForm();
+            DialogResult dl = addIngredient.ShowDialog();
+            if (dl == DialogResult.OK)
+            {
+                addIngredient.AddUpdateIngredientInfo(recipe);
+                uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeIngredientList(recipe);//Returns reader
+                //Add recipe to 
+            }
+        }
 
+        private void uxButtonAddStep_Click(object sender, EventArgs e)
+        {
+            AddStepForm addStep = new AddStepForm();
+            DialogResult dl = addStep.ShowDialog();
+            if (dl == DialogResult.OK)
+            {
+                addStep.AddUpdateStepInfo(recipe);
+                uxDataGridViewSteps.DataSource = recipeRepository.GetRecipeStepList(recipe);//Returns reader
+                //Add recipe to 
+            }
+        }
+
+
+        private void uxButtonDeleteStep_Click(object sender, EventArgs e)
+        {
+            IStepRepository stepRepository = new IStepRepository();
+            var selectedRows = uxDataGridViewIngredients.SelectedRows;
+            foreach (DataGridViewSelectedRowCollection Row in selectedRows)
+            {
+                stepRepository.DeleteStep(recipe.RecipeId, Row[0].Cells[0].Value);
+
+            }
         }
     }
 }

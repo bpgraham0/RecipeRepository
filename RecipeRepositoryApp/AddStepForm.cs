@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RecipeData.Models;
+using RecipeData.Repositories;
 
 namespace RecipeRepositoryApp
 {
@@ -17,6 +19,13 @@ namespace RecipeRepositoryApp
             InitializeComponent();
         }
 
-        
+        public void AddUpdateStepInfo(Recipe recipe)
+        {
+            
+            IStepRepository stepRepository = new IStepRepository();
+            Step step = stepRepository.CreateGetStep(recipe.RecipeId,uxTextBoxName.Text, uxTextBoxDescription.Text); 
+
+        }
     }
 }
+

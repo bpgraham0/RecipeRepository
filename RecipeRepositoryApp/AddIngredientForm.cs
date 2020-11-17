@@ -19,13 +19,14 @@ namespace RecipeRepositoryApp
             
         }
 
-       public Ingredient GetIngredientInfo(Recipe recipe)
+
+        public void AddUpdateIngredientInfo(Recipe recipe)
         {
             IIngredientRepository ingredientRepository = new IIngredientRepository();
             IIngredientListRepository ingredientListRepository = new IIngredientListRepository();
             Ingredient ingredient = ingredientRepository.CreateGetIngredient(uxTextBoxName.Text,false); //for now, have item is default to false
             ingredientListRepository.AddItemToIngredientList(recipe.RecipeId,ingredient.IngredientId,uxComboBoxMeasurement.SelectedItem.ToString(), Convert.ToInt32(uxNumericUpDownQuantity.Value));
-            return ingredient;
+            return ;
         } 
     }
 }

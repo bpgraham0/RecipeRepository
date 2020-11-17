@@ -32,7 +32,6 @@
             this.uxTextBoxDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.uxTextBoxName = new System.Windows.Forms.TextBox();
-            this.uxButtonRemoveStep = new System.Windows.Forms.Button();
             this.uxButtonSaveStep = new System.Windows.Forms.Button();
             this.uxButtonCancelEdit = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -73,22 +72,12 @@
             this.uxTextBoxName.Size = new System.Drawing.Size(292, 26);
             this.uxTextBoxName.TabIndex = 5;
             // 
-            // uxButtonRemoveStep
-            // 
-            this.uxButtonRemoveStep.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.uxButtonRemoveStep.Location = new System.Drawing.Point(318, 192);
-            this.uxButtonRemoveStep.Name = "uxButtonRemoveStep";
-            this.uxButtonRemoveStep.Size = new System.Drawing.Size(135, 40);
-            this.uxButtonRemoveStep.TabIndex = 26;
-            this.uxButtonRemoveStep.Text = "Remove Step";
-            this.uxButtonRemoveStep.UseVisualStyleBackColor = true;
-            // 
             // uxButtonSaveStep
             // 
             this.uxButtonSaveStep.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.uxButtonSaveStep.Location = new System.Drawing.Point(12, 192);
             this.uxButtonSaveStep.Name = "uxButtonSaveStep";
-            this.uxButtonSaveStep.Size = new System.Drawing.Size(135, 40);
+            this.uxButtonSaveStep.Size = new System.Drawing.Size(202, 40);
             this.uxButtonSaveStep.TabIndex = 27;
             this.uxButtonSaveStep.Text = "Save Step";
             this.uxButtonSaveStep.UseVisualStyleBackColor = true;
@@ -96,9 +85,9 @@
             // uxButtonCancelEdit
             // 
             this.uxButtonCancelEdit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.uxButtonCancelEdit.Location = new System.Drawing.Point(168, 192);
+            this.uxButtonCancelEdit.Location = new System.Drawing.Point(251, 192);
             this.uxButtonCancelEdit.Name = "uxButtonCancelEdit";
-            this.uxButtonCancelEdit.Size = new System.Drawing.Size(135, 40);
+            this.uxButtonCancelEdit.Size = new System.Drawing.Size(202, 40);
             this.uxButtonCancelEdit.TabIndex = 28;
             this.uxButtonCancelEdit.Text = "Cancel Edit";
             this.uxButtonCancelEdit.UseVisualStyleBackColor = true;
@@ -110,7 +99,6 @@
             this.ClientSize = new System.Drawing.Size(465, 265);
             this.Controls.Add(this.uxButtonCancelEdit);
             this.Controls.Add(this.uxButtonSaveStep);
-            this.Controls.Add(this.uxButtonRemoveStep);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.uxTextBoxDescription);
             this.Controls.Add(this.label2);
@@ -128,7 +116,6 @@
         private System.Windows.Forms.TextBox uxTextBoxDescription;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox uxTextBoxName;
-        private System.Windows.Forms.Button uxButtonRemoveStep;
         private System.Windows.Forms.Button uxButtonSaveStep;
         private System.Windows.Forms.Button uxButtonCancelEdit;
     }
