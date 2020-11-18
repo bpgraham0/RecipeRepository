@@ -151,7 +151,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipies.FetchAllIngredients", connection))
+                    using (var command = new SqlCommand("Recipes.FetchAllIngredients", connection))
                     {
 
                         connection.Open();
@@ -174,7 +174,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipies.FetchIngredientList", connection))
+                    using (var command = new SqlCommand("Recipes.FetchIngredientList", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         var p = command.Parameters.Add("recipeId", SqlDbType.Int);
@@ -201,7 +201,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipies.FetchIngredientList", connection))
+                    using (var command = new SqlCommand("Recipes.FetchIngredientList", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         var p = command.Parameters.Add("Name", SqlDbType.NVarChar);
@@ -229,7 +229,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipies.FetchIngredientList", connection))
+                    using (var command = new SqlCommand("Recipes.FetchIngredientList", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
@@ -256,7 +256,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipies.FetchIngredientList", connection))
+                    using (var command = new SqlCommand("Recipes.FetchIngredientList", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         var p = command.Parameters.Add("Name", SqlDbType.NVarChar);
