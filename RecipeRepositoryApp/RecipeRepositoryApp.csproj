@@ -124,11 +124,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PersonData\RecipeData.csproj">
-      <Project>{d51aa58c-05b9-4a7d-9f80-ccebf8a0eaf0}</Project>
-      <Name>RecipeData</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
