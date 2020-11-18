@@ -70,6 +70,12 @@
     <Compile Include="FilterRecipeForm.Designer.cs">
       <DependentUpon>FilterRecipeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PantryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PantryForm.Designer.cs">
+      <DependentUpon>PantryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecipeRepositoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FilterRecipeForm.resx">
       <DependentUpon>FilterRecipeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PantryForm.resx">
+      <DependentUpon>PantryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
