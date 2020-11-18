@@ -1,7 +1,7 @@
 ﻿CREATE OR ALTER PROCEDURE Recipes.UpdateHaveItem
 	@Name INT,
 	@HaveItem BIT,
-	@UpdatedOn DateTime
+	@UpdatedOn Date
 AS
 
 Update Recipes.Ingredient

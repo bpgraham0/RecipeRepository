@@ -94,6 +94,8 @@
     <Content Include="Sql\Procedures\Recipes.CreateUpdateSteps.sql" />
     <Content Include="Sql\Procedures\Recipes.DeleteFromIngredientList.sql" />
     <Content Include="Sql\Procedures\Recipes.DeleteRecipe.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchAllrecipes.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchAllIngredients.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchAllHaveIngredients.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchAllRecipesCanMake.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchCookTime.sql" />
