@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace RecipeData.Repositories
 {
-    public class SqlRecipeRepository 
+    public class SqlRecipeRepository
     {
         public SqlRecipeRepository()
         {
@@ -56,26 +56,24 @@ namespace RecipeData.Repositories
 
                         command.ExecuteNonQuery();
 
-                        
 
                         transaction.Complete();
-                        
+
 
                         return new Recipe((int)command.Parameters["RecipeId"].Value, foodTypeId, courseTypeId, name, description, servingSize, prepTime, cookTime,
-                            (DateTime)command.Parameters["CreatedOn"].Value,(DateTime)command.Parameters["UpdatedOn"].Value);
+                            (DateTime)command.Parameters["CreatedOn"].Value, (DateTime)command.Parameters["UpdatedOn"].Value);
                     }
                 }
             }
 
         }
-
         public DataTable GetRecipeList()
         {
             using (var transaction = new TransactionScope())
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Library.FetchAllBooks", connection))
+                    using (var command = new SqlCommand("Recipes.FetchAllRecipes", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
@@ -84,27 +82,129 @@ namespace RecipeData.Repositories
 
                         SqlDataReader reader = command.ExecuteReader();
 
-                            DataTable dt = new DataTable();
-                            dt.Load(reader);
-                            reader.Close();
-                            return dt;
-                        
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        reader.Close();
+                        return dt;
+
                     }
                 }
             }
         }
 
-        public void DeletRecipe(int recipeId)
+        public DataTable GetStepList(int recipeId)
+        {
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipes.FetchSteps", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        var p = command.Parameters.Add("RecipeId", SqlDbType.Int);
+                        p.Value = recipeId;
+
+                        connection.Open();
+
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        reader.Close();
+                        return dt;
+
+                    }
+                }
+            }
+        }
+
+        public DataTable GetRecipeHistory()
+        {
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipes.FetchFullHistory", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                       
+
+                        connection.Open();
+
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        reader.Close();
+                        return dt;
+
+                    }
+                }
+            }
+        }
+
+        public Recipe GetRecipeFromName(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException("The parameter cannot be null or empty. ", nameof(name));
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipe.FetchRecipeByName", connection))
+                    {
+
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        var p = command.Parameters.Add("Name", SqlDbType.NVarChar);
+                        p.Value = name;
+                       
+
+                       
+                        connection.Open();
+
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                       
+
+
+                        return new Recipe((int)command.Parameters["RecipeId"].Value, foodTypeId, courseTypeId, name, description, servingSize, prepTime, cookTime,
+                            (DateTime)command.Parameters["CreatedOn"].Value, (DateTime)command.Parameters["UpdatedOn"].Value);
+                    }
+                }
+            }
+
+        }
+
+        public object GetFreshRecipe()
+        {
+            throw new NotImplementedException();
+        }
+
+        public object GetTopTenMonthly()
+        {
+            throw new NotImplementedException();
+        }
+
+       
+
+        public void DeleteStep(int recipeId, object value)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void DeleteRecipe(int recipeId)
         {
             throw new NotImplementedException();
         }
 
         public Recipe FetchRecipe(int recipeId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IReadOnlyList<Recipe> RetreiveRecipes()
         {
             throw new NotImplementedException();
         }

@@ -8,7 +8,7 @@ using System.Transactions;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Recipe.Repositories
+namespace RecipeData.Repositories
 {
     public class SqlCourseTypeRepository 
     {

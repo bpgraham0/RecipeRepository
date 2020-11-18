@@ -14,73 +14,31 @@ namespace RecipeRepositoryApp
 {
     public partial class AddRecipeForm : Form
     {
-        public AddRecipeForm()
+        public AddRecipeForm(SqlRecipeRepository recipeRepository, SqlFoodTypeRepository foodTypeRepository, SqlCourseTypeRepository courseTypeRepository)
         {
             InitializeComponent();
+            this.recipeRepository = recipeRepository;
+            this.foodTypeRepository = foodTypeRepository;
+            this.courseTypeRepository = courseTypeRepository;
+
         }
-        
+        SqlRecipeRepository recipeRepository;
+        SqlFoodTypeRepository foodTypeRepository;
+        SqlCourseTypeRepository courseTypeRepository;
 
         public void CreateUpdateRecipeInfo()
         {
-            SqlRecipeRepository recipeRepository = new SqlRecipeRepository();
+            
 
             //recplace with REpository for creating recipe
-            int foodTypeId = recipeRepository.GetOrAddFoodTypeId(uxTextBoxCourseType.Text); 
-            int courseTypeId = recipeRepository.GetOrAddCourseTypeId(uxTextBoxCourseType.Text); 
+            int foodTypeId = foodTypeRepository.CreateUpdateFoodType(uxTextBoxCourseType.Text); 
+            int courseTypeId = courseTypeRepository.CreateUpdateCourseType(uxTextBoxCourseType.Text); 
 
-            recipeRepository.CreateUpdateRecipe(fooodTypeId, courseTypeId, uxTextBoxName.Text, uxTextBoxDescription.Text,
+            recipeRepository.CreateUpdateRecipe(foodTypeId, courseTypeId, uxTextBoxName.Text, uxTextBoxDescription.Text,
                 Convert.ToDouble(uxNumericUpDownServingSize.Value), Convert.ToInt32(uxNumericUpDownPrepTime.Value),
                 Convert.ToInt32(uxNumericUpDownCookTime.Value));
         }
 
-        
-        private void uxButtonRemoveIngredient_Click(object sender, EventArgs e)
-        {
-            IIngredientListRepository ingredientListRepository = new IIngredientListRepository();
-            var selectedRows = uxDataGridViewIngredients.SelectedRows;
-            foreach(DataGridViewSelectedRowCollection Row in selectedRows)
-            {
-                ingredientListRepository.DeleteIngredient(recipe.RecipeId, Row[0].Cells[0].Value);
 
-            }
-
-
-        }
-
-        private void uxButtonAddIngredient_Click(object sender, EventArgs e)
-        {
-            AddIngredientForm addIngredient = new AddIngredientForm();
-            DialogResult dl = addIngredient.ShowDialog();
-            if (dl == DialogResult.OK)
-            {
-                addIngredient.AddUpdateIngredientInfo(recipe);
-                uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeIngredientList(recipe);//Returns reader
-                //Add recipe to 
-            }
-        }
-
-        private void uxButtonAddStep_Click(object sender, EventArgs e)
-        {
-            AddStepForm addStep = new AddStepForm();
-            DialogResult dl = addStep.ShowDialog();
-            if (dl == DialogResult.OK)
-            {
-                addStep.AddUpdateStepInfo(recipe);
-                uxDataGridViewSteps.DataSource = recipeRepository.GetRecipeStepList(recipe);//Returns reader
-                //Add recipe to 
-            }
-        }
-
-
-        private void uxButtonDeleteStep_Click(object sender, EventArgs e)
-        {
-            IStepRepository stepRepository = new IStepRepository();
-            var selectedRows = uxDataGridViewIngredients.SelectedRows;
-            foreach (DataGridViewSelectedRowCollection Row in selectedRows)
-            {
-                stepRepository.DeleteStep(recipe.RecipeId, Row[0].Cells[0].Value);
-
-            }
-        }
     }
 }

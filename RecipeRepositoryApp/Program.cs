@@ -19,7 +19,7 @@ namespace RecipeRepositoryApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RecipeRepositoryForm());
+            Application.Run(new RecipeRepositoryForm(new SqlRecipeRepository(), new SqlIngredientListRepository(), new SqlFoodTypeRepository(), new SqlCourseTypeRepository()));
         }
     }
 }

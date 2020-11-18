@@ -11,9 +11,9 @@ namespace RecipeData.Models
         public int RecipeId { get; }
         public int IngredientId { get; }
         public int MeasurementId { get; }
-        public int Quantity { get; }
+        public double Quantity { get; }
 
-        public IngredientList(int recipeId, int ingredientId, int measurementId, int  quantity)
+        public IngredientList(int recipeId, int ingredientId, int measurementId, double  quantity)
         {
             RecipeId = recipeId;
             IngredientId = ingredientId;
