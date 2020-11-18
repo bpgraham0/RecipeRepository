@@ -25,7 +25,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipe.AddToIngredientList", connection))
+                    using (var command = new SqlCommand("Recipes.AddToIngredientList", connection))
                     {
 
                         command.CommandType = CommandType.StoredProcedure;
@@ -60,21 +60,21 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipies.CreateIngredient", connection))
+                    using (var command = new SqlCommand("Recipes.CreateIngredient", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         var p = command.Parameters.Add("Name", SqlDbType.NVarChar);
                         p.Value = Name;
                         p = command.Parameters.Add("HaveItem", SqlDbType.Bit);
                         p.Value = HaveItem; 
-                        p = command.Parameters.Add("IngredientId", SqlDbType.Bit);
+                        p = command.Parameters.Add("IngredientId", SqlDbType.Int);
                         p.Direction = ParameterDirection.Output;
 
                         connection.Open();
 
                         command.ExecuteNonQuery();
 
-                        IngredientId = Convert.ToInt32(command.Parameters["@IngredientId"].Value);
+                        IngredientId = Convert.ToInt32(command.Parameters["IngredientId"].Value);
 
 
                         transaction.Complete();
@@ -223,13 +223,13 @@ namespace RecipeData.Repositories
 
             }
         }
-        public DataTable FetchMeasurementList()
+        public IList<string> FetchMeasurementList()
         {
             using (var transaction = new TransactionScope())
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipes.FetchIngredientList", connection))
+                    using (var command = new SqlCommand("Recipes.FetchMeasurementList", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
@@ -237,10 +237,18 @@ namespace RecipeData.Repositories
 
                         SqlDataReader reader = command.ExecuteReader();
 
+                       
                         DataTable dt = new DataTable();
                         dt.Load(reader);
+
+                        var Measurements = new List<string>();
+                        foreach(DataRow row in dt.Rows)
+                        {
+                            Measurements.Add((string)row["Name"]);
+                        }
                         reader.Close();
-                        return dt;
+
+                        return Measurements;
 
 
                     }
@@ -264,7 +272,7 @@ namespace RecipeData.Repositories
                         p = command.Parameters.Add("MeasurementId", SqlDbType.Int);
                         p.Direction = ParameterDirection.Output;
                         command.CommandType = CommandType.StoredProcedure;
-                        MeasurementId = Convert.ToInt32(command.Parameters["@MeasurementId"].Value);
+                        MeasurementId = Convert.ToInt32(command.Parameters["MeasurementId"].Value);
 
                         connection.Open();
 

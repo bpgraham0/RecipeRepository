@@ -180,17 +180,22 @@ namespace RecipeData.Repositories
 
                         SqlDataReader reader = command.ExecuteReader();
 
-                       
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        reader.Close();
 
-
-                        return new Recipe((int)command.Parameters["RecipeId"].Value,
-                                          (int)command.Parameters["FoodTypeId"].Value,
-                                          (int)command.Parameters["CourseTypeId"].Value,
+                        DataRow dr = dt.Rows[0];
+                        return new Recipe((int)dr["RecipeId"],
+                                          (int)dr["FoodTypeId"],
+                                          (int)dr["CourseTypeId"],
                                           name,
-                                          command.Parameters["Description"].Value.ToString(),
-                                          (double)command.Parameters["ServingSize"].Value,
-                                          (int)command.Parameters["PrepTime"].Value,
-                                          (int)command.Parameters["CookTime"].Value);
+                                          (string)dr["Description"],
+                                          (double)dr["ServingSize"],
+                                          (int)dr["PrepTime"],
+                                          (int)dr["CookTime"]);
+
+
+
                     }
                 }
             }
@@ -260,7 +265,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipes.CreateGetStep", connection))
+                    using (var command = new SqlCommand("Recipes.CreateUpdateSteps", connection))
                     {
 
                         command.CommandType = CommandType.StoredProcedure;
