@@ -33,23 +33,28 @@ namespace RecipeRepositoryApp
 
         private void uxFilterRecipesButton_Click(object sender, EventArgs e)
         {
-            FilterRecipeForm filterRecipe = new FilterRecipeForm();
+            FilterRecipeForm filterRecipe = new FilterRecipeForm(recipeRepository);
             DialogResult dl = filterRecipe.ShowDialog();
             if (dl == DialogResult.OK)
             {
-                uxDataGridViewRecipes.DataSource = recipeRepository.GetSearchQuery();//Returns reader
+                uxDataGridViewRecipes.DataSource = filterRecipe.GetStandardSearchQuery();//Returns reader
             }
             if (dl == DialogResult.Ignore)
             {
-                uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeList();//Returns reader
+                uxDataGridViewRecipes.DataSource = recipeRepository.GetTopTenMonthly();//Returns reader
             }
             if (dl == DialogResult.Yes)
             {
-                uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeList();//Returns reader
+                uxDataGridViewRecipes.DataSource = filterRecipe.GetRecipesXIngredientsAway();//Returns reader
             }
             if (dl == DialogResult.No)
             {
-                uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeList();//Returns reader
+                uxDataGridViewRecipes.DataSource = recipeRepository.GetFreshRecipe();//Returns reader
+            }
+            if (dl == DialogResult.Retry)
+            {
+                uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeHistory();//Returns reader
+
             }
         }
 

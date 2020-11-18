@@ -33,7 +33,7 @@
             this.uxButtonSomethingNew = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.uxButtonSearch = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.uxNumericUpDownMissing = new System.Windows.Forms.NumericUpDown();
@@ -50,22 +50,25 @@
             this.uxTextBoxDescription = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.uxTextBoxName = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.uxTextBoxIngredient = new System.Windows.Forms.TextBox();
+            this.uxNumericUpDownPrepTime = new System.Windows.Forms.NumericUpDown();
+            this.uxNumericUpDownCookTime = new System.Windows.Forms.NumericUpDown();
+            this.uxNumericUpDownMinimumStars = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.uxNumericUpDownMaximumStars = new System.Windows.Forms.NumericUpDown();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.uxDateTimePickerLatestDate = new System.Windows.Forms.DateTimePicker();
+            this.uxDateTimePickerRecentDate = new System.Windows.Forms.DateTimePicker();
+            this.uxCheckBoxHaveItem = new System.Windows.Forms.CheckBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownMissing)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownPrepTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownCookTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownMinimumStars)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownMaximumStars)).BeginInit();
             this.SuspendLayout();
             // 
             // uxButtonTopTen
@@ -118,15 +121,15 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Custom Search:";
             // 
-            // button1
+            // uxButtonSearch
             // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(24, 440);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(468, 40);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
+            this.uxButtonSearch.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.uxButtonSearch.Location = new System.Drawing.Point(24, 440);
+            this.uxButtonSearch.Name = "uxButtonSearch";
+            this.uxButtonSearch.Size = new System.Drawing.Size(468, 40);
+            this.uxButtonSearch.TabIndex = 5;
+            this.uxButtonSearch.Text = "Search";
+            this.uxButtonSearch.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -150,7 +153,7 @@
             // 
             // uxNumericUpDownMissing
             // 
-            this.uxNumericUpDownMissing.Location = new System.Drawing.Point(472, 567);
+            this.uxNumericUpDownMissing.Location = new System.Drawing.Point(583, 565);
             this.uxNumericUpDownMissing.Maximum = new decimal(new int[] {
             10,
             0,
@@ -228,7 +231,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label6.Location = new System.Drawing.Point(538, 397);
+            this.label6.Location = new System.Drawing.Point(538, 355);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(157, 25);
             this.label6.TabIndex = 37;
@@ -238,7 +241,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label8.Location = new System.Drawing.Point(538, 342);
+            this.label8.Location = new System.Drawing.Point(538, 314);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(210, 25);
             this.label8.TabIndex = 36;
@@ -280,39 +283,49 @@
             this.uxTextBoxName.Size = new System.Drawing.Size(701, 26);
             this.uxTextBoxName.TabIndex = 31;
             // 
-            // textBox1
+            // uxTextBoxIngredient
             // 
-            this.textBox1.Location = new System.Drawing.Point(154, 170);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(701, 26);
-            this.textBox1.TabIndex = 50;
+            this.uxTextBoxIngredient.Location = new System.Drawing.Point(154, 170);
+            this.uxTextBoxIngredient.Name = "uxTextBoxIngredient";
+            this.uxTextBoxIngredient.Size = new System.Drawing.Size(701, 26);
+            this.uxTextBoxIngredient.TabIndex = 50;
             // 
-            // numericUpDown1
+            // uxNumericUpDownPrepTime
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(755, 342);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(100, 26);
-            this.numericUpDown1.TabIndex = 53;
+            this.uxNumericUpDownPrepTime.Location = new System.Drawing.Point(755, 316);
+            this.uxNumericUpDownPrepTime.Name = "uxNumericUpDownPrepTime";
+            this.uxNumericUpDownPrepTime.Size = new System.Drawing.Size(100, 26);
+            this.uxNumericUpDownPrepTime.TabIndex = 53;
             // 
-            // numericUpDown2
+            // uxNumericUpDownCookTime
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(755, 396);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(100, 26);
-            this.numericUpDown2.TabIndex = 54;
+            this.uxNumericUpDownCookTime.Location = new System.Drawing.Point(755, 357);
+            this.uxNumericUpDownCookTime.Name = "uxNumericUpDownCookTime";
+            this.uxNumericUpDownCookTime.Size = new System.Drawing.Size(100, 26);
+            this.uxNumericUpDownCookTime.TabIndex = 54;
             // 
-            // numericUpDown3
+            // uxNumericUpDownMinimumStars
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(755, 287);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(100, 26);
-            this.numericUpDown3.TabIndex = 56;
+            this.uxNumericUpDownMinimumStars.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.uxNumericUpDownMinimumStars.Location = new System.Drawing.Point(755, 275);
+            this.uxNumericUpDownMinimumStars.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.uxNumericUpDownMinimumStars.Name = "uxNumericUpDownMinimumStars";
+            this.uxNumericUpDownMinimumStars.Size = new System.Drawing.Size(100, 26);
+            this.uxNumericUpDownMinimumStars.TabIndex = 56;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label9.Location = new System.Drawing.Point(538, 287);
+            this.label9.Location = new System.Drawing.Point(538, 273);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(148, 25);
             this.label9.TabIndex = 55;
@@ -328,12 +341,22 @@
             this.label14.TabIndex = 57;
             this.label14.Text = "Maximum Stars:";
             // 
-            // numericUpDown4
+            // uxNumericUpDownMaximumStars
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(755, 234);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(100, 26);
-            this.numericUpDown4.TabIndex = 58;
+            this.uxNumericUpDownMaximumStars.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.uxNumericUpDownMaximumStars.Location = new System.Drawing.Point(755, 234);
+            this.uxNumericUpDownMaximumStars.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.uxNumericUpDownMaximumStars.Name = "uxNumericUpDownMaximumStars";
+            this.uxNumericUpDownMaximumStars.Size = new System.Drawing.Size(100, 26);
+            this.uxNumericUpDownMaximumStars.TabIndex = 58;
             // 
             // label15
             // 
@@ -355,40 +378,73 @@
             this.label16.TabIndex = 59;
             this.label16.Text = "Latest Date:";
             // 
-            // dateTimePicker1
+            // uxDateTimePickerLatestDate
             // 
-            this.dateTimePicker1.CustomFormat = "MMM dd, yyyy";
-            this.dateTimePicker1.Location = new System.Drawing.Point(190, 342);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(304, 26);
-            this.dateTimePicker1.TabIndex = 63;
-            this.dateTimePicker1.Value = new System.DateTime(2020, 11, 17, 17, 8, 39, 0);
+            this.uxDateTimePickerLatestDate.CustomFormat = "MMM dd, yyyy";
+            this.uxDateTimePickerLatestDate.Location = new System.Drawing.Point(190, 342);
+            this.uxDateTimePickerLatestDate.Name = "uxDateTimePickerLatestDate";
+            this.uxDateTimePickerLatestDate.Size = new System.Drawing.Size(304, 26);
+            this.uxDateTimePickerLatestDate.TabIndex = 63;
+            this.uxDateTimePickerLatestDate.Value = new System.DateTime(2020, 11, 17, 17, 8, 39, 0);
             // 
-            // dateTimePicker2
+            // uxDateTimePickerRecentDate
             // 
-            this.dateTimePicker2.CustomFormat = "MMM dd, yyyy";
-            this.dateTimePicker2.Location = new System.Drawing.Point(188, 395);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(304, 26);
-            this.dateTimePicker2.TabIndex = 64;
-            this.dateTimePicker2.Value = new System.DateTime(2020, 11, 17, 17, 8, 39, 0);
+            this.uxDateTimePickerRecentDate.CustomFormat = "MMM dd, yyyy";
+            this.uxDateTimePickerRecentDate.Location = new System.Drawing.Point(188, 395);
+            this.uxDateTimePickerRecentDate.Name = "uxDateTimePickerRecentDate";
+            this.uxDateTimePickerRecentDate.Size = new System.Drawing.Size(304, 26);
+            this.uxDateTimePickerRecentDate.TabIndex = 64;
+            this.uxDateTimePickerRecentDate.Value = new System.DateTime(2020, 11, 17, 17, 8, 39, 0);
+            // 
+            // uxCheckBoxHaveItem
+            // 
+            this.uxCheckBoxHaveItem.AutoSize = true;
+            this.uxCheckBoxHaveItem.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.uxCheckBoxHaveItem.Location = new System.Drawing.Point(833, 398);
+            this.uxCheckBoxHaveItem.Name = "uxCheckBoxHaveItem";
+            this.uxCheckBoxHaveItem.Size = new System.Drawing.Size(22, 21);
+            this.uxCheckBoxHaveItem.TabIndex = 66;
+            this.uxCheckBoxHaveItem.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label17.Location = new System.Drawing.Point(538, 396);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(250, 25);
+            this.label17.TabIndex = 65;
+            this.label17.Text = "Recipes you can make now";
+            // 
+            // button1
+            // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Retry;
+            this.button1.Location = new System.Drawing.Point(542, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(313, 40);
+            this.button1.TabIndex = 67;
+            this.button1.Text = "Get Recipe History";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // FilterRecipeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(869, 656);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.uxCheckBoxHaveItem);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.uxDateTimePickerRecentDate);
+            this.Controls.Add(this.uxDateTimePickerLatestDate);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.numericUpDown4);
+            this.Controls.Add(this.uxNumericUpDownMaximumStars);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.numericUpDown3);
+            this.Controls.Add(this.uxNumericUpDownMinimumStars);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.uxNumericUpDownCookTime);
+            this.Controls.Add(this.uxNumericUpDownPrepTime);
+            this.Controls.Add(this.uxTextBoxIngredient);
             this.Controls.Add(this.uxTextBoxCourseType);
             this.Controls.Add(this.uxTextBoxFoodType);
             this.Controls.Add(this.label12);
@@ -405,7 +461,7 @@
             this.Controls.Add(this.uxNumericUpDownMissing);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.uxButtonSearch);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.uxButtonSomethingNew);
@@ -414,10 +470,10 @@
             this.Name = "FilterRecipeForm";
             this.Text = "FilterRecipeForm";
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownMissing)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownPrepTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownCookTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownMinimumStars)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownMaximumStars)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -430,7 +486,7 @@
         private System.Windows.Forms.Button uxButtonSomethingNew;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button uxButtonSearch;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown uxNumericUpDownMissing;
@@ -447,16 +503,19 @@
         private System.Windows.Forms.TextBox uxTextBoxDescription;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox uxTextBoxName;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.TextBox uxTextBoxIngredient;
+        private System.Windows.Forms.NumericUpDown uxNumericUpDownPrepTime;
+        private System.Windows.Forms.NumericUpDown uxNumericUpDownCookTime;
+        private System.Windows.Forms.NumericUpDown uxNumericUpDownMinimumStars;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown uxNumericUpDownMaximumStars;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker uxDateTimePickerLatestDate;
+        private System.Windows.Forms.DateTimePicker uxDateTimePickerRecentDate;
+        private System.Windows.Forms.CheckBox uxCheckBoxHaveItem;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button button1;
     }
 }
