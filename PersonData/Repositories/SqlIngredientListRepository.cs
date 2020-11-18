@@ -53,8 +53,8 @@ namespace RecipeData.Repositories
             }
 
         }
-
-        public void CreateIngredient(string Name, int HaveItem)
+        int IngredientId;
+        public int CreateIngredient(string Name, int HaveItem)
         {
             using (var transaction = new TransactionScope())
             {
@@ -66,17 +66,20 @@ namespace RecipeData.Repositories
                         var p = command.Parameters.Add("Name", SqlDbType.NVarChar);
                         p.Value = Name;
                         p = command.Parameters.Add("HaveItem", SqlDbType.Bit);
-                        p.Value = HaveItem;
+                        p.Value = HaveItem; 
+                        p = command.Parameters.Add("IngredientId", SqlDbType.Bit);
+                        p.Direction = ParameterDirection.Output;
+
                         connection.Open();
 
                         command.ExecuteNonQuery();
 
-                        //FoodTypeID = Convert.ToInt32(command.Parameters["@FoodTypeID"].Value);
+                        IngredientId = Convert.ToInt32(command.Parameters["@IngredientId"].Value);
 
 
                         transaction.Complete();
 
-
+                        return IngredientId;
 
                         //SqlDataReader reader = command.ExecuteReader();
 
