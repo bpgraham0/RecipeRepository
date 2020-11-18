@@ -16,7 +16,7 @@ namespace RecipeRepositoryApp
 {
     public partial class RecipeRepositoryForm : Form
     {
-        public RecipeRepositoryForm(IRecipeRepository recipeRepository)
+        public RecipeRepositoryForm(SqlRecipeRepository recipeRepository)
         {
             InitializeComponent();
             uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeList();//Returns reader
@@ -26,7 +26,7 @@ namespace RecipeRepositoryApp
             //return dt;
 
         }
-        IRecipeRepository recipeRepository;
+        SqlRecipeRepository recipeRepository;
         
 
         
@@ -87,7 +87,7 @@ namespace RecipeRepositoryApp
 
         private void uxEditRecipeButton_Click(object sender, EventArgs e)
         {
-            AddRecipeForm editRecipe = new AddRecipeForm(recipeRepository.GetRecipeIdFromName(uxDataGridViewRecipes.SelectedRows[0].Cells[0].Value.ToString()));
+            EditRecipeForm editRecipe = new EditRecipeForm(recipeRepository,recipeRepository.GetRecipeIdFromName(uxDataGridViewRecipes.SelectedRows[0].Cells[0].Value.ToString()));
             DialogResult dl = editRecipe.ShowDialog();
             if (dl == DialogResult.OK)
             {

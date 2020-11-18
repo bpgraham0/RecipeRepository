@@ -12,13 +12,29 @@ using RecipeData.Repositories;
 
 namespace RecipeRepositoryApp
 {
-    public partial class AddRecipeForm : Form
+    public partial class EditRecipeForm : Form
     {
-        public AddRecipeForm()
+        public EditRecipeForm()
         {
             InitializeComponent();
         }
-        
+        public AddRecipeForm(SqlRecipeRepository recipeRepository, Recipe recipe)
+        {
+            InitializeComponent();
+            uxTextBoxName.Text = recipe.Name;
+            uxTextBoxDescription.Text = recipe.Description;
+            uxTextBoxCourseType.Text = recipe.CourseTypeId.ToString(); //use repository to get course type
+            uxTextBoxFoodType.Text = recipe.FoodTypeId.ToString(); //use repository to get course type
+            uxNumericUpDownServingSize.Value = Convert.ToDecimal(recipe.ServingSize);
+            uxNumericUpDownPrepTime.Value = Convert.ToDecimal(recipe.PrepTime.ToString());
+            uxNumericUpDownCookTime.Value = Convert.ToDecimal(recipe.CookTime.ToString());
+            uxDataGridViewIngredients.DataSource = SqlRecipeRepository.GetIngredientList(recipe.RecipeId);
+            uxDataGridViewSteps.DataSource = SqlRecipeRepository.GetStepList(recipe.RecipeId);
+
+            this.recipe = recipe;
+        }
+        Recipe recipe;
+
 
         public void CreateUpdateRecipeInfo()
         {
