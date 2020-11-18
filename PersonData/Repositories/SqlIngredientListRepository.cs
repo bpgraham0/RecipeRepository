@@ -250,7 +250,7 @@ namespace RecipeData.Repositories
 
         }
         int MeasurementId;
-        public DataTable FetchMeasurementId(string Name)
+        public int FetchMeasurementId(string Name)
         {
             using (var transaction = new TransactionScope())
             {
@@ -268,12 +268,8 @@ namespace RecipeData.Repositories
 
                         connection.Open();
 
-                        SqlDataReader reader = command.ExecuteReader();
-
-                        DataTable dt = new DataTable();
-                        dt.Load(reader);
-                        reader.Close();
-                        return dt;
+                        
+                        return MeasurementId;
 
 
                     }
