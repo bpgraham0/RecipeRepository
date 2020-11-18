@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace RecipeData.Repositories
 {
-    public class SqlIngredientListRepository 
+    public class SqlIngredientListRepository
     {
         public SqlIngredientListRepository()
         {
@@ -20,7 +20,7 @@ namespace RecipeData.Repositories
 
         public void AddToIngredientList(int RecipeID, int IngredientID, int MeasurementID, int Quanity)
         {
-           
+
             using (var transaction = new TransactionScope())
             {
                 using (var connection = new SqlConnection(connectionString))
@@ -38,17 +38,17 @@ namespace RecipeData.Repositories
                         p.Value = MeasurementID;
                         p = command.Parameters.Add("Quanity", SqlDbType.Float);
                         p.Value = Quanity;
-                       
+
                         connection.Open();
 
                         command.ExecuteNonQuery();
 
-                        
+
 
                         transaction.Complete();
-                        
 
-                         }
+
+                    }
                 }
             }
 
@@ -124,7 +124,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipies.DeleteFromIngredientList", connection))
+                    using (var command = new SqlCommand("Recipies.FetchAllIngredientsInPantry", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         connection.Open();
@@ -142,22 +142,142 @@ namespace RecipeData.Repositories
             }
         }
 
-        public IReadOnlyList<Recipe> FetchAllIngredient()
+        public DataTable FetchAllIngredient()
         {
-            throw new NotImplementedException();
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipies.FetchAllIngredient", connection))
+                    {
+
+                        connection.Open();
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        reader.Close();
+                        return dt;
+
+
+                    }
+                }
+            }
         }
-        public Recipe FetchIngredientList(int recipeId)
+        public DataTable FetchIngredientList(int recipeId)
         {
-            throw new NotImplementedException();
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipies.FetchIngredientList", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        var p = command.Parameters.Add("recipeId", SqlDbType.Int);
+                        p.Value = recipeId;
+
+                        connection.Open();
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        reader.Close();
+                        return dt;
+
+
+                    }
+                }
+            }
         }
 
-        public IReadOnlyList<Recipe> UpdateHaveItem(int, bool)
+        public void UpdateHaveItem(string Name, bool HaveItem)
         {
-            throw new NotImplementedException();
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipies.FetchIngredientList", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        var p = command.Parameters.Add("Name", SqlDbType.NVarChar);
+                        p.Value = Name;
+                        p = command.Parameters.Add("HaveItem", SqlDbType.Bit);
+                        p.Value = HaveItem;
+                        connection.Open();
+
+                        command.ExecuteNonQuery();
+
+                        //FoodTypeID = Convert.ToInt32(command.Parameters["@FoodTypeID"].Value);
+
+
+                        transaction.Complete();
+
+
+                    }
+                }
+
+            }
         }
-        public IReadOnlyList<Recipe> FetchMeasurementList()
+        public DataTable FetchMeasurementList()
         {
-            throw new NotImplementedException();
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipies.FetchIngredientList", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        connection.Open();
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        reader.Close();
+                        return dt;
+
+
+                    }
+                }
+
+            }
+
+        }
+        int MeasurementId;
+        public DataTable FetchMeasurementId(string Name)
+        {
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipies.FetchIngredientList", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        var p = command.Parameters.Add("Name", SqlDbType.NVarChar);
+                        p.Value = Name;
+                        p = command.Parameters.Add("MeasurementId", SqlDbType.Int);
+                        p.Direction = ParameterDirection.Output;
+                        command.CommandType = CommandType.StoredProcedure;
+                        MeasurementId = Convert.ToInt32(command.Parameters["@MeasurementId"].Value);
+
+                        connection.Open();
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        reader.Close();
+                        return dt;
+
+
+                    }
+                }
+
+            }
+
         }
     }
 }

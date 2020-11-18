@@ -1,5 +1,5 @@
 ﻿CREATE OR ALTER PROCEDURE Recipes.UpdateHaveItem
-	@Name INT,
+	@Name NVarChar(64),
 	@HaveItem BIT,
 AS
 
