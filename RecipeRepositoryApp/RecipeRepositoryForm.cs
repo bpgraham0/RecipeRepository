@@ -80,7 +80,7 @@ namespace RecipeRepositoryApp
 
         private void uxButtonViewRecipe_Click(object sender, EventArgs e)
         {
-            ViewRecipeForm viewRecipe = new ViewRecipeForm(recipeRepository.GetRecipeFromName(uxDataGridViewRecipes.SelectedRows[0].Cells[0].Value.ToString())); 
+            ViewRecipeForm viewRecipe = new ViewRecipeForm(recipeRepository, ingredientListRepository ,recipeRepository.GetRecipeFromName(uxDataGridViewRecipes.SelectedRows[0].Cells[0].Value.ToString())); 
             DialogResult dl = viewRecipe.ShowDialog();
             if (dl == DialogResult.Cancel)
             {
@@ -95,7 +95,7 @@ namespace RecipeRepositoryApp
 
         private void uxEditRecipeButton_Click(object sender, EventArgs e)
         {
-            EditRecipeForm editRecipe = new EditRecipeForm(recipeRepository, ingredientListRepository,recipeRepository.GetRecipeIdFromName(uxDataGridViewRecipes.SelectedRows[0].Cells[0].Value.ToString()));
+            EditRecipeForm editRecipe = new EditRecipeForm(recipeRepository, ingredientListRepository,foodTypeRepository,courseTypeRepository,recipeRepository.GetRecipeFromName(uxDataGridViewRecipes.SelectedRows[0].Cells[0].Value.ToString()));
             DialogResult dl = editRecipe.ShowDialog();
             if (dl == DialogResult.OK)
             {

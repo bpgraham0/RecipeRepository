@@ -14,9 +14,11 @@ namespace RecipeRepositoryApp
 {
     public partial class ViewRecipeForm : Form
     {
-        public ViewRecipeForm(Recipe recipe)
+        public ViewRecipeForm(SqlRecipeRepository recipeRepository, SqlIngredientListRepository ingredientListRepository ,Recipe recipe)
         {
+            
             InitializeComponent();
+            this.recipeRepository = recipeRepository;
             uxTextBoxName.Text = recipe.Name;
             uxTextBoxDescription.Text = recipe.Description;
             uxTextBoxCourseType.Text = recipe.CourseTypeId.ToString(); //use repository to get course type
@@ -24,20 +26,22 @@ namespace RecipeRepositoryApp
             uxTextBoxServingSize.Text = recipe.ServingSize.ToString();
             uxTextBoxPrepTime.Text = recipe.PrepTime.ToString();
             uxTextBoxCookTime.Text = recipe.CookTime.ToString();
-            uxDataGridIngredients.DataSource = SqlRecipeRepository.GetIngredientList(recipe.RecipeId);
-            uxDataGridSteps.DataSource = SqlRecipeRepository.GetStepList(recipe.RecipeId);
-            uxLabelRateStars.Text = SqlHistoryRepository.GetStars(recipe.RecipeId);
+            uxDataGridViewIngredients.DataSource = ingredientListRepository.FetchIngredientList(recipe.RecipeId);
+            uxDataGridViewSteps.DataSource = recipeRepository.GetStepList(recipe.RecipeId);
+            uxLabelRateStars.Text = "Currently Rated " + recipeRepository.GetStars(recipe.RecipeId).ToString() + " out of 5 Stars";
 
 
             this.recipe = recipe;
 
         }
         Recipe recipe;
+        SqlRecipeRepository recipeRepository;
 
         private void uxButtonRateRecipe_Click(object sender, EventArgs e)
         {
-            //SqlHistoryRepository.AddUpdateRecipeHistory(recipe.RecipeId, Convert.ToDouble(uxNumericUpDownStars.Value));
-            //uxLabelRateStars.Text = SqlHistoryRepository.GetStars(recipe.RecipeId);
+            recipeRepository.AddUpdateRecipeHistory(recipe.RecipeId, Convert.ToDouble(uxNumbericUpDownRate.Value));
+            uxLabelRateStars.Text = "Currently Rated " + recipeRepository.GetStars(recipe.RecipeId).ToString() +" out of 5 Stars";
+
         }
     }
 }
