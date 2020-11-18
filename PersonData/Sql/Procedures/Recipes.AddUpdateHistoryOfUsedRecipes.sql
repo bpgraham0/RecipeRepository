@@ -1,7 +1,6 @@
 ﻿CREATE OR ALTER PROCEDURE Recipes.addtoHistoryOfUsedRecipes
 	@RecipeId INT,
-	@LastDateUsed DateTime,
-	@Stars INT
+	@Stars Float(53)
 AS
 
 
@@ -14,7 +13,7 @@ begin
 Update Recipes.HistoryOfUsedRecipes
 set 
 	Stars = @Stars,
-	LastDateUsed = @LastDateUsed
+	LastDateUsed = GETDATE()
 where  RecipeID=@RecipeID;
 end
 else 

@@ -255,7 +255,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipe.CreateUpdateRecipe", connection))
+                    using (var command = new SqlCommand("Recipe.CreateGetStep", connection))
                     {
 
                         command.CommandType = CommandType.StoredProcedure;
@@ -322,7 +322,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipe.CreateUpdateRecipe", connection))
+                    using (var command = new SqlCommand("Recipe.DeleteRecipe", connection))
                     {
 
                         command.CommandType = CommandType.StoredProcedure;
@@ -345,6 +345,71 @@ namespace RecipeData.Repositories
                 }
             }
         }
+        double stars;
+        public double GetStars(int recipeId)
+        {
 
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipe.FetchStars", connection))
+                    {
+
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        var p = command.Parameters.Add("RecipeId", SqlDbType.Int);
+                        p.Value = recipeId;
+                        p = command.Parameters.Add("stars", SqlDbType.Int);
+                        p.Direction = ParameterDirection.Output;
+
+                        stars = Convert.ToDouble(command.Parameters["@stars"].Value);
+
+
+
+                        connection.Open();
+
+                        command.ExecuteNonQuery();
+
+
+                        transaction.Complete();
+
+                        return stars;
+                    }
+                }
+            }
+        }
+        public void addtoHistoryOfUsedRecipes(int recipeId,double stars)
+        {
+
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipe.addtoHistoryOfUsedRecipes", connection))
+                    {
+
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        var p = command.Parameters.Add("RecipeId", SqlDbType.Int);
+                        p.Value = recipeId;
+                        p = command.Parameters.Add("stars", SqlDbType.Float);
+                        p.Value = stars;
+
+
+
+
+
+                        connection.Open();
+
+                        command.ExecuteNonQuery();
+
+
+                        transaction.Complete();
+
+                    }
+                }
+            }
+        }
     }
 }
