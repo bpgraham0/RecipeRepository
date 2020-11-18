@@ -10,15 +10,15 @@ using System.Data.SqlClient;
 
 namespace Recipe.Repositories
 {
-    public class SqlFoodTypeRepository 
+    public class SqlCourseTypeRepository 
     {
-        public SqlFoodTypeRepository()
+        public SqlCourseTypeRepository()
         {
 
         }
         string connectionString = @"Data Source=(localdb)\LocalDBApp1;Initial Catalog=RecipeRepository;Integrated Security=True";
-        int FoodTypeID;
-        public int CreateUpdateFoodType(string name)
+        int CourseTypeID;
+        public int CreateUpdateCourseType(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("The parameter cannot be null or empty. ", nameof(name));
@@ -27,27 +27,27 @@ namespace Recipe.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("FoodType.CreateUpdateFoodType", connection))
+                    using (var command = new SqlCommand("CourseType.CreateUpdateCourseType", connection))
                     {
 
                         command.CommandType = CommandType.StoredProcedure;
 
                         var p = command.Parameters.Add("Name", SqlDbType.NVarChar);
                         p.Value = name;
-                        p = command.Parameters.Add("FoodTypeId", SqlDbType.Int);
+                        p = command.Parameters.Add("CourseTypeId", SqlDbType.Int);
                         p.Direction = ParameterDirection.Output;
 
                         connection.Open();
 
                         command.ExecuteNonQuery();
 
-                        FoodTypeID = Convert.ToInt32(command.Parameters["@FoodTypeID"].Value);
+                        CourseTypeID = Convert.ToInt32(command.Parameters["@CourseTypeID"].Value);
                         
 
                         transaction.Complete();
 
 
-                        return FoodTypeID;
+                        return CourseTypeID;
                             }
                 }
             }
@@ -56,14 +56,14 @@ namespace Recipe.Repositories
 
 
         string Name;
-        public string FetchFoodType(int RecipieID)
+        public string FetchCourseType(int RecipieID)
         {
                 
                 using (var transaction = new TransactionScope())
                 {
                     using (var connection = new SqlConnection(connectionString))
                     {
-                        using (var command = new SqlCommand("FoodType.CreateUpdateFoodType", connection))
+                        using (var command = new SqlCommand("CourseType.CreateUpdateCourseType", connection))
                         {
 
                             command.CommandType = CommandType.StoredProcedure;

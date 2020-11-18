@@ -13,7 +13,7 @@ if EXISTS
 	where [Name]=@Name
 	)
 begin
-Select FT.CourseTypeID
+Select @CourseTypeID=FT.CourseTypeID
 from Recipes.CourseType FT
 where [Name]=@Name
 end
