@@ -70,7 +70,7 @@
             // 
             // uxButtonTopTen
             // 
-            this.uxButtonTopTen.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.uxButtonTopTen.DialogResult = System.Windows.Forms.DialogResult.Ignore;
             this.uxButtonTopTen.Location = new System.Drawing.Point(635, 526);
             this.uxButtonTopTen.Name = "uxButtonTopTen";
             this.uxButtonTopTen.Size = new System.Drawing.Size(221, 30);
@@ -90,7 +90,7 @@
             // 
             // uxButtonSomethingNew
             // 
-            this.uxButtonSomethingNew.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.uxButtonSomethingNew.DialogResult = System.Windows.Forms.DialogResult.No;
             this.uxButtonSomethingNew.Location = new System.Drawing.Point(635, 600);
             this.uxButtonSomethingNew.Name = "uxButtonSomethingNew";
             this.uxButtonSomethingNew.Size = new System.Drawing.Size(221, 41);
@@ -120,7 +120,7 @@
             // 
             // button1
             // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button1.Location = new System.Drawing.Point(24, 440);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(468, 40);

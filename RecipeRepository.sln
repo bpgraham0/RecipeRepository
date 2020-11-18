@@ -20,6 +20,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{DC10
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeRepositoryApp", "RecipeRepositoryApp\RecipeRepositoryApp.csproj", "{BDCC8E42-A6CC-402F-A46A-DE9C19F30857}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D51AA58C-05B9-4A7D-9F80-CCEBF8A0EAF0} = {D51AA58C-05B9-4A7D-9F80-CCEBF8A0EAF0}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
