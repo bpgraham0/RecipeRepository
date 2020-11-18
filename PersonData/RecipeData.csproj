@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\SqlCourseTypeRepository.cs" />
     <Compile Include="Repositories\SqlFoodTypeRepository.cs" />
+    <Compile Include="Repositories\SqlIngredientListRepository.cs" />
     <Compile Include="Repositories\SqlRecipeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -92,18 +93,22 @@
     <Content Include="Sql\Procedures\Recipes.CreateUpdateFoodType.sql" />
     <Content Include="Sql\Procedures\Recipes.CreateUpdateRecipe.sql" />
     <Content Include="Sql\Procedures\Recipes.CreateUpdateSteps.sql" />
+    <Content Include="Sql\Procedures\Recipes.DeleteStep.sql" />
     <Content Include="Sql\Procedures\Recipes.DeleteFromIngredientList.sql" />
     <Content Include="Sql\Procedures\Recipes.DeleteRecipe.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchFullHistory.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchMeasurmentId.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchRecipeByName.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchAllRecipes.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchAllIngredients.sql" />
-    <Content Include="Sql\Procedures\Recipes.FetchAllHaveIngredients.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchAllIngredientsInPantry.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchAllRecipesCanMake.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchCookTime.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchCourceType.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchFoodType.sql" />
-    <Content Include="Sql\Procedures\Recipes.FetchFullHistory.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchHistory.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchIngredientList.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchMeasurmentList.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchRemindRecipes.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchStars.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchSteps.sql" />

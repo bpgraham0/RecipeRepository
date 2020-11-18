@@ -1,16 +1,11 @@
-﻿using RecipeData.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Transactions;
 
 namespace RecipeData.Repositories
 {
-    public class SqlFoodTypeRepository 
+    public class SqlFoodTypeRepository
     {
         public SqlFoodTypeRepository()
         {
@@ -22,12 +17,12 @@ namespace RecipeData.Repositories
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("The parameter cannot be null or empty. ", nameof(name));
-            
+
             using (var transaction = new TransactionScope())
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("FoodType.CreateUpdateFoodType", connection))
+                    using (var command = new SqlCommand("Recipes.CreateUpdateFoodType", connection))
                     {
 
                         command.CommandType = CommandType.StoredProcedure;
@@ -42,13 +37,13 @@ namespace RecipeData.Repositories
                         command.ExecuteNonQuery();
 
                         FoodTypeID = Convert.ToInt32(command.Parameters["@FoodTypeID"].Value);
-                        
+
 
                         transaction.Complete();
 
 
                         return FoodTypeID;
-                            }
+                    }
                 }
             }
 
@@ -58,39 +53,39 @@ namespace RecipeData.Repositories
         string Name;
         public string FetchFoodType(int RecipieID)
         {
-                
-                using (var transaction = new TransactionScope())
+
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var connection = new SqlConnection(connectionString))
+                    using (var command = new SqlCommand("Recipes.CreateUpdateFoodType", connection))
                     {
-                        using (var command = new SqlCommand("FoodType.CreateUpdateFoodType", connection))
-                        {
 
-                            command.CommandType = CommandType.StoredProcedure;
+                        command.CommandType = CommandType.StoredProcedure;
 
-                            var p = command.Parameters.Add("RecipieID", SqlDbType.NVarChar);
-                            p.Value = RecipieID;
-                            p = command.Parameters.Add("Name", SqlDbType.Int);
-                            p.Direction = ParameterDirection.Output;
+                        var p = command.Parameters.Add("RecipieID", SqlDbType.NVarChar);
+                        p.Value = RecipieID;
+                        p = command.Parameters.Add("Name", SqlDbType.Int);
+                        p.Direction = ParameterDirection.Output;
 
-                            connection.Open();
+                        connection.Open();
 
-                            command.ExecuteNonQuery();
+                        command.ExecuteNonQuery();
 
-                            Name = Convert.ToString(command.Parameters["@Name"].Value);
+                        Name = Convert.ToString(command.Parameters["@Name"].Value);
 
 
-                            transaction.Complete();
+                        transaction.Complete();
 
 
-                            return Name;
-                        }
+                        return Name;
                     }
                 }
+            }
             //return Name;
         }
 
-        
+
 
 
     }

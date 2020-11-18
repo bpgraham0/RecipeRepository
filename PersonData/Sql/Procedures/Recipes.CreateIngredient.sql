@@ -1,6 +1,6 @@
 ﻿CREATE OR ALTER PROCEDURE Recipes.CreateIngredient
-	@Name INT,
-	@HaveItem TinyINT
+	@Name NVarChar(64),
+	@HaveItem Bit
 AS
 
 INSERT Recipes.Ingredient(Name, HaveItem)

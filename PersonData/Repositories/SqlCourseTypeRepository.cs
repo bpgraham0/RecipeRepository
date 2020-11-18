@@ -27,7 +27,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("CourseType.CreateUpdateCourseType", connection))
+                    using (var command = new SqlCommand("Recipe.CreateUpdateCourseType", connection))
                     {
 
                         command.CommandType = CommandType.StoredProcedure;
@@ -63,7 +63,7 @@ namespace RecipeData.Repositories
                 {
                     using (var connection = new SqlConnection(connectionString))
                     {
-                        using (var command = new SqlCommand("CourseType.CreateUpdateCourseType", connection))
+                        using (var command = new SqlCommand("Recipe.CreateUpdateCourseType", connection))
                         {
 
                             command.CommandType = CommandType.StoredProcedure;
