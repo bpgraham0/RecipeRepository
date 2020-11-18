@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace RecipeData.Repositories
 {
-    public class SqlRecipeRepository : IRecipeRepository
+    public class SqlRecipeRepository 
     {
         public SqlRecipeRepository()
         {
@@ -67,6 +67,31 @@ namespace RecipeData.Repositories
                 }
             }
 
+        }
+
+        public DataTable GetRecipeList()
+        {
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Library.FetchAllBooks", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        connection.Open();
+
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                            DataTable dt = new DataTable();
+                            dt.Load(reader);
+                            reader.Close();
+                            return dt;
+                        
+                    }
+                }
+            }
         }
 
         public void DeletRecipe(int recipeId)
