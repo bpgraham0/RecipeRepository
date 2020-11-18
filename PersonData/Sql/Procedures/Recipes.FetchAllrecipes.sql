@@ -7,6 +7,5 @@ Inner Join Recipes.FoodType FT on FT.RecipeID=R.RecipeID
 Inner Join Recipes.CourseType CT on CT.RecipeID=R.RecipeID
 Inner Join Recipes.HistoryOfusedRecipes HR on HR.RecipeID=R.RecipeID
 
-where I.HaveItem='True';
 
 GO
