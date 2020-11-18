@@ -5,7 +5,7 @@ Create Table Recipes.IngredientList
 	RecipeId INT NOT NULL FOREIGN KEY REFERENCES Recipes.Recipe(RecipeId) PRIMARY KEY,
 	IngredientId  INT NOT NULL FOREIGN KEY REFERENCES Recipes.Ingredient(IngredientId),
 	MeasurementId INT NOT NULL FOREIGN KEY REFERENCES Recipes.Measurements(MeasurementId),--what
-	Quantity INT NOT NULL
+	Quantity Float(53) NOT NULL
 
       CONSTRAINT [PK_Recipes_IngredientList_RecipeId_IngredientId] PRIMARY KEY CLUSTERED
       (

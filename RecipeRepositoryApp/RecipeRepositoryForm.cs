@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RecipeData.Models;
+using RecipeData.Repositories;
 
 
 
@@ -15,23 +16,30 @@ namespace RecipeRepositoryApp
 {
     public partial class RecipeRepositoryForm : Form
     {
-        public RecipeRepositoryForm()
+        public RecipeRepositoryForm(IRecipeRepository recipeRepository)
         {
             InitializeComponent();
-        }
-
-        private void RecipeRepository_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'recipeRepositoryDataSet.Recipe' table. You can move, or remove it, as needed.
-            this.recipeTableAdapter.Fill(this.recipeRepositoryDataSet.Recipe);
+            uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeList();//Returns reader
+            //DataTable dt = new DataTable();
+            //dt.Load(command.ExecuteReader());
+            //return dt;
 
         }
 
         
 
+        
+
         private void uxFilterRecipesButton_Click(object sender, EventArgs e)
         {
-           
+            FilterRecipeForm filterRecipe = new FilterRecipeForm();
+            DialogResult dl = filterRecipe.ShowDialog();
+            if (dl == DialogResult.OK)
+            {
+                uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeList();//Returns reader
+                //Add recipe to 
+
+            }
         }
 
         private void uxAddRecipeButton_Click(object sender, EventArgs e)
@@ -40,12 +48,40 @@ namespace RecipeRepositoryApp
             DialogResult dl = addRecipe.ShowDialog();
             if (dl == DialogResult.OK)
             {
-                Recipe recipe = addRecipe.GetRecipeInfo();
+                addRecipe.CreateUpdateRecipeInfo();
+                uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeList();//Returns reader
                 //Add recipe to 
             }
         }
 
         private void uxButtonViewRecipe_Click(object sender, EventArgs e)
+        {
+            ViewRecipeForm viewRecipe = new ViewRecipeForm(recipeRepository.GetRecipeIdFromName(uxDataGridViewRecipes.SelectedRows[0].Cells[0].Value.ToString())); 
+            DialogResult dl = viewRecipe.ShowDialog();
+            if (dl == DialogResult.Cancel)
+            {
+                //Add recipe to 
+            }
+        }
+
+        private void uxButtonClear_Click(object sender, EventArgs e)
+        {
+            uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeList();//Returns reader
+        }
+
+        private void uxEditRecipeButton_Click(object sender, EventArgs e)
+        {
+            AddRecipeForm editRecipe = new AddRecipeForm(recipeRepository.GetRecipeIdFromName(uxDataGridViewRecipes.SelectedRows[0].Cells[0].Value.ToString()));
+            DialogResult dl = editRecipe.ShowDialog();
+            if (dl == DialogResult.OK)
+            {
+                editRecipe.CreateUpdateRecipeInfo();
+                uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeList();//Returns reader
+                //Add recipe to 
+            }
+        }
+
+        private void uxOpenPantry_Click(object sender, EventArgs e)
         {
 
         }

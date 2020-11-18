@@ -13,14 +13,14 @@ namespace RecipeData.Models
         public int CourseTypeId { get; }
         public string Name { get; }
         public string Description { get; }
-        public int ServingSize { get; }
+        public double ServingSize { get; }
         public int PrepTime { get; }
         public int CookTime { get; }
         public DateTime CreatedOn { get; }
         public DateTime UpdatedOn { get; }
 
         public Recipe(int recipeId, int foodTypeId, int courseTypeId, string name, 
-            string description, int servingSize, int prepTime, int cookTime, DateTime createdOn, DateTime updatedOn)
+            string description, double servingSize, int prepTime, int cookTime, DateTime createdOn, DateTime updatedOn)
         {
             RecipeId = recipeId;
             FoodTypeId = foodTypeId;

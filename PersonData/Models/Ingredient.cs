@@ -10,16 +10,14 @@ namespace RecipeData.Models
     {
         public int IngredientId { get; }
         public string Name { get; }
-        public string Origin { get; }
         public bool HaveItem { get; }
         public DateTime CreatedOn { get; }
         public DateTime UpdatedOn { get; } 
 
-        public Ingredient(int ingredientId, string name, string origin, int haveInt, DateTime createdOn, DateTime updatedOn)
+        public Ingredient(int ingredientId, string name, int haveInt, DateTime createdOn, DateTime updatedOn)
         {
             IngredientId = ingredientId;
             Name = name;
-            Origin = origin;
             if (haveInt == 1)
             {
                 HaveItem = true;

@@ -58,6 +58,12 @@
     <Compile Include="AddRecipeForm.Designer.cs">
       <DependentUpon>AddRecipeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddStepForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddStepForm.Designer.cs">
+      <DependentUpon>AddStepForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FilterRecipeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,16 +78,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RecipeRepositoryDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RecipeRepositoryDataSet.xsd</DependentUpon>
+    <Compile Include="ViewRecipeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewRecipeForm.Designer.cs">
+      <DependentUpon>ViewRecipeForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddIngredientForm.resx">
       <DependentUpon>AddIngredientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddRecipeForm.resx">
       <DependentUpon>AddRecipeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddStepForm.resx">
+      <DependentUpon>AddStepForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FilterRecipeForm.resx">
       <DependentUpon>FilterRecipeForm.cs</DependentUpon>
@@ -98,6 +108,9 @@
     <EmbeddedResource Include="RecipeRepositoryForm.resx">
       <DependentUpon>RecipeRepositoryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViewRecipeForm.resx">
+      <DependentUpon>ViewRecipeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -107,17 +120,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="RecipeRepositoryDataSet.xsc">
-      <DependentUpon>RecipeRepositoryDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="RecipeRepositoryDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>RecipeRepositoryDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="RecipeRepositoryDataSet.xss">
-      <DependentUpon>RecipeRepositoryDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
