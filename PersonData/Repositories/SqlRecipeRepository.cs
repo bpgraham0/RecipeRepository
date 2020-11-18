@@ -67,14 +67,79 @@ namespace RecipeData.Repositories
 
         }
 
-        public DataTable GetRecipesXIngredientsAway(int v)
+        public DataTable GetRecipesXIngredientsAway(int x)
         {
-            throw new NotImplementedException();
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipes.FetchHaveExceptX", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        var p = command.Parameters.Add("x", SqlDbType.Int);
+                        p.Value = x;
+                        connection.Open();
+
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        reader.Close();
+                        return dt;
+
+                    }
+                }
+            }
         }
 
-        public DataTable SearchAllRecipes(string text1, string text2, string text3, string text4, double v1, double v2, string text5, int v3, int v4, DateTime date1, DateTime date2, bool @checked)
+        public DataTable SearchAllRecipes(string Name, string Description, string CourseType, string FoodType, double StarsMin, double StarsMax, string Ingreadent, int PreptimeMax, int cooktimeMax, DateTime DateMin, DateTime DateMax, bool Have)
         {
-            throw new NotImplementedException();
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipes.FetchAllRecipes", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.CommandType = CommandType.StoredProcedure;
+                        var p = command.Parameters.Add("Name", SqlDbType.NVarChar);
+                        p.Value = Name; 
+                        var p = command.Parameters.Add("Description", SqlDbType.NVarChar);
+                        p.Value = Description;
+                        var p = command.Parameters.Add("CourseType", SqlDbType.NVarChar);
+                        p.Value = CourseType;
+                        var p = command.Parameters.Add("FoodType", SqlDbType.NVarChar);
+                        p.Value = FoodType;
+                        var p = command.Parameters.Add("StarsMin", SqlDbType.Float);
+                        p.Value = StarsMin;
+                        var p = command.Parameters.Add("StarsMax", SqlDbType.Float);
+                        p.Value = StarsMax;
+                        var p = command.Parameters.Add("Ingreadent", SqlDbType.NVarChar);
+                        p.Value = Ingreadent;
+                        var p = command.Parameters.Add("PreptimeMax", SqlDbType.Int);
+                        p.Value = PreptimeMax;
+                        var p = command.Parameters.Add("cooktimeMax", SqlDbType.Int);
+                        p.Value = cooktimeMax;
+                        var p = command.Parameters.Add("DateMin", SqlDbType.Date);
+                        p.Value = DateMin;
+                        var p = command.Parameters.Add("DateMax", SqlDbType.Date);
+                        p.Value = DateMax;
+                        var p = command.Parameters.Add("Have", SqlDbType.Bit);
+                        p.Value = DateMax;
+                        connection.Open();
+
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        reader.Close();
+                        return dt;
+
+                    }
+                }
+            }
         }
 
         public DataTable GetRecipeList()
