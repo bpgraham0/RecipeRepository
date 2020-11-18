@@ -108,6 +108,7 @@
     <Content Include="Sql\Procedures\Recipes.FetchSteps.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchTopTen.sql" />
     <Content Include="Sql\Procedures\Recipes.SearchAllRecipes.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchHaveExceptX.sql" />
     <Content Include="Sql\Procedures\Recipes.UpdateHaveItem.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
