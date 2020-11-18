@@ -75,6 +75,7 @@
             // 
             this.uxTextBoxName.Location = new System.Drawing.Point(93, 63);
             this.uxTextBoxName.Name = "uxTextBoxName";
+            this.uxTextBoxName.ReadOnly = true;
             this.uxTextBoxName.Size = new System.Drawing.Size(542, 26);
             this.uxTextBoxName.TabIndex = 1;
             // 

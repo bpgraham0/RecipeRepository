@@ -169,9 +169,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label5.Location = new System.Drawing.Point(17, 610);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(401, 25);
+            this.label5.Size = new System.Drawing.Size(412, 25);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Top recipe that you haven\'t make in a month:";
+            this.label5.Text = "Top recipes that you haven\'t made in a month:";
             // 
             // uxTextBoxCourseType
             // 

@@ -22,8 +22,8 @@ namespace RecipeRepositoryApp
         public void AddUpdateStepInfo(Recipe recipe)
         {
             
-            IStepRepository stepRepository = new IStepRepository();
-            Step step = stepRepository.CreateGetStep(recipe.RecipeId,uxTextBoxName.Text, uxTextBoxDescription.Text); 
+            SqlRecipeRepository recipeRepository = new SqlRecipeRepository();
+            recipeRepository.CreateGetStep(recipe.RecipeId,(int)uxNumericUpDownStepNumber.Value, uxTextBoxDescription.Text); 
 
         }
     }

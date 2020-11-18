@@ -99,7 +99,7 @@ namespace RecipeRepositoryApp
             var selectedRows = uxDataGridViewSteps.SelectedRows;
             foreach (DataGridViewSelectedRowCollection Row in selectedRows)
             {
-                recipeRepository.DeleteStep(recipe.RecipeId, Row[0].Cells[0].Value);
+                recipeRepository.DeleteStep(recipe.RecipeId, (int)Row[0].Cells[0].Value); //StepNumber
 
             }
         }
