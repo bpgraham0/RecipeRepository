@@ -20,12 +20,13 @@ namespace RecipeRepositoryApp
         {
             InitializeComponent();
             uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeList();//Returns reader
+            this.recipeRepository = recipeRepository;
             //DataTable dt = new DataTable();
             //dt.Load(command.ExecuteReader());
             //return dt;
 
         }
-
+        IRecipeRepository recipeRepository;
         
 
         
@@ -36,9 +37,19 @@ namespace RecipeRepositoryApp
             DialogResult dl = filterRecipe.ShowDialog();
             if (dl == DialogResult.OK)
             {
+                uxDataGridViewRecipes.DataSource = recipeRepository.GetSearchQuery();//Returns reader
+            }
+            if (dl == DialogResult.Ignore)
+            {
                 uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeList();//Returns reader
-                //Add recipe to 
-
+            }
+            if (dl == DialogResult.Yes)
+            {
+                uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeList();//Returns reader
+            }
+            if (dl == DialogResult.No)
+            {
+                uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeList();//Returns reader
             }
         }
 
