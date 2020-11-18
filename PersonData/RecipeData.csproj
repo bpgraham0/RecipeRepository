@@ -52,7 +52,7 @@
     <Compile Include="Models\Steps.cs" />
     <Compile Include="RecipeList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\IRecipeRepository.cs" />
+    <Compile Include="Repositories\SqlFoodTypeRepository.cs" />
     <Compile Include="Repositories\SqlRecipeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -94,7 +94,8 @@
     <Content Include="Sql\Procedures\Recipes.CreateUpdateSteps.sql" />
     <Content Include="Sql\Procedures\Recipes.DeleteFromIngredientList.sql" />
     <Content Include="Sql\Procedures\Recipes.DeleteRecipe.sql" />
-    <Content Include="Sql\Procedures\Recipes.FetchAllrecipes.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchRecipeByName.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchAllRecipes.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchAllIngredients.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchAllHaveIngredients.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchAllRecipesCanMake.sql" />

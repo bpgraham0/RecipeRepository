@@ -1,8 +1,9 @@
 ﻿CREATE OR ALTER PROCEDURE Recipes.FetchFoodType
-	@recipeID int
+	@recipeID int,
+	@Name NVARCHAR(64) output
 AS
 
-select FT.Name
+select @Name=FT.Name
 from Recipes.Recipe R
 Inner Join  Recipes.FoodType FT ON R.FoodTypeID = FT.FoodTypeID
 where recipeID = @recipeID;

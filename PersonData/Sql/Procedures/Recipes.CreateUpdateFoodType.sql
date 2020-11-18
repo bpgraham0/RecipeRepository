@@ -13,7 +13,7 @@ if EXISTS
 	where [Name]=@Name
 	)
 begin
-Select FT.FoodTypeID
+Select @FoodTypeID=FT.FoodTypeID
 from Recipes.FoodType FT
 where [Name]=@Name
 end
