@@ -151,7 +151,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipies.FetchAllIngredient", connection))
+                    using (var command = new SqlCommand("Recipies.FetchAllIngredients", connection))
                     {
 
                         connection.Open();

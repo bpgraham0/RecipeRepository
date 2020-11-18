@@ -80,11 +80,14 @@ namespace RecipeRepositoryApp
 
         private void uxButtonViewRecipe_Click(object sender, EventArgs e)
         {
-            ViewRecipeForm viewRecipe = new ViewRecipeForm(recipeRepository, ingredientListRepository ,recipeRepository.GetRecipeFromName(uxDataGridViewRecipes.SelectedRows[0].Cells[0].Value.ToString())); 
-            DialogResult dl = viewRecipe.ShowDialog();
-            if (dl == DialogResult.Cancel)
+            if (uxDataGridViewRecipes.SelectedRows.Count > 0)
             {
-                //Add recipe to 
+                ViewRecipeForm viewRecipe = new ViewRecipeForm(recipeRepository, ingredientListRepository, recipeRepository.GetRecipeFromName(uxDataGridViewRecipes.SelectedRows[0].Cells[0].Value.ToString()));
+                DialogResult dl = viewRecipe.ShowDialog();
+                if (dl == DialogResult.Cancel)
+                {
+                    //Add recipe to 
+                }
             }
         }
 
@@ -95,13 +98,16 @@ namespace RecipeRepositoryApp
 
         private void uxEditRecipeButton_Click(object sender, EventArgs e)
         {
-            EditRecipeForm editRecipe = new EditRecipeForm(recipeRepository, ingredientListRepository,foodTypeRepository,courseTypeRepository,recipeRepository.GetRecipeFromName(uxDataGridViewRecipes.SelectedRows[0].Cells[0].Value.ToString()));
-            DialogResult dl = editRecipe.ShowDialog();
-            if (dl == DialogResult.OK)
+            if (uxDataGridViewRecipes.SelectedRows.Count > 0)
             {
-                editRecipe.CreateUpdateRecipeInfo();
-                uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeList();//Returns reader
-                //Add recipe to 
+                EditRecipeForm editRecipe = new EditRecipeForm(recipeRepository, ingredientListRepository, foodTypeRepository, courseTypeRepository, recipeRepository.GetRecipeFromName(uxDataGridViewRecipes.SelectedRows[0].Cells[0].Value.ToString()));
+                DialogResult dl = editRecipe.ShowDialog();
+                if (dl == DialogResult.OK)
+                {
+                    editRecipe.CreateUpdateRecipeInfo();
+                    uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeList();//Returns reader
+                                                                                        //Add recipe to 
+                }
             }
         }
 

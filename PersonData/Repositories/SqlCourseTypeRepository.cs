@@ -27,7 +27,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipe.CreateUpdateCourseType", connection))
+                    using (var command = new SqlCommand("Recipes.CreateUpdateCourseType", connection))
                     {
 
                         command.CommandType = CommandType.StoredProcedure;
@@ -41,7 +41,7 @@ namespace RecipeData.Repositories
 
                         command.ExecuteNonQuery();
 
-                        CourseTypeID = Convert.ToInt32(command.Parameters["@CourseTypeID"].Value);
+                        CourseTypeID = Convert.ToInt32(command.Parameters["CourseTypeID"].Value);
                         
 
                         transaction.Complete();

@@ -1,13 +1,8 @@
-﻿CREATE OR ALTER PROCEDURE Recipes.FetchMeasurementLIst
-@Name NVARCHAR(64),
-@MeasurementId  int output
+﻿
+CREATE OR ALTER PROCEDURE Recipes.FetchMeasurementList
 AS
 
-select @MeasurementId=MeasurementId,[Name]
-from Recipes.Measurements M
+select M.MeasurementId, M.[Name]
+from Recipes.Measurement M
 
 GO
-
-
-
-

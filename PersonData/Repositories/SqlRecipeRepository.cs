@@ -29,7 +29,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipe.CreateUpdateRecipe", connection))
+                    using (var command = new SqlCommand("Recipes.CreateUpdateRecipe", connection))
                     {
 
                         command.CommandType = CommandType.StoredProcedure;
@@ -166,7 +166,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipe.FetchRecipeByName", connection))
+                    using (var command = new SqlCommand("Recipes.FetchRecipeByName", connection))
                     {
 
                         command.CommandType = CommandType.StoredProcedure;
@@ -263,7 +263,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipe.CreateGetStep", connection))
+                    using (var command = new SqlCommand("Recipes.CreateGetStep", connection))
                     {
 
                         command.CommandType = CommandType.StoredProcedure;
@@ -296,7 +296,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipe.DeleteStep", connection))
+                    using (var command = new SqlCommand("Recipes.DeleteStep", connection))
                     {
 
                         command.CommandType = CommandType.StoredProcedure;
@@ -330,7 +330,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipe.DeleteRecipe", connection))
+                    using (var command = new SqlCommand("Recipes.DeleteRecipe", connection))
                     {
 
                         command.CommandType = CommandType.StoredProcedure;
@@ -358,7 +358,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipe.FetchStars", connection))
+                    using (var command = new SqlCommand("Recipes.FetchStars", connection))
                     {
 
                         command.CommandType = CommandType.StoredProcedure;
@@ -391,7 +391,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipe.addtoHistoryOfUsedRecipes", connection))
+                    using (var command = new SqlCommand("Recipes.AddToHistoryOfUsedRecipes", connection))
                     {
 
                         command.CommandType = CommandType.StoredProcedure;

@@ -1,4 +1,5 @@
-﻿CREATE OR ALTER PROCEDURE Recipes.FetchAllIngredientsInPantry
+﻿
+CREATE OR ALTER PROCEDURE Recipes.FetchAllIngredientsInPantry
 AS
 
 select I.Name

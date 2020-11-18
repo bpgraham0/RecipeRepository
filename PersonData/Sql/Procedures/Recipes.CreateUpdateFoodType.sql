@@ -4,9 +4,6 @@ CREATE OR ALTER PROCEDURE Recipes.CreateUpdateFoodType
 	@FoodTypeID INT OUTPUT
 
 AS
-
-
-
 if EXISTS 
 	(select *
 	from Recipes.FoodType
@@ -19,7 +16,7 @@ where [Name]=@Name
 end
 else 
 begin
-INSERT Recipes.FoodTypeID([Name])
+INSERT Recipes.FoodType([Name])
 SELECT  @Name
 SET @FoodTypeID = SCOPE_IDENTITY();
 end

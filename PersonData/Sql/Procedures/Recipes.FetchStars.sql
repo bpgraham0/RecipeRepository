@@ -1,5 +1,5 @@
 ﻿CREATE OR ALTER PROCEDURE Recipes.FetchStars
-	@RecipeId INT
+	@RecipeId INT,
 	@stars int output
 AS
 

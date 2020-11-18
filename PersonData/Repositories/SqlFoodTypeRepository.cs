@@ -28,6 +28,7 @@ namespace RecipeData.Repositories
                         command.CommandType = CommandType.StoredProcedure;
 
                         var p = command.Parameters.Add("Name", SqlDbType.NVarChar);
+                        p.Direction = ParameterDirection.Input;
                         p.Value = name;
                         p = command.Parameters.Add("FoodTypeId", SqlDbType.Int);
                         p.Direction = ParameterDirection.Output;
@@ -36,7 +37,8 @@ namespace RecipeData.Repositories
 
                         command.ExecuteNonQuery();
 
-                        FoodTypeID = Convert.ToInt32(command.Parameters["@FoodTypeID"].Value);
+                       
+                        FoodTypeID = (int)command.Parameters["FoodTypeId"].Value;
 
 
                         transaction.Complete();

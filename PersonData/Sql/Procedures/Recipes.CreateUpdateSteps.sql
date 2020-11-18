@@ -6,9 +6,6 @@ CREATE OR ALTER PROCEDURE  Recipes.CreateUpdateSteps
 	@StepDescription NVARCHAR(1024),
 	@StepId INt Output
 AS
-
-
-
 if EXISTS 
 	(select *
 	from Recipes.Steps
@@ -24,7 +21,7 @@ UPDATE Recipes.Steps
 end
 else 
 begin
-INSERT Recipes.Steps(@RecipeId,@StepNumber,@StepDescription)
+INSERT Recipes.Steps(RecipeId,StepNumber,StepDescription)
 SELECT  @RecipeId,@StepNumber,@StepDescription
 SET @StepId = SCOPE_IDENTITY();
 end

@@ -2,7 +2,7 @@
 AS
 
 select MeasurementId,[Name]
-from Recipes.Measurements M
+from Recipes.Measurement M
 
 GO
 

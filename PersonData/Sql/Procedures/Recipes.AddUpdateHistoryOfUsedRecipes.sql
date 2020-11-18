@@ -1,9 +1,8 @@
-﻿CREATE OR ALTER PROCEDURE Recipes.addtoHistoryOfUsedRecipes
+﻿
+CREATE OR ALTER PROCEDURE Recipes.AddToHistoryOfUsedRecipes
 	@RecipeId INT,
 	@Stars Float(53)
 AS
-
-
 if EXISTS 
 	(select *
 	from Recipes.HistoryOfUsedRecipes
@@ -19,7 +18,6 @@ end
 else 
 begin
 INSERT Recipes.HistoryOfUsedRecipes(RecipeId, LastDateUsed,Stars)
-VALUES (@RecipeId,@LastDateUsed,@Stars)
+VALUES (@RecipeId,GETDATE(),@Stars)
 end
 GO
-

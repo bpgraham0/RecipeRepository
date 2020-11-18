@@ -1,12 +1,10 @@
 ﻿
+
 CREATE OR ALTER PROCEDURE Recipes.CreateUpdateCourseType
 	@Name  NVARCHAR(64),
 	@CourseTypeID INT OUTPUT
 
 AS
-
-
-
 if EXISTS 
 	(select *
 	from Recipes.CourseType
@@ -19,12 +17,14 @@ where [Name]=@Name
 end
 else 
 begin
-INSERT Recipes.CourseTypeID([Name])
+INSERT Recipes.CourseType([Name])
 SELECT  @Name
 SET @CourseTypeID = SCOPE_IDENTITY();
 end
 
 GO
+
+
 
 
 --INSERT Recipes.Recipe([Name], [Description], ServingSize, PrepTime, CookTime, CourseTypeId, CourseTypeId)

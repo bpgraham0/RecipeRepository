@@ -23,4 +23,4 @@ AS
 			(SELECT *
 			from Recipes.Recipe r
 			WHERE r.RecipeID=@RecipeId);
-go
+GO
