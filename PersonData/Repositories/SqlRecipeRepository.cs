@@ -68,7 +68,15 @@ namespace RecipeData.Repositories
 
         }
 
-       
+        public DataTable GetRecipesXIngredientsAway(int v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DataTable SearchAllRecipes(string text1, string text2, string text3, string text4, double v1, double v2, string text5, int v3, int v4, DateTime date1, DateTime date2, bool @checked)
+        {
+            throw new NotImplementedException();
+        }
 
         public DataTable GetRecipeList()
         {
@@ -330,9 +338,6 @@ namespace RecipeData.Repositories
                         var p = command.Parameters.Add("RecipeId", SqlDbType.Int);
                         p.Value = recipeId;
                         
-
-
-
                         connection.Open();
 
                         command.ExecuteNonQuery();

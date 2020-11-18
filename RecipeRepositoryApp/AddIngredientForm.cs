@@ -17,12 +17,7 @@ namespace RecipeRepositoryApp
         {
             InitializeComponent();
             this.ingredientListRepository = ingredientListRepository;
-            IList <Measurement> measurements = ingredientListRepository.FetchMeasurementList().ToList();
-            foreach(Measurement item in measurements)
-            {
-                uxComboBoxMeasurement.Items.Add(item.Name);
-
-            }
+            uxComboBoxMeasurement.DataSource = ingredientListRepository.FetchMeasurementList().Columns[1].DefaultValue;
             if(uxComboBoxMeasurement.Items.Count >0)
                 uxComboBoxMeasurement.SelectedItem = 1;
 
@@ -32,8 +27,8 @@ namespace RecipeRepositoryApp
 
         public void AddUpdateIngredientInfo(Recipe recipe)
         {
-            Ingredient ingredient = ingredientListRepository.CreateGetIngredient(uxTextBoxName.Text,false); //for now, have item is default to false
-            ingredientListRepository.AddItemToIngredientList(recipe.RecipeId,ingredient.IngredientId,ingredientListRepository.GetMeasurementIdFromName(uxComboBoxMeasurement.SelectedItem.ToString()), Convert.ToDouble(uxNumericUpDownQuantity.Value));
+            ingredientListRepository.CreateIngredient(uxTextBoxName.Text,0); //for now, have item is default to false
+            ingredientListRepository.AddToIngredientList(recipe.RecipeId,ingredientListRepository.get,ingredientListRepository.GetMeasurementIdFromName(uxComboBoxMeasurement.SelectedItem.ToString()), Convert.ToDouble(uxNumericUpDownQuantity.Value));
             return ;
         } 
     }
