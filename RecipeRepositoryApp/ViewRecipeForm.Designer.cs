@@ -50,10 +50,10 @@
             this.uxNumbericUpDownRate = new System.Windows.Forms.NumericUpDown();
             this.uxTextBoxPrepTime = new System.Windows.Forms.TextBox();
             this.uxTextBoxCookTime = new System.Windows.Forms.TextBox();
-            this.uxDataGridIngredients = new System.Windows.Forms.DataGridView();
+            this.uxDataGridViewIngredients = new System.Windows.Forms.DataGridView();
             this.uxDataGridViewSteps = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumbericUpDownRate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uxDataGridIngredients)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxDataGridViewIngredients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxDataGridViewSteps)).BeginInit();
             this.SuspendLayout();
             // 
@@ -278,19 +278,19 @@
             this.uxTextBoxCookTime.Size = new System.Drawing.Size(120, 26);
             this.uxTextBoxCookTime.TabIndex = 57;
             // 
-            // uxDataGridIngredients
+            // uxDataGridViewIngredients
             // 
-            this.uxDataGridIngredients.AllowUserToAddRows = false;
-            this.uxDataGridIngredients.AllowUserToDeleteRows = false;
-            this.uxDataGridIngredients.AllowUserToOrderColumns = true;
-            this.uxDataGridIngredients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.uxDataGridIngredients.Location = new System.Drawing.Point(18, 257);
-            this.uxDataGridIngredients.Name = "uxDataGridIngredients";
-            this.uxDataGridIngredients.ReadOnly = true;
-            this.uxDataGridIngredients.RowHeadersWidth = 62;
-            this.uxDataGridIngredients.RowTemplate.Height = 28;
-            this.uxDataGridIngredients.Size = new System.Drawing.Size(298, 272);
-            this.uxDataGridIngredients.TabIndex = 58;
+            this.uxDataGridViewIngredients.AllowUserToAddRows = false;
+            this.uxDataGridViewIngredients.AllowUserToDeleteRows = false;
+            this.uxDataGridViewIngredients.AllowUserToOrderColumns = true;
+            this.uxDataGridViewIngredients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.uxDataGridViewIngredients.Location = new System.Drawing.Point(18, 257);
+            this.uxDataGridViewIngredients.Name = "uxDataGridViewIngredients";
+            this.uxDataGridViewIngredients.ReadOnly = true;
+            this.uxDataGridViewIngredients.RowHeadersWidth = 62;
+            this.uxDataGridViewIngredients.RowTemplate.Height = 28;
+            this.uxDataGridViewIngredients.Size = new System.Drawing.Size(298, 272);
+            this.uxDataGridViewIngredients.TabIndex = 58;
             // 
             // uxDataGridViewSteps
             // 
@@ -312,7 +312,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1056, 551);
             this.Controls.Add(this.uxDataGridViewSteps);
-            this.Controls.Add(this.uxDataGridIngredients);
+            this.Controls.Add(this.uxDataGridViewIngredients);
             this.Controls.Add(this.uxTextBoxCookTime);
             this.Controls.Add(this.uxTextBoxPrepTime);
             this.Controls.Add(this.uxTextBoxServingSize);
@@ -338,7 +338,7 @@
             this.Name = "ViewRecipeForm";
             this.Text = "ViewRecipeForm";
             ((System.ComponentModel.ISupportInitialize)(this.uxNumbericUpDownRate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uxDataGridIngredients)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxDataGridViewIngredients)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxDataGridViewSteps)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -369,7 +369,7 @@
         private System.Windows.Forms.NumericUpDown uxNumbericUpDownRate;
         private System.Windows.Forms.TextBox uxTextBoxPrepTime;
         private System.Windows.Forms.TextBox uxTextBoxCookTime;
-        private System.Windows.Forms.DataGridView uxDataGridIngredients;
+        private System.Windows.Forms.DataGridView uxDataGridViewIngredients;
         private System.Windows.Forms.DataGridView uxDataGridViewSteps;
     }
 }
