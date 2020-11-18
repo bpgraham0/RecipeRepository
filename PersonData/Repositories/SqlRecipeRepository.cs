@@ -60,7 +60,7 @@ namespace RecipeData.Repositories
                         transaction.Complete();
 
 
-                        return new Recipe((int)command.Parameters["RecipeId"].Value, foodTypeId, courseTypeId, name, description, servingSize, prepTime, cookTime,);
+                        return new Recipe((int)command.Parameters["RecipeId"].Value, foodTypeId, courseTypeId, name, description, servingSize, prepTime, cookTime);
                     }
                 }
             }
