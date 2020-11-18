@@ -14,12 +14,12 @@ namespace RecipeRepositoryApp
 {
     public partial class FilterRecipeForm : Form
     {
-        public FilterRecipeForm(IRecipeRepository recipeRepository)
+        public FilterRecipeForm(SqlRecipeRepository recipeRepository)
         {
             InitializeComponent();
             this.recipeRepository = recipeRepository;
         }
-        IRecipeRepository recipeRepository;
+        SqlRecipeRepository recipeRepository;
 
         public DataTable GetStandardSearchQuery()
         {

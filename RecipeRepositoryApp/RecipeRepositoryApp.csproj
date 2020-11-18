@@ -52,6 +52,12 @@
     <Compile Include="AddIngredientForm.Designer.cs">
       <DependentUpon>AddIngredientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditRecipeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditRecipeForm.Designer.cs">
+      <DependentUpon>EditRecipeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddRecipeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </Compile>
     <EmbeddedResource Include="AddIngredientForm.resx">
       <DependentUpon>AddIngredientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditRecipeForm.resx">
+      <DependentUpon>EditRecipeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddRecipeForm.resx">
       <DependentUpon>AddRecipeForm.cs</DependentUpon>
