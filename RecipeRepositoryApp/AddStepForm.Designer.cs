@@ -31,9 +31,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.uxTextBoxDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.uxTextBoxName = new System.Windows.Forms.TextBox();
             this.uxButtonSaveStep = new System.Windows.Forms.Button();
             this.uxButtonCancelEdit = new System.Windows.Forms.Button();
+            this.uxNumericUpDownStepNumber = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownStepNumber)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -65,13 +66,6 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Step Number:";
             // 
-            // uxTextBoxName
-            // 
-            this.uxTextBoxName.Location = new System.Drawing.Point(161, 17);
-            this.uxTextBoxName.Name = "uxTextBoxName";
-            this.uxTextBoxName.Size = new System.Drawing.Size(292, 26);
-            this.uxTextBoxName.TabIndex = 5;
-            // 
             // uxButtonSaveStep
             // 
             this.uxButtonSaveStep.DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -92,19 +86,27 @@
             this.uxButtonCancelEdit.Text = "Cancel Edit";
             this.uxButtonCancelEdit.UseVisualStyleBackColor = true;
             // 
+            // uxNumericUpDownStepNumber
+            // 
+            this.uxNumericUpDownStepNumber.Location = new System.Drawing.Point(251, 20);
+            this.uxNumericUpDownStepNumber.Name = "uxNumericUpDownStepNumber";
+            this.uxNumericUpDownStepNumber.Size = new System.Drawing.Size(202, 26);
+            this.uxNumericUpDownStepNumber.TabIndex = 30;
+            // 
             // AddStepForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(465, 265);
+            this.Controls.Add(this.uxNumericUpDownStepNumber);
             this.Controls.Add(this.uxButtonCancelEdit);
             this.Controls.Add(this.uxButtonSaveStep);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.uxTextBoxDescription);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.uxTextBoxName);
             this.Name = "AddStepForm";
             this.Text = "AddStepForm";
+            ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownStepNumber)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,8 +117,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox uxTextBoxDescription;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox uxTextBoxName;
         private System.Windows.Forms.Button uxButtonSaveStep;
         private System.Windows.Forms.Button uxButtonCancelEdit;
+        private System.Windows.Forms.NumericUpDown uxNumericUpDownStepNumber;
     }
 }

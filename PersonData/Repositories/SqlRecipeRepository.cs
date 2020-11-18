@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace RecipeData.Repositories
 {
-    public class SqlRecipeRepository 
+    public class SqlRecipeRepository
     {
         public SqlRecipeRepository()
         {
@@ -56,18 +56,19 @@ namespace RecipeData.Repositories
 
                         command.ExecuteNonQuery();
 
-                        
 
                         transaction.Complete();
-                        
+
 
                         return new Recipe((int)command.Parameters["RecipeId"].Value, foodTypeId, courseTypeId, name, description, servingSize, prepTime, cookTime,
-                            (DateTime)command.Parameters["CreatedOn"].Value,(DateTime)command.Parameters["UpdatedOn"].Value);
+                            (DateTime)command.Parameters["CreatedOn"].Value, (DateTime)command.Parameters["UpdatedOn"].Value);
                     }
                 }
             }
 
         }
+
+       
 
         public DataTable GetRecipeList()
         {
@@ -75,7 +76,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Library.FetchAllBooks", connection))
+                    using (var command = new SqlCommand("Recipes.FetchAllRecipes", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
@@ -84,29 +85,266 @@ namespace RecipeData.Repositories
 
                         SqlDataReader reader = command.ExecuteReader();
 
-                            DataTable dt = new DataTable();
-                            dt.Load(reader);
-                            reader.Close();
-                            return dt;
-                        
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        reader.Close();
+                        return dt;
+
                     }
                 }
             }
         }
 
-        public void DeletRecipe(int recipeId)
+        public DataTable GetStepList(int recipeId)
         {
-            throw new NotImplementedException();
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipes.FetchSteps", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        var p = command.Parameters.Add("RecipeId", SqlDbType.Int);
+                        p.Value = recipeId;
+
+                        connection.Open();
+
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        reader.Close();
+                        return dt;
+
+                    }
+                }
+            }
         }
 
-        public Recipe FetchRecipe(int recipeId)
+        public DataTable GetRecipeHistory()
         {
-            throw new NotImplementedException();
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipes.FetchFullHistory", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                       
+
+                        connection.Open();
+
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        reader.Close();
+                        return dt;
+
+                    }
+                }
+            }
         }
 
-        public IReadOnlyList<Recipe> RetreiveRecipes()
+        public Recipe GetRecipeFromName(string name)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException("The parameter cannot be null or empty. ", nameof(name));
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipe.FetchRecipeByName", connection))
+                    {
+
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        var p = command.Parameters.Add("Name", SqlDbType.NVarChar);
+                        p.Value = name;
+                       
+
+                       
+                        connection.Open();
+
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                       
+
+
+                        return new Recipe((int)command.Parameters["RecipeId"].Value,
+                                          (int)command.Parameters["FoodTypeId"].Value,
+                                          (int)command.Parameters["CourseTypeId"].Value,
+                                          name,
+                                          command.Parameters["Description"].Value.ToString(),
+                                          (double)command.Parameters["ServingSize"].Value,
+                                          (int)command.Parameters["PrepTime"].Value,
+                                          (int)command.Parameters["CookTime"].Value,
+                                          (DateTime)command.Parameters["CreatedOn"].Value,
+                                          (DateTime)command.Parameters["UpdatedOn"].Value);
+                    }
+                }
+            }
+
         }
+
+        public object GetFreshRecipe()
+        {
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipes.FetchRemindRecipes", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+
+
+                        connection.Open();
+
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        reader.Close();
+                        return dt;
+
+                    }
+                }
+            }
+        }
+
+        public object GetTopTenMonthly()
+        {
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipes.FetchTopTen", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+
+
+                        connection.Open();
+
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        reader.Close();
+                        return dt;
+
+                    }
+                }
+            }
+        }
+
+        public void CreateGetStep(int recipeId, int stepNumber, string stepDescription)
+        {
+            if (string.IsNullOrWhiteSpace(stepDescription))
+                throw new ArgumentException("The parameter cannot be null or empty. ", nameof(stepDescription));
+            
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipe.CreateUpdateRecipe", connection))
+                    {
+
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        var p = command.Parameters.Add("RecipeId", SqlDbType.Int);
+                        p.Value = recipeId;
+                        p = command.Parameters.Add("StepNumber", SqlDbType.Int);
+                        p.Value = stepNumber;
+                        p = command.Parameters.Add("StepDescription", SqlDbType.NVarChar);
+                        p.Value = stepDescription;
+
+                        
+
+                        connection.Open();
+
+                        command.ExecuteNonQuery();
+
+
+                        transaction.Complete();
+
+
+                    }
+                }
+            }
+        }
+
+        public void DeleteStep(int recipeId, int stepNumber)
+        {
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipe.DeleteStep", connection))
+                    {
+
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        var p = command.Parameters.Add("RecipeId", SqlDbType.Int);
+                        p.Value = recipeId;
+                        p = command.Parameters.Add("StepNumber", SqlDbType.Int);
+                        p.Value = stepNumber;
+                        
+
+
+
+                        connection.Open();
+
+                        command.ExecuteNonQuery();
+
+
+                        transaction.Complete();
+
+
+                    }
+                }
+            }
+        }
+
+
+        public void DeleteRecipe(int recipeId)
+        {
+
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("Recipe.CreateUpdateRecipe", connection))
+                    {
+
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        var p = command.Parameters.Add("RecipeId", SqlDbType.Int);
+                        p.Value = recipeId;
+                        
+
+
+
+                        connection.Open();
+
+                        command.ExecuteNonQuery();
+
+
+                        transaction.Complete();
+
+
+                    }
+                }
+            }
+        }
+
     }
 }

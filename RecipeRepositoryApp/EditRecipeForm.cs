@@ -14,26 +14,33 @@ namespace RecipeRepositoryApp
 {
     public partial class EditRecipeForm : Form
     {
-        public EditRecipeForm()
-        {
-            InitializeComponent();
-        }
-        public AddRecipeForm(SqlRecipeRepository recipeRepository, Recipe recipe)
+       
+        public EditRecipeForm(SqlRecipeRepository recipeRepository, SqlIngredientListRepository ingredientListRepository, SqlFoodTypeRepository foodTypeRepository, SqlCourseTypeRepository courseTypeRepository, Recipe recipe)
         {
             InitializeComponent();
             uxTextBoxName.Text = recipe.Name;
+            this.recipeRepository = recipeRepository;
+            this.ingredientListRepository = ingredientListRepository;
+            this.foodTypeRepository = foodTypeRepository;
+            this.courseTypeRepository = courseTypeRepository;
+
             uxTextBoxDescription.Text = recipe.Description;
             uxTextBoxCourseType.Text = recipe.CourseTypeId.ToString(); //use repository to get course type
             uxTextBoxFoodType.Text = recipe.FoodTypeId.ToString(); //use repository to get course type
             uxNumericUpDownServingSize.Value = Convert.ToDecimal(recipe.ServingSize);
             uxNumericUpDownPrepTime.Value = Convert.ToDecimal(recipe.PrepTime.ToString());
             uxNumericUpDownCookTime.Value = Convert.ToDecimal(recipe.CookTime.ToString());
-            uxDataGridViewIngredients.DataSource = SqlRecipeRepository.GetIngredientList(recipe.RecipeId);
-            uxDataGridViewSteps.DataSource = SqlRecipeRepository.GetStepList(recipe.RecipeId);
+            uxDataGridViewIngredients.DataSource = ingredientListRepository.GetIngredientList(recipe.RecipeId);
+            uxDataGridViewSteps.DataSource = recipeRepository.GetStepList(recipe.RecipeId);
 
             this.recipe = recipe;
         }
         Recipe recipe;
+        SqlRecipeRepository recipeRepository;
+        SqlIngredientListRepository ingredientListRepository;
+        SqlFoodTypeRepository foodTypeRepository;
+        SqlCourseTypeRepository courseTypeRepository;
+
 
 
         public void CreateUpdateRecipeInfo()
@@ -41,10 +48,10 @@ namespace RecipeRepositoryApp
             SqlRecipeRepository recipeRepository = new SqlRecipeRepository();
 
             //recplace with REpository for creating recipe
-            int foodTypeId = recipeRepository.GetOrAddFoodTypeId(uxTextBoxCourseType.Text); 
-            int courseTypeId = recipeRepository.GetOrAddCourseTypeId(uxTextBoxCourseType.Text); 
+            int foodTypeId = foodTypeRepository.GetOrAddFoodTypeId(uxTextBoxCourseType.Text); 
+            int courseTypeId = courseTypeRepository.GetOrAddCourseTypeId(uxTextBoxCourseType.Text); 
 
-            recipeRepository.CreateUpdateRecipe(fooodTypeId, courseTypeId, uxTextBoxName.Text, uxTextBoxDescription.Text,
+            recipeRepository.CreateUpdateRecipe(foodTypeId, courseTypeId, uxTextBoxName.Text, uxTextBoxDescription.Text,
                 Convert.ToDouble(uxNumericUpDownServingSize.Value), Convert.ToInt32(uxNumericUpDownPrepTime.Value),
                 Convert.ToInt32(uxNumericUpDownCookTime.Value));
         }
@@ -52,7 +59,6 @@ namespace RecipeRepositoryApp
         
         private void uxButtonRemoveIngredient_Click(object sender, EventArgs e)
         {
-            IIngredientListRepository ingredientListRepository = new IIngredientListRepository();
             var selectedRows = uxDataGridViewIngredients.SelectedRows;
             foreach(DataGridViewSelectedRowCollection Row in selectedRows)
             {
@@ -65,12 +71,12 @@ namespace RecipeRepositoryApp
 
         private void uxButtonAddIngredient_Click(object sender, EventArgs e)
         {
-            AddIngredientForm addIngredient = new AddIngredientForm();
+            AddIngredientForm addIngredient = new AddIngredientForm(ingredientListRepository);
             DialogResult dl = addIngredient.ShowDialog();
             if (dl == DialogResult.OK)
             {
                 addIngredient.AddUpdateIngredientInfo(recipe);
-                uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeIngredientList(recipe);//Returns reader
+                uxDataGridViewIngredients.DataSource = ingredientListRepository.GetRecipeIngredientList(recipe);//Returns reader
                 //Add recipe to 
             }
         }
@@ -82,7 +88,7 @@ namespace RecipeRepositoryApp
             if (dl == DialogResult.OK)
             {
                 addStep.AddUpdateStepInfo(recipe);
-                uxDataGridViewSteps.DataSource = recipeRepository.GetRecipeStepList(recipe);//Returns reader
+                uxDataGridViewSteps.DataSource = recipeRepository.GetStepList(recipe.RecipeId);//Returns reader
                 //Add recipe to 
             }
         }
@@ -90,13 +96,17 @@ namespace RecipeRepositoryApp
 
         private void uxButtonDeleteStep_Click(object sender, EventArgs e)
         {
-            IStepRepository stepRepository = new IStepRepository();
-            var selectedRows = uxDataGridViewIngredients.SelectedRows;
+            var selectedRows = uxDataGridViewSteps.SelectedRows;
             foreach (DataGridViewSelectedRowCollection Row in selectedRows)
             {
-                stepRepository.DeleteStep(recipe.RecipeId, Row[0].Cells[0].Value);
+                recipeRepository.DeleteStep(recipe.RecipeId, (int)Row[0].Cells[0].Value); //StepNumber
 
             }
+        }
+
+        private void uxButtonDeleteRecipe_Click(object sender, EventArgs e)
+        {
+            recipeRepository.DeleteRecipe(recipe.RecipeId);
         }
     }
 }

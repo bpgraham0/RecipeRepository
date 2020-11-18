@@ -53,6 +53,7 @@
             this.uxDataGridViewIngredients = new System.Windows.Forms.DataGridView();
             this.uxDataGridViewSteps = new System.Windows.Forms.DataGridView();
             this.uxButtonDeleteStep = new System.Windows.Forms.Button();
+            this.uxButtonDeleteRecipe = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownServingSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownPrepTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownCookTime)).BeginInit();
@@ -66,14 +67,15 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.label1.Location = new System.Drawing.Point(11, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(263, 32);
+            this.label1.Size = new System.Drawing.Size(173, 32);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Add or Edit a recipe";
+            this.label1.Text = "Edit a recipe";
             // 
             // uxTextBoxName
             // 
             this.uxTextBoxName.Location = new System.Drawing.Point(93, 63);
             this.uxTextBoxName.Name = "uxTextBoxName";
+            this.uxTextBoxName.ReadOnly = true;
             this.uxTextBoxName.Size = new System.Drawing.Size(542, 26);
             this.uxTextBoxName.TabIndex = 1;
             // 
@@ -301,11 +303,22 @@
             this.uxButtonDeleteStep.UseVisualStyleBackColor = true;
             this.uxButtonDeleteStep.Click += new System.EventHandler(this.uxButtonDeleteStep_Click);
             // 
-            // AddRecipeForm
+            // uxButtonDeleteRecipe
+            // 
+            this.uxButtonDeleteRecipe.Location = new System.Drawing.Point(845, 16);
+            this.uxButtonDeleteRecipe.Name = "uxButtonDeleteRecipe";
+            this.uxButtonDeleteRecipe.Size = new System.Drawing.Size(185, 40);
+            this.uxButtonDeleteRecipe.TabIndex = 33;
+            this.uxButtonDeleteRecipe.Text = "Delete Recipe";
+            this.uxButtonDeleteRecipe.UseVisualStyleBackColor = true;
+            this.uxButtonDeleteRecipe.Click += new System.EventHandler(this.uxButtonDeleteRecipe_Click);
+            // 
+            // EditRecipeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1058, 558);
+            this.Controls.Add(this.uxButtonDeleteRecipe);
             this.Controls.Add(this.uxButtonDeleteStep);
             this.Controls.Add(this.uxDataGridViewSteps);
             this.Controls.Add(this.uxDataGridViewIngredients);
@@ -331,7 +344,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.uxTextBoxName);
             this.Controls.Add(this.label1);
-            this.Name = "AddRecipeForm";
+            this.Name = "EditRecipeForm";
             this.Text = "AddRecipeForm";
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownServingSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownPrepTime)).EndInit();
@@ -370,5 +383,6 @@
         private System.Windows.Forms.DataGridView uxDataGridViewIngredients;
         private System.Windows.Forms.DataGridView uxDataGridViewSteps;
         private System.Windows.Forms.Button uxButtonDeleteStep;
+        private System.Windows.Forms.Button uxButtonDeleteRecipe;
     }
 }

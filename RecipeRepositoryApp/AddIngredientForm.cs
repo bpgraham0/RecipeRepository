@@ -13,19 +13,27 @@ namespace RecipeRepositoryApp
 {
     public partial class AddIngredientForm : Form
     {
-        public AddIngredientForm()
+        public AddIngredientForm(SqlIngredientListRepository ingredientListRepository)
         {
             InitializeComponent();
-            
+            this.ingredientListRepository = ingredientListRepository;
+            IList <Measurement> measurements = ingredientListRepository.FetchMeasurementList().ToList();
+            foreach(Measurement item in measurements)
+            {
+                uxComboBoxMeasurement.Items.Add(item.Name);
+
+            }
+            if(uxComboBoxMeasurement.Items.Count >0)
+                uxComboBoxMeasurement.SelectedItem = 1;
+
         }
+        SqlIngredientListRepository ingredientListRepository;
 
 
         public void AddUpdateIngredientInfo(Recipe recipe)
         {
-            IIngredientRepository ingredientRepository = new IIngredientRepository();
-            IIngredientListRepository ingredientListRepository = new IIngredientListRepository();
-            Ingredient ingredient = ingredientRepository.CreateGetIngredient(uxTextBoxName.Text,false); //for now, have item is default to false
-            ingredientListRepository.AddItemToIngredientList(recipe.RecipeId,ingredient.IngredientId,uxComboBoxMeasurement.SelectedItem.ToString(), Convert.ToInt32(uxNumericUpDownQuantity.Value));
+            Ingredient ingredient = ingredientListRepository.CreateGetIngredient(uxTextBoxName.Text,false); //for now, have item is default to false
+            ingredientListRepository.AddItemToIngredientList(recipe.RecipeId,ingredient.IngredientId,ingredientListRepository.GetMeasurementIdFromName(uxComboBoxMeasurement.SelectedItem.ToString()), Convert.ToDouble(uxNumericUpDownQuantity.Value));
             return ;
         } 
     }
