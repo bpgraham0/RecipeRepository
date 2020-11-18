@@ -48,8 +48,8 @@ namespace RecipeRepositoryApp
             SqlRecipeRepository recipeRepository = new SqlRecipeRepository();
 
             //recplace with REpository for creating recipe
-            int foodTypeId = foodTypeRepository.GetOrAddFoodTypeId(uxTextBoxCourseType.Text); 
-            int courseTypeId = courseTypeRepository.GetOrAddCourseTypeId(uxTextBoxCourseType.Text); 
+            int foodTypeId = foodTypeRepository.CreateUpdateFoodType(uxTextBoxCourseType.Text); 
+            int courseTypeId = courseTypeRepository.CreateUpdateCourseType(uxTextBoxCourseType.Text); 
 
             recipeRepository.CreateUpdateRecipe(foodTypeId, courseTypeId, uxTextBoxName.Text, uxTextBoxDescription.Text,
                 Convert.ToDouble(uxNumericUpDownServingSize.Value), Convert.ToInt32(uxNumericUpDownPrepTime.Value),
