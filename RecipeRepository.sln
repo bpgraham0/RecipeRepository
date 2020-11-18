@@ -22,6 +22,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeRepositoryApp", "RecipeRepositoryApp\RecipeRepositoryApp.csproj", "{BDCC8E42-A6CC-402F-A46A-DE9C19F30857}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D51AA58C-05B9-4A7D-9F80-CCEBF8A0EAF0} = {D51AA58C-05B9-4A7D-9F80-CCEBF8A0EAF0}
+		{A5AC459D-6C0A-4D6E-AD65-ECB3E0FEC3A7} = {A5AC459D-6C0A-4D6E-AD65-ECB3E0FEC3A7}
 	EndProjectSection
 EndProject
 Global

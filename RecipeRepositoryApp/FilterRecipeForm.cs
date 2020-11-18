@@ -7,17 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RecipeData.Models;
+using RecipeData.Repositories;
 
 namespace RecipeRepositoryApp
 {
     public partial class FilterRecipeForm : Form
     {
-        public FilterRecipeForm()
+        public FilterRecipeForm(IRecipeRepository recipeRepository)
         {
             InitializeComponent();
+            this.recipeRepository = recipeRepository;
+        }
+        IRecipeRepository recipeRepository;
+
+        public DataTable GetStandardSearchQuery()
+        {
+            return recipeRepository.GetStandardSearchQuery(uxTextBoxName.Text, uxTextBoxDescription.Text, uxTextBoxCourseType.Text,
+                uxTextBoxFoodType.Text, Convert.ToDouble(uxNumericUpDownMinimumStars.Value),Convert.ToDouble(uxNumericUpDownMaximumStars.Value),
+                uxTextBoxIngredient.Text, Convert.ToInt32(uxNumericUpDownPrepTime.Value), Convert.ToInt32(uxNumericUpDownCookTime.Value),
+                uxDateTimePickerRecentDate.Value.Date, uxDateTimePickerLatestDate.Value.Date,
+                uxCheckBoxHaveItem.Checked);
         }
 
-        public 
-        
+        public DataTable GetRecipesXIngredientsAway()
+        {
+            return recipeRepository.GetRecipesXIngredientsAway(Convert.ToInt32(uxNumericUpDownMissing.Value));
+        }
+
+
     }
 }
