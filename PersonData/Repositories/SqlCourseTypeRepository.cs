@@ -8,7 +8,7 @@ using System.Transactions;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Recipe.Repositories
+namespace RecipeData.Repositories
 {
     public class SqlCourseTypeRepository 
     {
@@ -27,7 +27,7 @@ namespace Recipe.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("CourseType.CreateUpdateCourseType", connection))
+                    using (var command = new SqlCommand("Recipe.CreateUpdateCourseType", connection))
                     {
 
                         command.CommandType = CommandType.StoredProcedure;
@@ -63,7 +63,7 @@ namespace Recipe.Repositories
                 {
                     using (var connection = new SqlConnection(connectionString))
                     {
-                        using (var command = new SqlCommand("CourseType.CreateUpdateCourseType", connection))
+                        using (var command = new SqlCommand("Recipe.CreateUpdateCourseType", connection))
                         {
 
                             command.CommandType = CommandType.StoredProcedure;
