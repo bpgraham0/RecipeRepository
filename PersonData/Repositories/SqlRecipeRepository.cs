@@ -60,8 +60,7 @@ namespace RecipeData.Repositories
                         transaction.Complete();
 
 
-                        return new Recipe((int)command.Parameters["RecipeId"].Value, foodTypeId, courseTypeId, name, description, servingSize, prepTime, cookTime,
-                            (DateTime)command.Parameters["CreatedOn"].Value, (DateTime)command.Parameters["UpdatedOn"].Value);
+                        return new Recipe((int)command.Parameters["RecipeId"].Value, foodTypeId, courseTypeId, name, description, servingSize, prepTime, cookTime,);
                     }
                 }
             }
@@ -191,9 +190,7 @@ namespace RecipeData.Repositories
                                           command.Parameters["Description"].Value.ToString(),
                                           (double)command.Parameters["ServingSize"].Value,
                                           (int)command.Parameters["PrepTime"].Value,
-                                          (int)command.Parameters["CookTime"].Value,
-                                          (DateTime)command.Parameters["CreatedOn"].Value,
-                                          (DateTime)command.Parameters["UpdatedOn"].Value);
+                                          (int)command.Parameters["CookTime"].Value);
                     }
                 }
             }

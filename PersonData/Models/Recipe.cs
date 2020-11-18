@@ -16,11 +16,9 @@ namespace RecipeData.Models
         public double ServingSize { get; }
         public int PrepTime { get; }
         public int CookTime { get; }
-        public DateTime CreatedOn { get; }
-        public DateTime UpdatedOn { get; }
 
         public Recipe(int recipeId, int foodTypeId, int courseTypeId, string name, 
-            string description, double servingSize, int prepTime, int cookTime, DateTime createdOn, DateTime updatedOn)
+            string description, double servingSize, int prepTime, int cookTime)
         {
             RecipeId = recipeId;
             FoodTypeId = foodTypeId;
@@ -30,8 +28,6 @@ namespace RecipeData.Models
             ServingSize = servingSize;
             PrepTime = prepTime;
             CookTime = cookTime;
-            CreatedOn = createdOn;
-            UpdatedOn = updatedOn;
         }
     }
 }
