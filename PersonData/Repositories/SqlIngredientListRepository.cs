@@ -18,7 +18,7 @@ namespace RecipeData.Repositories
         }
         string connectionString = @"Data Source=(localdb)\LocalDBApp1;Initial Catalog=RecipeRepository;Integrated Security=True";
 
-        public void AddToIngredientList(int RecipeID, int IngredientID, int MeasurementID, int Quanity)
+        public void AddToIngredientList(int RecipeID, int IngredientID, int MeasurementID, double Quanity)
         {
 
             using (var transaction = new TransactionScope())
