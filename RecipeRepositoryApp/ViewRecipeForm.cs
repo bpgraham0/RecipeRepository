@@ -39,7 +39,7 @@ namespace RecipeRepositoryApp
 
         private void uxButtonRateRecipe_Click(object sender, EventArgs e)
         {
-            recipeRepository.AddUpdateRecipeHistory(recipe.RecipeId, Convert.ToDouble(uxNumbericUpDownRate.Value));
+            recipeRepository.addtoHistoryOfUsedRecipes(recipe.RecipeId, Convert.ToDouble(uxNumbericUpDownRate.Value));
             uxLabelRateStars.Text = "Currently Rated " + recipeRepository.GetStars(recipe.RecipeId).ToString() +" out of 5 Stars";
 
         }

@@ -23,7 +23,7 @@ namespace RecipeRepositoryApp
 
         public DataTable GetStandardSearchQuery()
         {
-            return recipeRepository.GetStandardSearchQuery(uxTextBoxName.Text, uxTextBoxDescription.Text, uxTextBoxCourseType.Text,
+            return recipeRepository.SearchAllRecipes(uxTextBoxName.Text, uxTextBoxDescription.Text, uxTextBoxCourseType.Text,
                 uxTextBoxFoodType.Text, Convert.ToDouble(uxNumericUpDownMinimumStars.Value),Convert.ToDouble(uxNumericUpDownMaximumStars.Value),
                 uxTextBoxIngredient.Text, Convert.ToInt32(uxNumericUpDownPrepTime.Value), Convert.ToInt32(uxNumericUpDownCookTime.Value),
                 uxDateTimePickerRecentDate.Value.Date, uxDateTimePickerLatestDate.Value.Date,

@@ -76,7 +76,7 @@ namespace RecipeRepositoryApp
             if (dl == DialogResult.OK)
             {
                 addIngredient.AddUpdateIngredientInfo(recipe);
-                uxDataGridViewIngredients.DataSource = ingredientListRepository.GetRecipeIngredientList(recipe);//Returns reader
+                uxDataGridViewIngredients.DataSource = ingredientListRepository.FetchIngredientList(recipe.RecipeId);//Returns reader
                 //Add recipe to 
             }
         }
