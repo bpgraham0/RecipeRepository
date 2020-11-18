@@ -52,7 +52,6 @@
     <Compile Include="Models\Steps.cs" />
     <Compile Include="RecipeList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\IRecipeRepository.cs" />
     <Compile Include="Repositories\SqlRecipeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
