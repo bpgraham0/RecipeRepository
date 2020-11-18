@@ -4,7 +4,7 @@ BEGIN
 create table Recipes.HistoryOfUsedRecipes
 (
 	RecipeId INT NOT NULL FOREIGN KEY REFERENCES Recipes.Recipe(RecipeId) PRIMARY KEY,
-	LastDateUsed DateTime2 NOT NULL,
+	LastDateUsed Date NOT NULL,
 	Stars INT NOT NULL check (Stars>=0 and Stars <=5 )
 
       CONSTRAINT [PK_Recipes_HistoryOfUsedRecipes_RecipeId] PRIMARY KEY NONCLUSTERED

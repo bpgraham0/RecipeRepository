@@ -87,10 +87,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sql\Data\Recipes.FoodType.sql" />
-    <EmbeddedResource Include="Sql\Procedures\Recipes.add UpdateHistoryOfUsedRecipes - Copy %282%29.sql" />
-    <EmbeddedResource Include="..\..\Recipes.RecentRecipesSorted.sql">
-      <Link>Sql\Procedures\Recipes.RecentRecipesSorted.sql</Link>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Sql\Procedures\Recipes.FetchRemindRecipes.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.SearchAllRecipes.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.FetchTopTen.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.DeleteFromIngredientList.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.CreateUpdateCourseType.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.CreateUpdateFoodType.sql" />
+    <EmbeddedResource Include="Sql\Procedures\Recipes.FetchStars.sql" />
     <EmbeddedResource Include="Sql\Procedures\Recipes.FetchFullHistory.sql" />
     <EmbeddedResource Include="Sql\Procedures\Recipes.FetchSteps.sql" />
     <EmbeddedResource Include="Sql\Procedures\Recipes.FetchAllHaveIngredients.sql" />
