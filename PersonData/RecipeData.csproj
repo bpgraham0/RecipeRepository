@@ -84,5 +84,30 @@
   <ItemGroup>
     <Folder Include="DataDelegates\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sql\Procedures\Recipes.AddToIngredientList.sql" />
+    <Content Include="Sql\Procedures\Recipes.AddUpdateHistoryOfUsedRecipes.sql" />
+    <Content Include="Sql\Procedures\Recipes.CreateIngredient.sql" />
+    <Content Include="Sql\Procedures\Recipes.CreateUpdateCourseType.sql" />
+    <Content Include="Sql\Procedures\Recipes.CreateUpdateFoodType.sql" />
+    <Content Include="Sql\Procedures\Recipes.CreateUpdateRecipe.sql" />
+    <Content Include="Sql\Procedures\Recipes.CreateUpdateSteps.sql" />
+    <Content Include="Sql\Procedures\Recipes.DeleteFromIngredientList.sql" />
+    <Content Include="Sql\Procedures\Recipes.DeleteRecipe.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchAllHaveIngredients.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchAllRecipesCanMake.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchCookTime.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchCourceType.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchFoodType.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchFullHistory.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchIngredientList.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchRemindRecipes.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchStars.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchSteps.sql" />
+    <Content Include="Sql\Procedures\Recipes.FetchTopTen.sql" />
+    <Content Include="Sql\Procedures\Recipes.RecentRecipesSorted.sql" />
+    <Content Include="Sql\Procedures\Recipes.SearchAllRecipes.sql" />
+    <Content Include="Sql\Procedures\Recipes.UpdateHaveItem.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
