@@ -107,7 +107,6 @@
     <Content Include="Sql\Procedures\Recipes.FetchStars.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchSteps.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchTopTen.sql" />
-    <Content Include="Sql\Procedures\Recipes.RecentRecipesSorted.sql" />
     <Content Include="Sql\Procedures\Recipes.SearchAllRecipes.sql" />
     <Content Include="Sql\Procedures\Recipes.UpdateHaveItem.sql" />
   </ItemGroup>
