@@ -30,7 +30,7 @@ namespace RecipeRepositoryApp
             uxNumericUpDownServingSize.Value = Convert.ToDecimal(recipe.ServingSize);
             uxNumericUpDownPrepTime.Value = Convert.ToDecimal(recipe.PrepTime.ToString());
             uxNumericUpDownCookTime.Value = Convert.ToDecimal(recipe.CookTime.ToString());
-            uxDataGridViewIngredients.DataSource = ingredientListRepository.GetIngredientList(recipe.RecipeId);
+            uxDataGridViewIngredients.DataSource = ingredientListRepository.FetchIngredientList(recipe.RecipeId);
             uxDataGridViewSteps.DataSource = recipeRepository.GetStepList(recipe.RecipeId);
 
             this.recipe = recipe;
@@ -62,7 +62,7 @@ namespace RecipeRepositoryApp
             var selectedRows = uxDataGridViewIngredients.SelectedRows;
             foreach(DataGridViewSelectedRowCollection Row in selectedRows)
             {
-                ingredientListRepository.DeleteIngredient(recipe.RecipeId, Row[0].Cells[0].Value);
+                ingredientListRepository.DeleteFromIngredientList(recipe.RecipeId, (int)Row[0].Cells[0].Value);
 
             }
 
