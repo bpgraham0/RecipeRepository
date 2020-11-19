@@ -17,6 +17,8 @@ namespace RecipeRepositoryApp
         [STAThread]
         static void Main()
         {
+            
+            //string connectionString = @"Data Source=(localdb)\MSSQLLocalDb;Initial Catalog=RecipeRepository;Integrated Security=True";
             string connectionString = @"Data Source=(localdb)\LocalDBApp1;Initial Catalog=RecipeRepository;Integrated Security=True";
 
             Application.EnableVisualStyles();
