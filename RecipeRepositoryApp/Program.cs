@@ -17,9 +17,11 @@ namespace RecipeRepositoryApp
         [STAThread]
         static void Main()
         {
+            string connectionString = @"Data Source=(localdb)\LocalDBApp1;Initial Catalog=RecipeRepository;Integrated Security=True";
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RecipeRepositoryForm(new SqlRecipeRepository(), new SqlIngredientListRepository(), new SqlFoodTypeRepository(), new SqlCourseTypeRepository()));
+            Application.Run(new RecipeRepositoryForm(new SqlRecipeRepository(connectionString), new SqlIngredientListRepository(connectionString), new SqlFoodTypeRepository(connectionString), new SqlCourseTypeRepository(connectionString)));
         }
     }
 }

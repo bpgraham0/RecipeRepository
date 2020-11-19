@@ -25,8 +25,8 @@ namespace RecipeRepositoryApp
             this.courseTypeRepository = courseTypeRepository;
 
             uxTextBoxDescription.Text = recipe.Description;
-            uxTextBoxCourseType.Text = recipe.CourseTypeId.ToString(); //use repository to get course type
-            uxTextBoxFoodType.Text = recipe.FoodTypeId.ToString(); //use repository to get course type
+            uxTextBoxCourseType.Text = courseTypeRepository.FetchCourseType(recipe.RecipeId); //use repository to get course type
+            uxTextBoxFoodType.Text = foodTypeRepository.FetchFoodType(recipe.RecipeId); //use repository to get course type
             uxNumericUpDownServingSize.Value = Convert.ToDecimal(recipe.ServingSize);
             uxNumericUpDownPrepTime.Value = Convert.ToDecimal(recipe.PrepTime.ToString());
             uxNumericUpDownCookTime.Value = Convert.ToDecimal(recipe.CookTime.ToString());
