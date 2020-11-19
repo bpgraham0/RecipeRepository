@@ -16,7 +16,7 @@ namespace RecipeData.Repositories
         {
 
         }
-        string connectionString = @"Data Source=(localdb)\LocalDBApp1;Initial Catalog=RecipeRepository;Integrated Security=True";
+        string connectionString = @"Data Source=(localdb)\MSSQLLocalDb;Initial Catalog=RecipeRepository;Integrated Security=True";
 
         public void AddToIngredientList(int RecipeID, int IngredientID, int MeasurementID, double Quanity)
         {

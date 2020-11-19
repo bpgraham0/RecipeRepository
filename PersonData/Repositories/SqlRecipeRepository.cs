@@ -16,7 +16,7 @@ namespace RecipeData.Repositories
         {
 
         }
-        string connectionString = @"Data Source=(localdb)\LocalDBApp1;Initial Catalog=RecipeRepository;Integrated Security=True";
+        string connectionString = @"Data Source=(localdb)\MSSQLLocalDb;Initial Catalog=RecipeRepository;Integrated Security=True";
 
         public Recipe CreateUpdateRecipe(int foodTypeId, int courseTypeId, string name, string description, double servingSize, int prepTime, int cookTime)
         {
