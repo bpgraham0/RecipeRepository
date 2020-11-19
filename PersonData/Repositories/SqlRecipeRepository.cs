@@ -99,34 +99,34 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipes.FetchAllRecipes", connection))
+                    using (var command = new SqlCommand("Recipes.SearchAllRecipes", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.CommandType = CommandType.StoredProcedure;
                         var p = command.Parameters.Add("Name", SqlDbType.NVarChar);
-                        p.Value = Name; 
-                        var p = command.Parameters.Add("Description", SqlDbType.NVarChar);
+                        p.Value = Name;
+                        p = command.Parameters.Add("Description", SqlDbType.NVarChar);
                         p.Value = Description;
-                        var p = command.Parameters.Add("CourseType", SqlDbType.NVarChar);
+                        p = command.Parameters.Add("CourseType", SqlDbType.NVarChar);
                         p.Value = CourseType;
-                        var p = command.Parameters.Add("FoodType", SqlDbType.NVarChar);
+                        p = command.Parameters.Add("FoodType", SqlDbType.NVarChar);
                         p.Value = FoodType;
-                        var p = command.Parameters.Add("StarsMin", SqlDbType.Float);
+                        p = command.Parameters.Add("StarsMin", SqlDbType.Float);
                         p.Value = StarsMin;
-                        var p = command.Parameters.Add("StarsMax", SqlDbType.Float);
+                        p = command.Parameters.Add("StarsMax", SqlDbType.Float);
                         p.Value = StarsMax;
-                        var p = command.Parameters.Add("Ingreadent", SqlDbType.NVarChar);
+                        p = command.Parameters.Add("Ingreadent", SqlDbType.NVarChar);
                         p.Value = Ingreadent;
-                        var p = command.Parameters.Add("PreptimeMax", SqlDbType.Int);
+                        p = command.Parameters.Add("PreptimeMax", SqlDbType.Int);
                         p.Value = PreptimeMax;
-                        var p = command.Parameters.Add("cooktimeMax", SqlDbType.Int);
+                        p = command.Parameters.Add("cooktimeMax", SqlDbType.Int);
                         p.Value = cooktimeMax;
-                        var p = command.Parameters.Add("DateMin", SqlDbType.Date);
+                        p = command.Parameters.Add("DateMin", SqlDbType.Date);
                         p.Value = DateMin;
-                        var p = command.Parameters.Add("DateMax", SqlDbType.Date);
+                        p = command.Parameters.Add("DateMax", SqlDbType.Date);
                         p.Value = DateMax;
-                        var p = command.Parameters.Add("Have", SqlDbType.Bit);
-                        p.Value = DateMax;
+                        p = command.Parameters.Add("Have", SqlDbType.Bit);
+                        p.Value = Have;
                         connection.Open();
 
 
@@ -435,7 +435,7 @@ namespace RecipeData.Repositories
                         p = command.Parameters.Add("stars", SqlDbType.Int);
                         p.Direction = ParameterDirection.Output;
 
-                        stars = Convert.ToDouble(command.Parameters["@stars"].Value);
+                        stars = Convert.ToDouble(command.Parameters["stars"].Value);
 
 
 

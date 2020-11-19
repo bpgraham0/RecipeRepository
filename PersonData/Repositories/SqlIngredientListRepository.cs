@@ -201,7 +201,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipes.FetchIngredientList", connection))
+                    using (var command = new SqlCommand("Recipes.UpdateHaveItem", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         var p = command.Parameters.Add("Name", SqlDbType.NVarChar);
