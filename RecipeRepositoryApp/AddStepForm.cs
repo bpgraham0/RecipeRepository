@@ -14,15 +14,15 @@ namespace RecipeRepositoryApp
 {
     public partial class AddStepForm : Form
     {
-        public AddStepForm()
+        public AddStepForm(SqlRecipeRepository recipeRepository)
         {
             InitializeComponent();
+            this.recipeRepository = recipeRepository;
         }
-
+        SqlRecipeRepository recipeRepository;
         public void AddUpdateStepInfo(Recipe recipe)
         {
             
-            SqlRecipeRepository recipeRepository = new SqlRecipeRepository();
             recipeRepository.CreateGetStep(recipe.RecipeId,(int)uxNumericUpDownStepNumber.Value, uxTextBoxDescription.Text); 
 
         }

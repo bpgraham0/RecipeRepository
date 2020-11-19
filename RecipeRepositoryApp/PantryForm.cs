@@ -13,21 +13,21 @@ namespace RecipeRepositoryApp
 {
     public partial class PantryForm : Form
     {
-        public PantryForm()
+        public PantryForm(SqlIngredientListRepository ingredientRepository)
         {
             InitializeComponent();
+            this.ingredientRepository = ingredientRepository;
         }
+        SqlIngredientListRepository ingredientRepository;
 
         private void PantryForm_Load(object sender, EventArgs e)
         {
-            SqlIngredientListRepository ingredientRepository = new SqlIngredientListRepository();
             uxDataGridViewPantry.DataSource = ingredientRepository.FetchAllIngredient();
 
         }
 
         private void uxDataGridViewPantry_Click(object sender, EventArgs e)
         {
-            SqlIngredientListRepository ingredientRepository = new SqlIngredientListRepository();
             var dataSource = uxDataGridViewPantry.SelectedRows[0];
             string ingredientName = dataSource.Cells[0].Value.ToString();
             bool hasItem = (bool)dataSource.Cells[1].Value;

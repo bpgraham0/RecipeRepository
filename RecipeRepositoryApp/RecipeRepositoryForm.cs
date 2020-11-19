@@ -117,7 +117,7 @@ namespace RecipeRepositoryApp
 
         private void uxOpenPantry_Click(object sender, EventArgs e)
         {
-            PantryForm pantryForm = new PantryForm();
+            PantryForm pantryForm = new PantryForm(ingredientListRepository);
             DialogResult dl = pantryForm.ShowDialog();
             if (dl == DialogResult.OK)
             {

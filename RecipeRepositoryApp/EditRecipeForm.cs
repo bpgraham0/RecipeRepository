@@ -45,7 +45,7 @@ namespace RecipeRepositoryApp
 
         public void CreateUpdateRecipeInfo()
         {
-            SqlRecipeRepository recipeRepository = new SqlRecipeRepository();
+            
 
             //recplace with REpository for creating recipe
             int foodTypeId = foodTypeRepository.CreateUpdateFoodType(uxTextBoxCourseType.Text); 
@@ -83,7 +83,7 @@ namespace RecipeRepositoryApp
 
         private void uxButtonAddStep_Click(object sender, EventArgs e)
         {
-            AddStepForm addStep = new AddStepForm();
+            AddStepForm addStep = new AddStepForm(recipeRepository);
             DialogResult dl = addStep.ShowDialog();
             if (dl == DialogResult.OK)
             {

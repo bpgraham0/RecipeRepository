@@ -14,7 +14,7 @@ namespace RecipeData.Repositories
     {
         public SqlIngredientListRepository(string connectionString)
         {
-            this.connectionString = connectionString
+            this.connectionString = connectionString;
         }
         string connectionString;
 
