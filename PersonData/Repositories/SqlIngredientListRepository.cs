@@ -207,7 +207,14 @@ namespace RecipeData.Repositories
                         var p = command.Parameters.Add("Name", SqlDbType.NVarChar);
                         p.Value = Name;
                         p = command.Parameters.Add("HaveItem", SqlDbType.Bit);
-                        p.Value = HaveItem;
+                        if (HaveItem)
+                        {
+                            p.Value = 0;
+                        }
+                        else
+                        {
+                            p.Value = 1;
+                        }
                         connection.Open();
 
                         command.ExecuteNonQuery();

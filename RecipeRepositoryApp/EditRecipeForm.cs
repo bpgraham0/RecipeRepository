@@ -34,6 +34,7 @@ namespace RecipeRepositoryApp
             uxDataGridViewIngredients.DataSource = ingredientListRepository.FetchIngredientList(recipe.RecipeId);
             if (uxDataGridViewIngredients.Columns.Count > 0)
             {
+                uxDataGridViewIngredients.Columns[0].Visible = false;
                 uxDataGridViewIngredients.RowHeadersVisible = false;
             }
             uxDataGridViewSteps.DataSource = recipeRepository.GetStepList(recipe.RecipeId);
@@ -74,10 +75,11 @@ namespace RecipeRepositoryApp
                 ingredientListRepository.DeleteFromIngredientList(recipe.RecipeId, (int)Row.Cells[0].Value);
 
             }
-            uxDataGridViewSteps.DataSource = recipeRepository.GetStepList(recipe.RecipeId);//Returns reader
-            if (uxDataGridViewSteps.Columns.Count > 0)
+            uxDataGridViewIngredients.DataSource = recipeRepository.GetStepList(recipe.RecipeId);//Returns reader
+            if (uxDataGridViewIngredients.Columns.Count > 0)
             {
-                uxDataGridViewSteps.RowHeadersVisible = false;
+                uxDataGridViewIngredients.Columns[0].Visible = false;
+                uxDataGridViewIngredients.RowHeadersVisible = false;
             }
 
 
@@ -93,6 +95,7 @@ namespace RecipeRepositoryApp
                 uxDataGridViewIngredients.DataSource = ingredientListRepository.FetchIngredientList(recipe.RecipeId);//Returns reader
                 if (uxDataGridViewIngredients.Columns.Count > 0)
                 {
+                    uxDataGridViewIngredients.Columns[0].Visible = false;
                     uxDataGridViewIngredients.RowHeadersVisible = false;
                 }
                 //Add recipe to 

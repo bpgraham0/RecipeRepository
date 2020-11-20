@@ -44,6 +44,7 @@ namespace RecipeRepositoryApp
             uxDataGridViewIngredients.DataSource = ingredientListRepository.FetchIngredientList(recipe.RecipeId);
             if (uxDataGridViewIngredients.Columns.Count > 0)
             {
+                uxDataGridViewIngredients.Columns[0].Visible = false;
                 uxDataGridViewIngredients.RowHeadersVisible = false;
             }
             uxDataGridViewSteps.DataSource = recipeRepository.GetStepList(recipe.RecipeId);
