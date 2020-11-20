@@ -14,15 +14,15 @@ namespace RecipeRepositoryApp
 {
     public partial class ViewRecipeForm : Form
     {
-        public ViewRecipeForm(SqlRecipeRepository recipeRepository, SqlIngredientListRepository ingredientListRepository ,Recipe recipe)
+        public ViewRecipeForm(SqlRecipeRepository recipeRepository, SqlIngredientListRepository ingredientListRepository, SqlFoodTypeRepository foodTypeRepository, SqlCourseTypeRepository courseTypeRepository ,Recipe recipe)
         {
             
             InitializeComponent();
             this.recipeRepository = recipeRepository;
             uxTextBoxName.Text = recipe.Name;
             uxTextBoxDescription.Text = recipe.Description;
-            uxTextBoxCourseType.Text = recipe.CourseTypeId.ToString(); //use repository to get course type
-            uxTextBoxFoodType.Text = recipe.FoodTypeId.ToString(); //use repository to get course type
+            uxTextBoxCourseType.Text = courseTypeRepository.FetchCourseType(recipe.RecipeId); //use repository to get course type
+            uxTextBoxFoodType.Text = foodTypeRepository.FetchFoodType(recipe.RecipeId); //use repository to get course type
             uxTextBoxServingSize.Text = recipe.ServingSize.ToString();
             uxTextBoxPrepTime.Text = recipe.PrepTime.ToString();
             uxTextBoxCookTime.Text = recipe.CookTime.ToString();

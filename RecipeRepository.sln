@@ -8,16 +8,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeData", "PersonData\RecipeData.csproj", "{D51AA58C-05B9-4A7D-9F80-CCEBF8A0EAF0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{377496C4-13EB-4477-9A08-FB4D048D8F3D}"
-	ProjectSection(SolutionItems) = preProject
-		RebuildDatabase.ps1 = RebuildDatabase.ps1
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{DC1065A9-83CF-49CD-A85F-05B39D24FD30}"
-	ProjectSection(SolutionItems) = preProject
-		Scripts\CreateDatabase.ps1 = Scripts\CreateDatabase.ps1
-		Scripts\CreateDatabase.sql = Scripts\CreateDatabase.sql
-		Scripts\DropDatabase.ps1 = Scripts\DropDatabase.ps1
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeRepositoryApp", "RecipeRepositoryApp\RecipeRepositoryApp.csproj", "{BDCC8E42-A6CC-402F-A46A-DE9C19F30857}"
 EndProject
@@ -42,9 +32,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{DC1065A9-83CF-49CD-A85F-05B39D24FD30} = {377496C4-13EB-4477-9A08-FB4D048D8F3D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {60DDAEDE-952A-41D6-A720-0DE97968551F}

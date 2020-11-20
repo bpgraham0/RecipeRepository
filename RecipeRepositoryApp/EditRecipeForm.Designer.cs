@@ -305,6 +305,7 @@
             // 
             // uxButtonDeleteRecipe
             // 
+            this.uxButtonDeleteRecipe.DialogResult = System.Windows.Forms.DialogResult.No;
             this.uxButtonDeleteRecipe.Location = new System.Drawing.Point(845, 16);
             this.uxButtonDeleteRecipe.Name = "uxButtonDeleteRecipe";
             this.uxButtonDeleteRecipe.Size = new System.Drawing.Size(185, 40);

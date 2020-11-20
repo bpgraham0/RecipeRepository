@@ -31,7 +31,7 @@ namespace RecipeRepositoryApp
             
 
             //recplace with REpository for creating recipe
-            int foodTypeId = foodTypeRepository.CreateUpdateFoodType(uxTextBoxCourseType.Text); 
+            int foodTypeId = foodTypeRepository.CreateUpdateFoodType(uxTextBoxFoodType.Text); 
             int courseTypeId = courseTypeRepository.CreateUpdateCourseType(uxTextBoxCourseType.Text); 
 
             recipeRepository.CreateUpdateRecipe(foodTypeId, courseTypeId, uxTextBoxName.Text, uxTextBoxDescription.Text,

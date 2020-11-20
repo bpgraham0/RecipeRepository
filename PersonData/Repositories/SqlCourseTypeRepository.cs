@@ -12,11 +12,11 @@ namespace RecipeData.Repositories
 {
     public class SqlCourseTypeRepository 
     {
-        public SqlCourseTypeRepository()
+        public SqlCourseTypeRepository(string connectionString)
         {
-
+            this.connectionString = connectionString;
         }
-        string connectionString = @"Data Source=(localdb)\MSSQLLocalDb;Initial Catalog=RecipeRepository;Integrated Security=True";
+        string connectionString;
         int CourseTypeID;
         public int CreateUpdateCourseType(string name)
         {
@@ -56,28 +56,28 @@ namespace RecipeData.Repositories
 
 
         string Name;
-        public string FetchCourseType(int RecipieID)
+        public string FetchCourseType(int RecipeID)
         {
                 
                 using (var transaction = new TransactionScope())
                 {
                     using (var connection = new SqlConnection(connectionString))
                     {
-                        using (var command = new SqlCommand("Recipe.CreateUpdateCourseType", connection))
+                        using (var command = new SqlCommand("Recipes.FetchCourseType", connection))
                         {
 
                             command.CommandType = CommandType.StoredProcedure;
 
-                            var p = command.Parameters.Add("RecipieID", SqlDbType.NVarChar);
-                            p.Value = RecipieID;
-                            p = command.Parameters.Add("Name", SqlDbType.Int);
+                            var p = command.Parameters.Add("RecipeId", SqlDbType.Int);
+                            p.Value = RecipeID;
+                            p = command.Parameters.Add("Name", SqlDbType.NVarChar,64);
                             p.Direction = ParameterDirection.Output;
 
                             connection.Open();
 
                             command.ExecuteNonQuery();
 
-                            Name = Convert.ToString(command.Parameters["@Name"].Value);
+                            Name = Convert.ToString(command.Parameters["Name"].Value);
 
 
                             transaction.Complete();

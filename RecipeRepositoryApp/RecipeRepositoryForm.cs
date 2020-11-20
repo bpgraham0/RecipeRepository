@@ -82,7 +82,7 @@ namespace RecipeRepositoryApp
         {
             if (uxDataGridViewRecipes.SelectedRows.Count > 0)
             {
-                ViewRecipeForm viewRecipe = new ViewRecipeForm(recipeRepository, ingredientListRepository, recipeRepository.GetRecipeFromName(uxDataGridViewRecipes.SelectedRows[0].Cells[0].Value.ToString()));
+                ViewRecipeForm viewRecipe = new ViewRecipeForm(recipeRepository, ingredientListRepository, foodTypeRepository,courseTypeRepository,recipeRepository.GetRecipeFromName(uxDataGridViewRecipes.SelectedRows[0].Cells[0].Value.ToString()));
                 DialogResult dl = viewRecipe.ShowDialog();
                 if (dl == DialogResult.Cancel)
                 {
@@ -108,12 +108,16 @@ namespace RecipeRepositoryApp
                     uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeList();//Returns reader
                                                                                         //Add recipe to 
                 }
+                if(dl == DialogResult.No)
+                {
+                    uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeList();//Returns reader
+                }
             }
         }
 
         private void uxOpenPantry_Click(object sender, EventArgs e)
         {
-            PantryForm pantryForm = new PantryForm();
+            PantryForm pantryForm = new PantryForm(ingredientListRepository);
             DialogResult dl = pantryForm.ShowDialog();
             if (dl == DialogResult.OK)
             {

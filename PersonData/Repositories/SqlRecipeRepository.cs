@@ -12,12 +12,11 @@ namespace RecipeData.Repositories
 {
     public class SqlRecipeRepository
     {
-        public SqlRecipeRepository()
+        public SqlRecipeRepository(string connectionString)
         {
-
+            this.connectionString = connectionString;
         }
-        string connectionString = @"Data Source=(localdb)\MSSQLLocalDb;Initial Catalog=RecipeRepository;Integrated Security=True";
-
+        string connectionString;
         public Recipe CreateUpdateRecipe(int foodTypeId, int courseTypeId, string name, string description, double servingSize, int prepTime, int cookTime)
         {
             if (string.IsNullOrWhiteSpace(name))
@@ -56,14 +55,14 @@ namespace RecipeData.Repositories
 
                         command.ExecuteNonQuery();
 
-
                         transaction.Complete();
 
-
-                        return new Recipe((int)command.Parameters["RecipeId"].Value, (int)foodTypeId, (int)courseTypeId, name, description, (double)servingSize, (int)prepTime, (int)cookTime);
+                        
                     }
+                    
                 }
             }
+            return GetRecipeFromName(name);
 
         }
 

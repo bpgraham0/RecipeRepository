@@ -7,11 +7,11 @@ namespace RecipeData.Repositories
 {
     public class SqlFoodTypeRepository
     {
-        public SqlFoodTypeRepository()
+        public SqlFoodTypeRepository(string connectionString)
         {
-
+            this.connectionString = connectionString;
         }
-        string connectionString = @"Data Source=(localdb)\MSSQLLocalDb;Initial Catalog=RecipeRepository;Integrated Security=True";
+        string connectionString;
         int FoodTypeID;
         public int CreateUpdateFoodType(string name)
         {
@@ -60,21 +60,21 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipes.CreateUpdateFoodType", connection))
+                    using (var command = new SqlCommand("Recipes.FetchFoodType", connection))
                     {
 
                         command.CommandType = CommandType.StoredProcedure;
 
-                        var p = command.Parameters.Add("RecipieID", SqlDbType.NVarChar);
+                        var p = command.Parameters.Add("RecipeID", SqlDbType.Int);
                         p.Value = RecipieID;
-                        p = command.Parameters.Add("Name", SqlDbType.Int);
+                        p = command.Parameters.Add("Name", SqlDbType.NVarChar,64);
                         p.Direction = ParameterDirection.Output;
 
                         connection.Open();
 
                         command.ExecuteNonQuery();
 
-                        Name = Convert.ToString(command.Parameters["@Name"].Value);
+                        Name = Convert.ToString(command.Parameters["Name"].Value);
 
 
                         transaction.Complete();

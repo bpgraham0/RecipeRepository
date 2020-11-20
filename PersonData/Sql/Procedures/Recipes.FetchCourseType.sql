@@ -1,4 +1,4 @@
-﻿CREATE OR ALTER PROCEDURE Recipes.FetchCourceType
+﻿CREATE OR ALTER PROCEDURE Recipes.FetchCourseType
 	@recipeID int ,
 	@Name NVARCHAR(64) output
 AS
