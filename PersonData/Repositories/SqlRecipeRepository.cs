@@ -431,17 +431,14 @@ namespace RecipeData.Repositories
 
                         var p = command.Parameters.Add("RecipeId", SqlDbType.Int);
                         p.Value = recipeId;
-                        p = command.Parameters.Add("stars", SqlDbType.Int);
+                        p = command.Parameters.Add("stars", SqlDbType.Float);
                         p.Direction = ParameterDirection.Output;
-
-                        stars = Convert.ToDouble(command.Parameters["stars"].Value);
-
-
 
                         connection.Open();
 
                         command.ExecuteNonQuery();
 
+                        stars = Convert.ToDouble(command.Parameters["stars"].Value);
 
                         transaction.Complete();
 

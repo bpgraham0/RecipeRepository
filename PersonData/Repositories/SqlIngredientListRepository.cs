@@ -18,7 +18,7 @@ namespace RecipeData.Repositories
         }
         string connectionString;
 
-        public void AddToIngredientList(int RecipeID, int IngredientID, int MeasurementID, double Quanity)
+        public void AddToIngredientList(int RecipeID, int IngredientID, int MeasurementID, double Quantity)
         {
 
             using (var transaction = new TransactionScope())
@@ -36,8 +36,8 @@ namespace RecipeData.Repositories
                         p.Value = IngredientID;
                         p = command.Parameters.Add("MeasurementID", SqlDbType.NVarChar);
                         p.Value = MeasurementID;
-                        p = command.Parameters.Add("Quanity", SqlDbType.Float);
-                        p.Value = Quanity;
+                        p = command.Parameters.Add("Quantity", SqlDbType.Float);
+                        p.Value = Quantity;
 
                         connection.Open();
 

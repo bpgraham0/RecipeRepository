@@ -56,22 +56,44 @@ namespace RecipeRepositoryApp
             if (dl == DialogResult.OK)
             {
                 uxDataGridViewRecipes.DataSource = filterRecipe.GetStandardSearchQuery();//Returns reader
+                if (uxDataGridViewRecipes.Columns.Count > 0)
+                {
+                    uxDataGridViewRecipes.RowHeadersVisible = false;
+                }
             }
             if (dl == DialogResult.Ignore)
             {
                 uxDataGridViewRecipes.DataSource = recipeRepository.GetTopTenMonthly();//Returns reader
+                if (uxDataGridViewRecipes.Columns.Count > 0)
+                {
+                    uxDataGridViewRecipes.RowHeadersVisible = false;
+                }
             }
             if (dl == DialogResult.Yes)
             {
                 uxDataGridViewRecipes.DataSource = filterRecipe.GetRecipesXIngredientsAway();//Returns reader
+                if (uxDataGridViewRecipes.Columns.Count > 0)
+                {
+                    uxDataGridViewRecipes.RowHeadersVisible = false;
+                }
             }
             if (dl == DialogResult.No)
             {
                 uxDataGridViewRecipes.DataSource = recipeRepository.GetFreshRecipe();//Returns reader
+                if (uxDataGridViewRecipes.Columns.Count > 0)
+                {
+                    uxDataGridViewRecipes.RowHeadersVisible = false;
+                }
             }
             if (dl == DialogResult.Retry)
             {
                 uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeHistory();//Returns reader
+                if (uxDataGridViewRecipes.Columns.Count > 0)
+                {
+                    uxDataGridViewRecipes.RowHeadersVisible = false;
+                    uxDataGridViewRecipes.AutoResizeColumns();
+
+                }
 
             }
         }
