@@ -264,7 +264,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipes.FetchIngredientList", connection))
+                    using (var command = new SqlCommand("Recipes.FetchMeasurementId", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         var p = command.Parameters.Add("Name", SqlDbType.NVarChar);
@@ -272,11 +272,16 @@ namespace RecipeData.Repositories
                         p = command.Parameters.Add("MeasurementId", SqlDbType.Int);
                         p.Direction = ParameterDirection.Output;
                         command.CommandType = CommandType.StoredProcedure;
-                        MeasurementId = Convert.ToInt32(command.Parameters["MeasurementId"].Value);
+                        
 
                         connection.Open();
 
-                        
+                        command.ExecuteNonQuery();
+
+                        MeasurementId = Convert.ToInt32(command.Parameters["MeasurementId"].Value);
+
+                        transaction.Complete();
+
                         return MeasurementId;
 
 

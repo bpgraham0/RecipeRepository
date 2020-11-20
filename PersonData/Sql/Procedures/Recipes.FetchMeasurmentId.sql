@@ -1,5 +1,4 @@
-﻿
-CREATE OR ALTER PROCEDURE Recipes.FetchMeasurementId
+﻿CREATE OR ALTER PROCEDURE Recipes.FetchMeasurementId
 @Name NVARCHAR(64),
 @MeasurementId  int output
 AS
