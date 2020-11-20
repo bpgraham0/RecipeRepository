@@ -128,7 +128,7 @@
             this.uxButtonSearch.Name = "uxButtonSearch";
             this.uxButtonSearch.Size = new System.Drawing.Size(468, 40);
             this.uxButtonSearch.TabIndex = 5;
-            this.uxButtonSearch.Text = "Search History";
+            this.uxButtonSearch.Text = "Search";
             this.uxButtonSearch.UseVisualStyleBackColor = true;
             // 
             // label3
