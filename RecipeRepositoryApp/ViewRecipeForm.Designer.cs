@@ -242,6 +242,7 @@
             // 
             // uxNumbericUpDownRate
             // 
+            this.uxNumbericUpDownRate.DecimalPlaces = 1;
             this.uxNumbericUpDownRate.Increment = new decimal(new int[] {
             5,
             0,

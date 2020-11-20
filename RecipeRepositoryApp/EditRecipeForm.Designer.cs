@@ -43,7 +43,6 @@
             this.uxButtonCancelRecipe = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.uxButtonAddIngredient = new System.Windows.Forms.Button();
-            this.uxButtonRemoveIngredient = new System.Windows.Forms.Button();
             this.uxButtonAddStep = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -54,6 +53,7 @@
             this.uxDataGridViewSteps = new System.Windows.Forms.DataGridView();
             this.uxButtonDeleteStep = new System.Windows.Forms.Button();
             this.uxButtonDeleteRecipe = new System.Windows.Forms.Button();
+            this.uxButtonRemoveIngredient = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownServingSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownPrepTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxNumericUpDownCookTime)).BeginInit();
@@ -193,21 +193,11 @@
             // 
             this.uxButtonAddIngredient.Location = new System.Drawing.Point(22, 269);
             this.uxButtonAddIngredient.Name = "uxButtonAddIngredient";
-            this.uxButtonAddIngredient.Size = new System.Drawing.Size(149, 50);
+            this.uxButtonAddIngredient.Size = new System.Drawing.Size(137, 50);
             this.uxButtonAddIngredient.TabIndex = 16;
             this.uxButtonAddIngredient.Text = "Add Ingredient";
             this.uxButtonAddIngredient.UseVisualStyleBackColor = true;
             this.uxButtonAddIngredient.Click += new System.EventHandler(this.uxButtonAddIngredient_Click);
-            // 
-            // uxButtonRemoveIngredient
-            // 
-            this.uxButtonRemoveIngredient.Location = new System.Drawing.Point(177, 269);
-            this.uxButtonRemoveIngredient.Name = "uxButtonRemoveIngredient";
-            this.uxButtonRemoveIngredient.Size = new System.Drawing.Size(153, 50);
-            this.uxButtonRemoveIngredient.TabIndex = 17;
-            this.uxButtonRemoveIngredient.Text = "Remove Ingredient";
-            this.uxButtonRemoveIngredient.UseVisualStyleBackColor = true;
-            this.uxButtonRemoveIngredient.Click += new System.EventHandler(this.uxButtonRemoveIngredient_Click);
             // 
             // uxButtonAddStep
             // 
@@ -314,11 +304,22 @@
             this.uxButtonDeleteRecipe.UseVisualStyleBackColor = true;
             this.uxButtonDeleteRecipe.Click += new System.EventHandler(this.uxButtonDeleteRecipe_Click);
             // 
+            // uxButtonRemoveIngredient
+            // 
+            this.uxButtonRemoveIngredient.Location = new System.Drawing.Point(165, 269);
+            this.uxButtonRemoveIngredient.Name = "uxButtonRemoveIngredient";
+            this.uxButtonRemoveIngredient.Size = new System.Drawing.Size(165, 50);
+            this.uxButtonRemoveIngredient.TabIndex = 34;
+            this.uxButtonRemoveIngredient.Text = "Remove Ingredient";
+            this.uxButtonRemoveIngredient.UseVisualStyleBackColor = true;
+            this.uxButtonRemoveIngredient.Click += new System.EventHandler(this.uxButtonRemoveIngredient_Click);
+            // 
             // EditRecipeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1058, 558);
+            this.Controls.Add(this.uxButtonRemoveIngredient);
             this.Controls.Add(this.uxButtonDeleteRecipe);
             this.Controls.Add(this.uxButtonDeleteStep);
             this.Controls.Add(this.uxDataGridViewSteps);
@@ -329,7 +330,6 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.uxButtonAddStep);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.uxButtonRemoveIngredient);
             this.Controls.Add(this.uxButtonAddIngredient);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.uxButtonCancelRecipe);
@@ -374,7 +374,6 @@
         private System.Windows.Forms.Button uxButtonCancelRecipe;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button uxButtonAddIngredient;
-        private System.Windows.Forms.Button uxButtonRemoveIngredient;
         private System.Windows.Forms.Button uxButtonAddStep;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
@@ -385,5 +384,6 @@
         private System.Windows.Forms.DataGridView uxDataGridViewSteps;
         private System.Windows.Forms.Button uxButtonDeleteStep;
         private System.Windows.Forms.Button uxButtonDeleteRecipe;
+        private System.Windows.Forms.Button uxButtonRemoveIngredient;
     }
 }

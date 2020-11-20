@@ -31,6 +31,7 @@ namespace RecipeRepositoryApp
 
         private void uxDataGridViewPantry_Click(object sender, EventArgs e)
         {
+            
             var dataSource = uxDataGridViewPantry.SelectedRows[0];
             string ingredientName = dataSource.Cells[0].Value.ToString();
             bool hasItem = (bool)dataSource.Cells[1].Value;

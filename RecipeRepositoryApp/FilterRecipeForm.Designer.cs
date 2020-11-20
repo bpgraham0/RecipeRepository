@@ -88,7 +88,7 @@
             this.uxButtonOnlyNeedX.Name = "uxButtonOnlyNeedX";
             this.uxButtonOnlyNeedX.Size = new System.Drawing.Size(221, 31);
             this.uxButtonOnlyNeedX.TabIndex = 1;
-            this.uxButtonOnlyNeedX.Text = "Currently Possible Recipes";
+            this.uxButtonOnlyNeedX.Text = "Need X to make";
             this.uxButtonOnlyNeedX.UseVisualStyleBackColor = true;
             // 
             // uxButtonSomethingNew
@@ -128,7 +128,7 @@
             this.uxButtonSearch.Name = "uxButtonSearch";
             this.uxButtonSearch.Size = new System.Drawing.Size(468, 40);
             this.uxButtonSearch.TabIndex = 5;
-            this.uxButtonSearch.Text = "Search";
+            this.uxButtonSearch.Text = "Search History";
             this.uxButtonSearch.UseVisualStyleBackColor = true;
             // 
             // label3
@@ -147,9 +147,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label4.Location = new System.Drawing.Point(17, 568);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(517, 25);
+            this.label4.Size = new System.Drawing.Size(466, 25);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Recipes where you have enough ingredients to make now:";
+            this.label4.Text = "Recipes where you only need X ingredients to make:";
             // 
             // uxNumericUpDownMissing
             // 
@@ -165,10 +165,8 @@
             0,
             0});
             this.uxNumericUpDownMissing.Name = "uxNumericUpDownMissing";
-            this.uxNumericUpDownMissing.ReadOnly = true;
             this.uxNumericUpDownMissing.Size = new System.Drawing.Size(45, 26);
             this.uxNumericUpDownMissing.TabIndex = 8;
-            this.uxNumericUpDownMissing.Visible = false;
             // 
             // label5
             // 
@@ -437,7 +435,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(313, 40);
             this.button1.TabIndex = 67;
-            this.button1.Text = "Get Recipe History";
+            this.button1.Text = "Get Full Recipe History";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // FilterRecipeForm
