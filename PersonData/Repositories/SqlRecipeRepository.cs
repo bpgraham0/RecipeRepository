@@ -132,7 +132,7 @@ namespace RecipeData.Repositories
                         connection.Open();
 
 
-                        SqlDataReader reader = command.ExecuteReader();
+                         SqlDataReader reader = command.ExecuteReader();
 
                         DataTable dt = new DataTable();
                         dt.Load(reader);
@@ -441,7 +441,14 @@ namespace RecipeData.Repositories
 
                         command.ExecuteNonQuery();
 
-                        stars = Convert.ToDouble(command.Parameters["stars"].Value);
+                        if (command.Parameters["stars"].Value.GetType() ==typeof(DBNull))
+                        {
+                            stars = 0;
+                        }
+                        else
+                        {
+                            stars = Convert.ToDouble(command.Parameters["stars"].Value);
+                        }
 
                         transaction.Complete();
 

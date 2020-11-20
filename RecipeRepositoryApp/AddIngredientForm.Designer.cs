@@ -105,6 +105,7 @@
             // 
             // uxComboBoxMeasurement
             // 
+            this.uxComboBoxMeasurement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.uxComboBoxMeasurement.FormattingEnabled = true;
             this.uxComboBoxMeasurement.Location = new System.Drawing.Point(245, 80);
             this.uxComboBoxMeasurement.Name = "uxComboBoxMeasurement";
