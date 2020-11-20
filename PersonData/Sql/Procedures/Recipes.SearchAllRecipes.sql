@@ -22,7 +22,11 @@ SET @DateMin = DATEADD(YEAR, -100, getdate())
 SET @DateMax = getdate()
 end
 
+if @CookTimeMax=0 begin
+set @CookTimeMax=1000 end
 
+if @PrepTime=0 begin
+set @PrepTime=1000 end
 
 
 select R.[name] as name  ,FT.[Name] as "Food Type",CT.[name]As "Course Type",R.[Description],R.CookTime,R.PrepTime,R.ServingSize,Hr.Stars
@@ -35,9 +39,7 @@ select IL.RecipeId
 from Recipes.IngredientList IL
 Inner Join Recipes.Ingredient I On I.IngredientId = IL.IngredientId
 where I.[Name] Like '%'+ @Ingreadent+'%'
-and(
-I.HaveItem =1
-or I.HaveItem=@Have)
+
 
 intersect
 
