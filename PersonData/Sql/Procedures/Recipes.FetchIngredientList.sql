@@ -2,7 +2,7 @@
 	@recipeID int
 AS
 
-select I.IngredientId ,I.name, IL.quantity, M.name, I.HaveItem
+select IL.IngredientId I.name, IL.quantity, M.name, I.HaveItem
 from Recipes.IngredientList IL
 Inner Join Recipes.Ingredient I ON  I.IngredientId = IL.IngredientId
 Inner Join Recipes.Measurement M ON  M.MeasurementID = IL.MeasurementID
