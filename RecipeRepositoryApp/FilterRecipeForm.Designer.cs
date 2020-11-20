@@ -357,6 +357,11 @@
             this.uxNumericUpDownMaximumStars.Name = "uxNumericUpDownMaximumStars";
             this.uxNumericUpDownMaximumStars.Size = new System.Drawing.Size(100, 26);
             this.uxNumericUpDownMaximumStars.TabIndex = 58;
+            this.uxNumericUpDownMaximumStars.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             // 
             // label15
             // 
