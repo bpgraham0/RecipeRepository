@@ -88,7 +88,7 @@
             this.uxButtonOnlyNeedX.Name = "uxButtonOnlyNeedX";
             this.uxButtonOnlyNeedX.Size = new System.Drawing.Size(221, 31);
             this.uxButtonOnlyNeedX.TabIndex = 1;
-            this.uxButtonOnlyNeedX.Text = "Missing X";
+            this.uxButtonOnlyNeedX.Text = "Currently Possible Recipes";
             this.uxButtonOnlyNeedX.UseVisualStyleBackColor = true;
             // 
             // uxButtonSomethingNew
@@ -147,12 +147,17 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label4.Location = new System.Drawing.Point(17, 568);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(447, 25);
+            this.label4.Size = new System.Drawing.Size(517, 25);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Recipes where you are only missing X ingredients:";
+            this.label4.Text = "Recipes where you have enough ingredients to make now:";
             // 
             // uxNumericUpDownMissing
             // 
+            this.uxNumericUpDownMissing.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.uxNumericUpDownMissing.Location = new System.Drawing.Point(583, 565);
             this.uxNumericUpDownMissing.Maximum = new decimal(new int[] {
             10,
@@ -160,8 +165,10 @@
             0,
             0});
             this.uxNumericUpDownMissing.Name = "uxNumericUpDownMissing";
+            this.uxNumericUpDownMissing.ReadOnly = true;
             this.uxNumericUpDownMissing.Size = new System.Drawing.Size(45, 26);
             this.uxNumericUpDownMissing.TabIndex = 8;
+            this.uxNumericUpDownMissing.Visible = false;
             // 
             // label5
             // 

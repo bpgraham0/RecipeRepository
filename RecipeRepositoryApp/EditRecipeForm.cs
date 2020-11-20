@@ -75,7 +75,7 @@ namespace RecipeRepositoryApp
                 ingredientListRepository.DeleteFromIngredientList(recipe.RecipeId, (int)Row.Cells[0].Value);
 
             }
-            uxDataGridViewIngredients.DataSource = recipeRepository.GetStepList(recipe.RecipeId);//Returns reader
+            uxDataGridViewIngredients.DataSource = ingredientListRepository.FetchIngredientList(recipe.RecipeId);//Returns reader
             if (uxDataGridViewIngredients.Columns.Count > 0)
             {
                 uxDataGridViewIngredients.Columns[0].Visible = false;
