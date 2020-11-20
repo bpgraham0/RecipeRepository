@@ -16,10 +16,16 @@ namespace RecipeRepositoryApp
         public PantryForm(SqlIngredientListRepository ingredientRepository)
         {
             InitializeComponent();
+            //initalize repo
             this.ingredientRepository = ingredientRepository;
         }
         SqlIngredientListRepository ingredientRepository;
 
+        /// <summary>
+        /// on load, gets all items from item table
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PantryForm_Load(object sender, EventArgs e)
         {
             uxDataGridViewPantry.DataSource = ingredientRepository.FetchAllIngredient();
@@ -29,6 +35,11 @@ namespace RecipeRepositoryApp
             }
         }
 
+        /// <summary>
+        /// allows user to change whether they have a specific item or not
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxDataGridViewPantry_Click(object sender, EventArgs e)
         {
             

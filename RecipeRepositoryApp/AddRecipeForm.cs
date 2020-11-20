@@ -17,6 +17,7 @@ namespace RecipeRepositoryApp
         public AddRecipeForm(SqlRecipeRepository recipeRepository, SqlFoodTypeRepository foodTypeRepository, SqlCourseTypeRepository courseTypeRepository)
         {
             InitializeComponent();
+            //initalize repos
             this.recipeRepository = recipeRepository;
             this.foodTypeRepository = foodTypeRepository;
             this.courseTypeRepository = courseTypeRepository;
@@ -26,10 +27,11 @@ namespace RecipeRepositoryApp
         SqlFoodTypeRepository foodTypeRepository;
         SqlCourseTypeRepository courseTypeRepository;
 
+        /// <summary>
+        /// creates recipe from info in form
+        /// </summary>
         public void CreateUpdateRecipeInfo()
         {
-            
-
             //recplace with REpository for creating recipe
             int foodTypeId = foodTypeRepository.CreateUpdateFoodType(uxTextBoxFoodType.Text); 
             int courseTypeId = courseTypeRepository.CreateUpdateCourseType(uxTextBoxCourseType.Text); 

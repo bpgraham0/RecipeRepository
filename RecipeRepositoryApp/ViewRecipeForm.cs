@@ -18,11 +18,13 @@ namespace RecipeRepositoryApp
         {
             
             InitializeComponent();
+            //initalize repositories
             this.recipeRepository = recipeRepository;
             this.courseTypeRepository = courseTypeRepository;
             this.foodTypeRepository = foodTypeRepository;
             this.ingredientListRepository = ingredientListRepository;
             this.recipe = recipe;
+            
             RefreshView();
 
         }
@@ -32,6 +34,9 @@ namespace RecipeRepositoryApp
         SqlFoodTypeRepository foodTypeRepository;
         SqlIngredientListRepository ingredientListRepository;
 
+        /// <summary>
+        /// refils form with relevant data
+        /// </summary>
         private void RefreshView()
         {
             uxTextBoxName.Text = recipe.Name;
@@ -55,7 +60,12 @@ namespace RecipeRepositoryApp
             uxLabelRateStars.Text = "Currently Rated " + recipeRepository.GetStars(recipe.RecipeId).ToString() + " out of 5 Stars";
 
         }
-
+        
+        /// <summary>
+        /// hard deletes recipe from database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxButtonRateRecipe_Click(object sender, EventArgs e)
         {
             recipeRepository.addtoHistoryOfUsedRecipes(recipe.RecipeId, Convert.ToDouble(uxNumbericUpDownRate.Value));

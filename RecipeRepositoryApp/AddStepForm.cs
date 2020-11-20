@@ -17,6 +17,7 @@ namespace RecipeRepositoryApp
         public AddStepForm(SqlRecipeRepository recipeRepository, Recipe recipe)
         {
             InitializeComponent();
+            //initalize values
             this.recipeRepository = recipeRepository;
             DataTable dt = recipeRepository.GetStepList(recipe.RecipeId);
             if (dt.Rows.Count > 0)
@@ -26,6 +27,10 @@ namespace RecipeRepositoryApp
             }
         }
         SqlRecipeRepository recipeRepository;
+        /// <summary>
+        /// creates step from info
+        /// </summary>
+        /// <param name="recipe"></param>
         public void AddUpdateStepInfo(Recipe recipe)
         {
             

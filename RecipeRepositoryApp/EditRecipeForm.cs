@@ -18,7 +18,7 @@ namespace RecipeRepositoryApp
         public EditRecipeForm(SqlRecipeRepository recipeRepository, SqlIngredientListRepository ingredientListRepository, SqlFoodTypeRepository foodTypeRepository, SqlCourseTypeRepository courseTypeRepository, Recipe recipe)
         {
             InitializeComponent();
-            uxButtonRemoveIngredient.TextAlign = ContentAlignment.MiddleCenter; 
+            //initalize values
             uxTextBoxName.Text = recipe.Name;
             this.recipeRepository = recipeRepository;
             this.ingredientListRepository = ingredientListRepository;
@@ -51,7 +51,9 @@ namespace RecipeRepositoryApp
         SqlCourseTypeRepository courseTypeRepository;
 
 
-
+        /// <summary>
+        /// creates/updates recipe from info on form
+        /// </summary>
         public void CreateUpdateRecipeInfo()
         {
             
@@ -66,6 +68,11 @@ namespace RecipeRepositoryApp
         }
 
         
+        /// <summary>
+        /// removes ingredient from list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxButtonRemoveIngredient_Click(object sender, EventArgs e)
         {
             var selectedRows = uxDataGridViewIngredients.SelectedRows;
@@ -85,6 +92,11 @@ namespace RecipeRepositoryApp
 
         }
 
+        /// <summary>
+        /// adds ingredient to list and creates it if new ingredinet
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxButtonAddIngredient_Click(object sender, EventArgs e)
         {
             AddIngredientForm addIngredient = new AddIngredientForm(ingredientListRepository);
@@ -102,6 +114,11 @@ namespace RecipeRepositoryApp
             }
         }
 
+        /// <summary>
+        /// adds step to list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxButtonAddStep_Click(object sender, EventArgs e)
         {
             AddStepForm addStep = new AddStepForm(recipeRepository, recipe);
@@ -118,7 +135,11 @@ namespace RecipeRepositoryApp
             }
         }
 
-
+        /// <summary>
+        /// deletes step from list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxButtonDeleteStep_Click(object sender, EventArgs e)
         {
             var selectedRows = uxDataGridViewSteps.SelectedRows;
@@ -134,6 +155,11 @@ namespace RecipeRepositoryApp
             }
         }
 
+        /// <summary>
+        /// hard deletes recipe from database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxButtonDeleteRecipe_Click(object sender, EventArgs e)
         {
             recipeRepository.DeleteRecipe(recipe.RecipeId);

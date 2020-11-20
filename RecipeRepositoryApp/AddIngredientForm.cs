@@ -16,6 +16,7 @@ namespace RecipeRepositoryApp
         public AddIngredientForm(SqlIngredientListRepository ingredientListRepository)
         {
             InitializeComponent();
+            //initalize repos
             this.ingredientListRepository = ingredientListRepository;
             uxComboBoxMeasurement.DataSource = ingredientListRepository.FetchMeasurementList().ToList();
             if(uxComboBoxMeasurement.Items.Count >0)
@@ -24,7 +25,10 @@ namespace RecipeRepositoryApp
         }
         SqlIngredientListRepository ingredientListRepository;
 
-
+        /// <summary>
+        /// creates ingredient from form info and adds it to recipe's list
+        /// </summary>
+        /// <param name="recipe"></param>
         public void AddUpdateIngredientInfo(Recipe recipe)
         {
             int ingredientId = ingredientListRepository.CreateIngredient(uxTextBoxName.Text,0); //for now, have item is default to false

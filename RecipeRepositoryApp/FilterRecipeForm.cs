@@ -17,6 +17,7 @@ namespace RecipeRepositoryApp
         public FilterRecipeForm(SqlRecipeRepository recipeRepository)
         {
             InitializeComponent();
+            //initalizes values
             this.recipeRepository = recipeRepository;
             uxDateTimePickerLatestDate.Value = DateTime.Today;
             uxDateTimePickerRecentDate.Value = DateTime.Today;
@@ -30,6 +31,11 @@ namespace RecipeRepositoryApp
         }
         SqlRecipeRepository recipeRepository;
         bool dateChanged = false;
+
+        /// <summary>
+        /// REPORT QUERY 1: Massive custom search from user
+        /// </summary>
+        /// <returns></returns>
         public DataTable GetStandardSearchQuery()
         {
             return recipeRepository.SearchAllRecipes(uxTextBoxName.Text, uxTextBoxDescription.Text, uxTextBoxCourseType.Text,
@@ -39,16 +45,30 @@ namespace RecipeRepositoryApp
                 uxCheckBoxHaveItem.Checked,dateChanged);
         }
 
+        /// <summary>
+        /// REPORT QUERY 3: gets recipes where user is only X ingredients away from being able to make now
+        /// </summary>
+        /// <returns></returns>
         public DataTable GetRecipesXIngredientsAway()
         {
             return recipeRepository.GetRecipesXIngredientsAway(Convert.ToInt32(uxNumericUpDownMissing.Value));
         }
 
+        /// <summary>
+        /// checks if date has changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxDateTimePickerLatestDate_ValueChanged(object sender, EventArgs e)
         {
             dateChanged = true;
         }
 
+        /// <summary>
+        /// checks if date has changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxDateTimePickerRecentDate_ValueChanged(object sender, EventArgs e)
         {
             dateChanged = true;

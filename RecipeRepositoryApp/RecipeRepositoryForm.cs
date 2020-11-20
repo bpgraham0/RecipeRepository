@@ -20,14 +20,12 @@ namespace RecipeRepositoryApp
         {
             InitializeComponent();
             
-
+            //initalize databases
             this.recipeRepository = recipeRepository;
             this.ingredientListRepository = ingredientListRepository;
             this.foodTypeRepository = foodTypeRepository;
             this.courseTypeRepository = courseTypeRepository;
-            //DataTable dt = new DataTable();
-            //dt.Load(command.ExecuteReader());
-            //return dt;
+
             RefreshDataGridView();//Returns reader
 
         }
@@ -36,41 +34,62 @@ namespace RecipeRepositoryApp
         SqlIngredientListRepository ingredientListRepository;
         SqlCourseTypeRepository courseTypeRepository;
 
-
+        /// <summary>
+        /// refreshes main data tables
+        /// </summary>
         private void RefreshDataGridView()
         {
             uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeList();//Returns reader
 
             if (uxDataGridViewRecipes.Columns.Count > 0)
             {
-                uxDataGridViewRecipes.RowHeadersVisible = false;
+                uxDataGridViewRecipes.RowHeadersVisible = false; //makes row header invisible as they had no relevant info
             }
         }
 
 
-
+        /// <summary>
+        /// opens filter screen and populates main table based on selection added
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxFilterRecipesButton_Click(object sender, EventArgs e)
         {
             FilterRecipeForm filterRecipe = new FilterRecipeForm(recipeRepository);
             DialogResult dl = filterRecipe.ShowDialog();
             if (dl == DialogResult.OK)
             {
+                /// <summary>
+                /// REPORT QUERY 1: Massive custom search from user
+                /// </summary>
+                /// <returns></returns>
                 uxDataGridViewRecipes.DataSource = filterRecipe.GetStandardSearchQuery();//Returns reader
                 if (uxDataGridViewRecipes.Columns.Count > 0)
                 {
                     uxDataGridViewRecipes.RowHeadersVisible = false;
                 }
             }
+
+            
             if (dl == DialogResult.Ignore)
             {
+                /// <summary>
+                /// REPORT QUERY 2: Gets top ten recipes for this month and sorts by stars
+                /// </summary>
+                /// <returns></returns>
                 uxDataGridViewRecipes.DataSource = recipeRepository.GetTopTenMonthly();//Returns reader
                 if (uxDataGridViewRecipes.Columns.Count > 0)
                 {
                     uxDataGridViewRecipes.RowHeadersVisible = false;
                 }
             }
+            
             if (dl == DialogResult.Yes)
             {
+                /// <summary>
+                /// REPORT QUERY 3: gets recipes where user is only X ingredients away from being able to make now
+                /// </summary>
+                /// <returns></returns>
                 uxDataGridViewRecipes.DataSource = filterRecipe.GetRecipesXIngredientsAway();//Returns reader
                 if (uxDataGridViewRecipes.Columns.Count > 0)
                 {
@@ -79,6 +98,10 @@ namespace RecipeRepositoryApp
             }
             if (dl == DialogResult.No)
             {
+                /// <summary>
+                /// REPORT QUERY 4: Gets a new recipe that the user hasnt made in a month
+                /// </summary>
+                /// <returns></returns>
                 uxDataGridViewRecipes.DataSource = recipeRepository.GetFreshRecipe();//Returns reader
                 if (uxDataGridViewRecipes.Columns.Count > 0)
                 {
@@ -87,6 +110,10 @@ namespace RecipeRepositoryApp
             }
             if (dl == DialogResult.Retry)
             {
+                /// <summary>
+                /// fetches history of made recipes
+                /// </summary>
+                /// <returns></returns>
                 uxDataGridViewRecipes.DataSource = recipeRepository.GetRecipeHistory();//Returns reader
                 if (uxDataGridViewRecipes.Columns.Count > 0)
                 {
@@ -98,6 +125,11 @@ namespace RecipeRepositoryApp
             }
         }
 
+        /// <summary>
+        /// open add recipe screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxAddRecipeButton_Click(object sender, EventArgs e)
         {
             AddRecipeForm addRecipe = new AddRecipeForm(recipeRepository, foodTypeRepository, courseTypeRepository);
@@ -110,6 +142,11 @@ namespace RecipeRepositoryApp
             }
         }
 
+        /// <summary>
+        /// opens recipe view button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxButtonViewRecipe_Click(object sender, EventArgs e)
         {
             if (uxDataGridViewRecipes.SelectedRows.Count > 0)
@@ -123,11 +160,21 @@ namespace RecipeRepositoryApp
             }
         }
 
+        /// <summary>
+        /// revers main view to show all recipes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxButtonClear_Click(object sender, EventArgs e)
         {
             RefreshDataGridView();//Returns reader
         }
 
+        /// <summary>
+        /// opens edit recipe view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxEditRecipeButton_Click(object sender, EventArgs e)
         {
             if (uxDataGridViewRecipes.SelectedRows.Count > 0)
@@ -148,6 +195,11 @@ namespace RecipeRepositoryApp
             }
         }
 
+        /// <summary>
+        /// opens pantry vew where people can changes whether they have an item or not
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxOpenPantry_Click(object sender, EventArgs e)
         {
             PantryForm pantryForm = new PantryForm(ingredientListRepository);
