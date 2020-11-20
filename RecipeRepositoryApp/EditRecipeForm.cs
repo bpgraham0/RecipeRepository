@@ -67,9 +67,10 @@ namespace RecipeRepositoryApp
         private void uxButtonRemoveIngredient_Click(object sender, EventArgs e)
         {
             var selectedRows = uxDataGridViewIngredients.SelectedRows;
-            foreach(DataGridViewSelectedRowCollection Row in selectedRows)
+            
+            foreach(DataGridViewRow Row in selectedRows)
             {
-                ingredientListRepository.DeleteFromIngredientList(recipe.RecipeId, (int)Row[0].Cells[0].Value);
+                ingredientListRepository.DeleteFromIngredientList(recipe.RecipeId, (int)Row.Cells[0].Value);
 
             }
 
@@ -112,9 +113,9 @@ namespace RecipeRepositoryApp
         private void uxButtonDeleteStep_Click(object sender, EventArgs e)
         {
             var selectedRows = uxDataGridViewSteps.SelectedRows;
-            foreach (DataGridViewSelectedRowCollection Row in selectedRows)
+            foreach (DataGridViewRow Row in selectedRows)
             {
-                recipeRepository.DeleteStep(recipe.RecipeId, (int)Row[0].Cells[0].Value); //StepNumber
+                recipeRepository.DeleteStep(recipe.RecipeId, (int)Row.Cells[0].Value); //StepNumber
 
             }
         }

@@ -27,9 +27,9 @@ namespace RecipeRepositoryApp
 
         public void AddUpdateIngredientInfo(Recipe recipe)
         {
-            ingredientListRepository.CreateIngredient(uxTextBoxName.Text,0); //for now, have item is default to false
-            ingredientListRepository.AddToIngredientList(recipe.RecipeId,ingredientListRepository.FetchMeasurementId(uxComboBoxMeasurement.Text),ingredientListRepository.FetchMeasurementId(uxComboBoxMeasurement.Text.ToString()), Convert.ToDouble(uxNumericUpDownQuantity.Value));
-            return ;
+            int ingredientId = ingredientListRepository.CreateIngredient(uxTextBoxName.Text,0); //for now, have item is default to false
+            ingredientListRepository.AddToIngredientList(recipe.RecipeId,ingredientId,ingredientListRepository.FetchMeasurementId(uxComboBoxMeasurement.Text.ToString()), Convert.ToDouble(uxNumericUpDownQuantity.Value));
+            
         } 
     }
 }
