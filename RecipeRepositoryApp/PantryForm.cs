@@ -23,7 +23,10 @@ namespace RecipeRepositoryApp
         private void PantryForm_Load(object sender, EventArgs e)
         {
             uxDataGridViewPantry.DataSource = ingredientRepository.FetchAllIngredient();
-
+            if (uxDataGridViewPantry.Columns.Count > 0)
+            {
+                uxDataGridViewPantry.RowHeadersVisible = false;
+            }
         }
 
         private void uxDataGridViewPantry_Click(object sender, EventArgs e)
@@ -34,7 +37,10 @@ namespace RecipeRepositoryApp
             ingredientRepository.UpdateHaveItem(ingredientName, hasItem);
 
             uxDataGridViewPantry.DataSource = ingredientRepository.FetchAllIngredient();
-
+            if (uxDataGridViewPantry.Columns.Count > 0)
+            {
+                uxDataGridViewPantry.RowHeadersVisible = false;
+            }
 
         }
     }

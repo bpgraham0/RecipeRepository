@@ -31,8 +31,15 @@ namespace RecipeRepositoryApp
             uxNumericUpDownPrepTime.Value = Convert.ToDecimal(recipe.PrepTime.ToString());
             uxNumericUpDownCookTime.Value = Convert.ToDecimal(recipe.CookTime.ToString());
             uxDataGridViewIngredients.DataSource = ingredientListRepository.FetchIngredientList(recipe.RecipeId);
+            if (uxDataGridViewIngredients.Columns.Count > 0)
+            {
+                uxDataGridViewIngredients.RowHeadersVisible = false;
+            }
             uxDataGridViewSteps.DataSource = recipeRepository.GetStepList(recipe.RecipeId);
-
+            if (uxDataGridViewSteps.Columns.Count > 0)
+            {
+                uxDataGridViewSteps.RowHeadersVisible = false;
+            }
             this.recipe = recipe;
         }
         Recipe recipe;
@@ -77,6 +84,10 @@ namespace RecipeRepositoryApp
             {
                 addIngredient.AddUpdateIngredientInfo(recipe);
                 uxDataGridViewIngredients.DataSource = ingredientListRepository.FetchIngredientList(recipe.RecipeId);//Returns reader
+                if (uxDataGridViewIngredients.Columns.Count > 0)
+                {
+                    uxDataGridViewIngredients.RowHeadersVisible = false;
+                }
                 //Add recipe to 
             }
         }
@@ -89,6 +100,10 @@ namespace RecipeRepositoryApp
             {
                 addStep.AddUpdateStepInfo(recipe);
                 uxDataGridViewSteps.DataSource = recipeRepository.GetStepList(recipe.RecipeId);//Returns reader
+                if (uxDataGridViewSteps.Columns.Count > 0)
+                {
+                    uxDataGridViewSteps.RowHeadersVisible = false;
+                }
                 //Add recipe to 
             }
         }
