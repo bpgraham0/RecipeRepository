@@ -120,14 +120,14 @@ namespace RecipeData.Repositories
                         p.Value = PreptimeMax;
                         p = command.Parameters.Add("cooktimeMax", SqlDbType.Int);
                         p.Value = cooktimeMax;
-                        //p = command.Parameters.Add("DateMin", SqlDbType.Date);
-                        //p.Value = DateMin;
-                        //p = command.Parameters.Add("DateMax", SqlDbType.Date);
-                        //p.Value = DateMax;
+                        p = command.Parameters.Add("DateMin", SqlDbType.Date);
+                        p.Value = DateMin;
+                        p = command.Parameters.Add("DateMax", SqlDbType.Date);
+                        p.Value = DateMax;
                         //p = command.Parameters.Add("Have", SqlDbType.Bit);
                         //p.Value = Have;
-                        //p = command.Parameters.Add("DateChanged", SqlDbType.Bit);
-                        //p.Value = DateChanged;
+                        p = command.Parameters.Add("DateChanged", SqlDbType.Bit);
+                        p.Value = DateChanged;
 
                         connection.Open();
 

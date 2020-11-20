@@ -1,5 +1,4 @@
-﻿
-CREATE OR ALTER PROCEDURE Recipes.SearchAllRecipes
+﻿CREATE OR ALTER PROCEDURE Recipes.SearchAllRecipes
 	@Name VARCHAR(MAX),
 	@Description VARCHAR(MAX),
 	@CourseType VARCHAR(MAX),
@@ -11,7 +10,6 @@ CREATE OR ALTER PROCEDURE Recipes.SearchAllRecipes
 	@cooktimeMax int,
 	@DateMin date  ,
 	@DateMax Date,
-	@Have Bit,
 	@DateChanged bit
 
 AS
@@ -19,14 +17,15 @@ AS
 IF (@DateChanged = 0)
 begin
 SET @DateMin = DATEADD(YEAR, -100, getdate())
-SET @DateMax = getdate()
+SET @DateMax = sysdatetimeoffset()
 end
 
-if @CookTimeMax=0 begin
-set @CookTimeMax=1000 end
-
-if @PrepTime=0 begin
-set @PrepTime=1000 end
+IF(@PreptimeMax = 0) begin 
+set @PreptimeMax = 1000
+end
+IF(@cooktimeMax = 0) begin 
+set @cooktimeMax = 1000
+end
 
 
 select R.[name] as name  ,FT.[Name] as "Food Type",CT.[name]As "Course Type",R.[Description],R.CookTime,R.PrepTime,R.ServingSize,Hr.Stars
@@ -59,16 +58,19 @@ from Recipes.Recipe R
 inner join Recipes.FoodType FT on FT.FoodTypeID = R.FoodTypeID
 where FT.[Name] Like '%'+ @FoodType+'%'
 intersect
-select R.recipeID  As recipeID
+select R.recipeID  As recipeIDw
 from Recipes.Recipe R
 inner join Recipes.CourseType CT on CT.CourseTypeID = R.CourseTypeID
 where CT.[Name] Like '%'+ @CourseType+'%'
 intersect
+(select R.RecipeId
+from Recipes.Recipe R
+except 
 select R.recipeID As recipeID
 from Recipes.Recipe R
 inner join Recipes.HistoryOfUsedRecipes HR on HR.recipeID = R.recipeID
-where HR.Stars between @StarsMin and @StarsMax
-and HR.LastDateUsed  BETWEEN @DateMin and @DateMax
+where ((HR.Stars > @StarsMin or Hr.Stars< @StarsMax)
+or HR.LastDateUsed  < @DateMin or Hr.LastDateUsed > @DateMax)
+)
 ) temp on Temp.RecipeId= R.recipeID;
-
 GO
