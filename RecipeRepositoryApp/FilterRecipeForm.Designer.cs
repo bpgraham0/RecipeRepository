@@ -380,12 +380,13 @@
             // 
             // uxDateTimePickerLatestDate
             // 
-            this.uxDateTimePickerLatestDate.CustomFormat = "MMM dd, yyyy";
+            this.uxDateTimePickerLatestDate.CustomFormat = "\"MMM dd, yyyy\"";
             this.uxDateTimePickerLatestDate.Location = new System.Drawing.Point(190, 342);
             this.uxDateTimePickerLatestDate.Name = "uxDateTimePickerLatestDate";
             this.uxDateTimePickerLatestDate.Size = new System.Drawing.Size(304, 26);
             this.uxDateTimePickerLatestDate.TabIndex = 63;
-            this.uxDateTimePickerLatestDate.Value = new System.DateTime(2020, 11, 17, 17, 8, 39, 0);
+            this.uxDateTimePickerLatestDate.Value = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.uxDateTimePickerLatestDate.ValueChanged += new System.EventHandler(this.uxDateTimePickerLatestDate_ValueChanged);
             // 
             // uxDateTimePickerRecentDate
             // 
@@ -395,6 +396,7 @@
             this.uxDateTimePickerRecentDate.Size = new System.Drawing.Size(304, 26);
             this.uxDateTimePickerRecentDate.TabIndex = 64;
             this.uxDateTimePickerRecentDate.Value = new System.DateTime(2020, 11, 17, 17, 8, 39, 0);
+            this.uxDateTimePickerRecentDate.ValueChanged += new System.EventHandler(this.uxDateTimePickerRecentDate_ValueChanged);
             // 
             // uxCheckBoxHaveItem
             // 

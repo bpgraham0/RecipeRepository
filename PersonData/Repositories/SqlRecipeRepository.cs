@@ -92,7 +92,7 @@ namespace RecipeData.Repositories
             }
         }
 
-        public DataTable SearchAllRecipes(string Name, string Description, string CourseType, string FoodType, double StarsMin, double StarsMax, string Ingreadent, int PreptimeMax, int cooktimeMax, DateTime DateMin, DateTime DateMax, bool Have)
+        public DataTable SearchAllRecipes(string Name, string Description, string CourseType, string FoodType, double StarsMin, double StarsMax, string Ingreadent, int PreptimeMax, int cooktimeMax, DateTime DateMin, DateTime DateMax, bool Have, bool DateChanged)
         {
             using (var transaction = new TransactionScope())
             {
@@ -126,6 +126,9 @@ namespace RecipeData.Repositories
                         p.Value = DateMax;
                         p = command.Parameters.Add("Have", SqlDbType.Bit);
                         p.Value = Have;
+                        p = command.Parameters.Add("DateChanged", SqlDbType.Bit);
+                        p.Value = DateChanged;
+
                         connection.Open();
 
 

@@ -18,6 +18,7 @@ namespace RecipeRepositoryApp
         public EditRecipeForm(SqlRecipeRepository recipeRepository, SqlIngredientListRepository ingredientListRepository, SqlFoodTypeRepository foodTypeRepository, SqlCourseTypeRepository courseTypeRepository, Recipe recipe)
         {
             InitializeComponent();
+            uxButtonRemoveIngredient.TextAlign = ContentAlignment.MiddleCenter; 
             uxTextBoxName.Text = recipe.Name;
             this.recipeRepository = recipeRepository;
             this.ingredientListRepository = ingredientListRepository;
@@ -55,7 +56,7 @@ namespace RecipeRepositoryApp
             
 
             //recplace with REpository for creating recipe
-            int foodTypeId = foodTypeRepository.CreateUpdateFoodType(uxTextBoxCourseType.Text); 
+            int foodTypeId = foodTypeRepository.CreateUpdateFoodType(uxTextBoxFoodType.Text); 
             int courseTypeId = courseTypeRepository.CreateUpdateCourseType(uxTextBoxCourseType.Text); 
 
             recipeRepository.CreateUpdateRecipe(foodTypeId, courseTypeId, uxTextBoxName.Text, uxTextBoxDescription.Text,
@@ -72,6 +73,11 @@ namespace RecipeRepositoryApp
             {
                 ingredientListRepository.DeleteFromIngredientList(recipe.RecipeId, (int)Row.Cells[0].Value);
 
+            }
+            uxDataGridViewSteps.DataSource = recipeRepository.GetStepList(recipe.RecipeId);//Returns reader
+            if (uxDataGridViewSteps.Columns.Count > 0)
+            {
+                uxDataGridViewSteps.RowHeadersVisible = false;
             }
 
 
@@ -95,7 +101,7 @@ namespace RecipeRepositoryApp
 
         private void uxButtonAddStep_Click(object sender, EventArgs e)
         {
-            AddStepForm addStep = new AddStepForm(recipeRepository);
+            AddStepForm addStep = new AddStepForm(recipeRepository, recipe);
             DialogResult dl = addStep.ShowDialog();
             if (dl == DialogResult.OK)
             {
@@ -117,6 +123,11 @@ namespace RecipeRepositoryApp
             {
                 recipeRepository.DeleteStep(recipe.RecipeId, (int)Row.Cells[0].Value); //StepNumber
 
+            }
+            uxDataGridViewSteps.DataSource = recipeRepository.GetStepList(recipe.RecipeId);//Returns reader
+            if (uxDataGridViewSteps.Columns.Count > 0)
+            {
+                uxDataGridViewSteps.RowHeadersVisible = false;
             }
         }
 

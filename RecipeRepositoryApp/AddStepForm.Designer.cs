@@ -89,9 +89,20 @@
             // uxNumericUpDownStepNumber
             // 
             this.uxNumericUpDownStepNumber.Location = new System.Drawing.Point(251, 20);
+            this.uxNumericUpDownStepNumber.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.uxNumericUpDownStepNumber.Name = "uxNumericUpDownStepNumber";
+            this.uxNumericUpDownStepNumber.ReadOnly = true;
             this.uxNumericUpDownStepNumber.Size = new System.Drawing.Size(202, 26);
             this.uxNumericUpDownStepNumber.TabIndex = 30;
+            this.uxNumericUpDownStepNumber.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // AddStepForm
             // 
