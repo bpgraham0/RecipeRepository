@@ -5,8 +5,7 @@ CREATE OR ALTER PROCEDURE Recipes.CreateIngredient
 	@IngredientId int output
 AS
 
-INSERT Recipes.Ingredient(Name, HaveItem)
-select @Name,@HaveItem
+
 if EXISTS 
 	(select 1
 	from Recipes.Ingredient
