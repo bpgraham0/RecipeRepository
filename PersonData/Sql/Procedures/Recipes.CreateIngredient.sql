@@ -7,12 +7,20 @@ AS
 
 INSERT Recipes.Ingredient(Name, HaveItem)
 select @Name,@HaveItem
-WHERE   NOT EXISTS 
+if EXISTS 
 	(select 1
 	from Recipes.Ingredient
 	where Name=@Name
-	);
-set @IngredientId = SCOPE_IDENTITY();
-
-
+	)
+begin
+Select @IngredientId=FT.IngredientId
+from Recipes.Ingredient FT
+where [Name]=@Name
+end
+else 
+begin
+INSERT Recipes.Ingredient([Name],HaveItem)
+SELECT  @Name, @HaveItem
+SET @IngredientId = SCOPE_IDENTITY();
+end
 GO
