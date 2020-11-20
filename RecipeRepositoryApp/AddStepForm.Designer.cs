@@ -88,6 +88,12 @@
             // 
             // uxNumericUpDownStepNumber
             // 
+            this.uxNumericUpDownStepNumber.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uxNumericUpDownStepNumber.InterceptArrowKeys = false;
             this.uxNumericUpDownStepNumber.Location = new System.Drawing.Point(251, 20);
             this.uxNumericUpDownStepNumber.Minimum = new decimal(new int[] {
             1,

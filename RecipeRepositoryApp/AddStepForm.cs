@@ -22,7 +22,7 @@ namespace RecipeRepositoryApp
             if (dt.Rows.Count > 0)
             {
                 DataRow dr = dt.Rows[dt.Rows.Count-1];
-                uxNumericUpDownStepNumber.Value = (int)dr["StepNumber"]+1;
+                uxNumericUpDownStepNumber.Value = (int)dr["Step Number"]+1;
             }
         }
         SqlRecipeRepository recipeRepository;
