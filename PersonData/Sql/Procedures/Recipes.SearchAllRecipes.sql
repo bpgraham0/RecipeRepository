@@ -1,4 +1,5 @@
-﻿CREATE OR ALTER PROCEDURE Recipes.SearchAllRecipes
+﻿
+CREATE OR ALTER PROCEDURE Recipes.SearchAllRecipes
 	@Name VARCHAR(MAX),
 	@Description VARCHAR(MAX),
 	@CourseType VARCHAR(MAX),
@@ -17,7 +18,7 @@ AS
 IF (@DateChanged = 0)
 begin
 SET @DateMin = DATEADD(YEAR, -100, getdate())
-SET @DateMax = sysdatetimeoffset()
+ set @DateMax  = DATEADD(day, 1 ,sysdatetimeoffset())
 end
 
 IF(@PreptimeMax = 0) begin 
@@ -63,14 +64,15 @@ from Recipes.Recipe R
 inner join Recipes.CourseType CT on CT.CourseTypeID = R.CourseTypeID
 where CT.[Name] Like '%'+ @CourseType+'%'
 intersect
+
 (select R.RecipeId
 from Recipes.Recipe R
 except 
 select R.recipeID As recipeID
 from Recipes.Recipe R
-inner join Recipes.HistoryOfUsedRecipes HR on HR.recipeID = R.recipeID
-where ((HR.Stars > @StarsMin or Hr.Stars< @StarsMax)
-or HR.LastDateUsed  < @DateMin or Hr.LastDateUsed > @DateMax)
+right join Recipes.HistoryOfUsedRecipes HR on HR.recipeID = R.recipeID
+where (HR.Stars < @StarsMin) or( Hr.Stars> @StarsMax) or
+((HR.LastDateUsed  < @DateMin) or (Hr.LastDateUsed > @DateMax))
 )
 ) temp on Temp.RecipeId= R.recipeID;
 GO
