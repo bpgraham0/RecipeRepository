@@ -28,7 +28,7 @@ set @cooktimeMax = 1000
 end
 
 
-select R.[name] as name  ,FT.[Name] as "Food Type",CT.[name]As "Course Type",R.[Description],R.CookTime,R.PrepTime,R.ServingSize,Hr.Stars
+select R.[name] as "Recipe Name"  ,FT.[Name] as "Food Type",CT.[name]As "Course Type",R.[Description],R.CookTime,R.PrepTime,R.ServingSize,Hr.Stars
 from Recipes.Recipe R
 Left Join Recipes.FoodType FT on FT.FoodTypeId=R.FoodTypeId
 Left Join Recipes.CourseType CT on CT.CourseTypeId=R.CourseTypeId
