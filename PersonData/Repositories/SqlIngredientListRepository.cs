@@ -99,7 +99,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipies.DeleteFromIngredientList", connection))
+                    using (var command = new SqlCommand("Recipes.DeleteFromIngredientList", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         var p = command.Parameters.Add("recipeId", SqlDbType.Int);
@@ -127,7 +127,7 @@ namespace RecipeData.Repositories
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("Recipies.FetchAllIngredientsInPantry", connection))
+                    using (var command = new SqlCommand("Recipes.FetchAllIngredientsInPantry", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         connection.Open();
