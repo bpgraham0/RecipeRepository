@@ -86,6 +86,8 @@
     <Folder Include="DataDelegates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Sql\Data.sql" />
+    <Content Include="Sql\Procedures\Procedures.sql" />
     <Content Include="Sql\Procedures\Recipes.AddToIngredientList.sql" />
     <Content Include="Sql\Procedures\Recipes.AddUpdateHistoryOfUsedRecipes.sql" />
     <Content Include="Sql\Procedures\Recipes.CreateIngredient.sql" />
@@ -116,6 +118,7 @@
     <Content Include="Sql\Procedures\Recipes.SearchAllRecipes.sql" />
     <Content Include="Sql\Procedures\Recipes.FetchHaveExceptX.sql" />
     <Content Include="Sql\Procedures\Recipes.UpdateHaveItem.sql" />
+    <Content Include="Sql\Tables\Tables.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
