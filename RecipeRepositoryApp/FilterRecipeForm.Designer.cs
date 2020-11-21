@@ -126,7 +126,7 @@
             this.uxButtonSearch.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.uxButtonSearch.Location = new System.Drawing.Point(24, 440);
             this.uxButtonSearch.Name = "uxButtonSearch";
-            this.uxButtonSearch.Size = new System.Drawing.Size(468, 40);
+            this.uxButtonSearch.Size = new System.Drawing.Size(481, 40);
             this.uxButtonSearch.TabIndex = 5;
             this.uxButtonSearch.Text = "Search";
             this.uxButtonSearch.UseVisualStyleBackColor = true;
@@ -153,11 +153,6 @@
             // 
             // uxNumericUpDownMissing
             // 
-            this.uxNumericUpDownMissing.Increment = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
             this.uxNumericUpDownMissing.Location = new System.Drawing.Point(583, 565);
             this.uxNumericUpDownMissing.Maximum = new decimal(new int[] {
             10,
@@ -180,14 +175,14 @@
             // 
             // uxTextBoxCourseType
             // 
-            this.uxTextBoxCourseType.Location = new System.Drawing.Point(190, 285);
+            this.uxTextBoxCourseType.Location = new System.Drawing.Point(201, 285);
             this.uxTextBoxCourseType.Name = "uxTextBoxCourseType";
             this.uxTextBoxCourseType.Size = new System.Drawing.Size(302, 26);
             this.uxTextBoxCourseType.TabIndex = 49;
             // 
             // uxTextBoxFoodType
             // 
-            this.uxTextBoxFoodType.Location = new System.Drawing.Point(190, 231);
+            this.uxTextBoxFoodType.Location = new System.Drawing.Point(201, 231);
             this.uxTextBoxFoodType.Name = "uxTextBoxFoodType";
             this.uxTextBoxFoodType.Size = new System.Drawing.Size(302, 26);
             this.uxTextBoxFoodType.TabIndex = 48;
@@ -391,7 +386,7 @@
             // uxDateTimePickerLatestDate
             // 
             this.uxDateTimePickerLatestDate.CustomFormat = "\"MMM dd, yyyy\"";
-            this.uxDateTimePickerLatestDate.Location = new System.Drawing.Point(190, 342);
+            this.uxDateTimePickerLatestDate.Location = new System.Drawing.Point(201, 342);
             this.uxDateTimePickerLatestDate.Name = "uxDateTimePickerLatestDate";
             this.uxDateTimePickerLatestDate.Size = new System.Drawing.Size(304, 26);
             this.uxDateTimePickerLatestDate.TabIndex = 63;
@@ -401,7 +396,7 @@
             // uxDateTimePickerRecentDate
             // 
             this.uxDateTimePickerRecentDate.CustomFormat = "MMM dd, yyyy";
-            this.uxDateTimePickerRecentDate.Location = new System.Drawing.Point(188, 395);
+            this.uxDateTimePickerRecentDate.Location = new System.Drawing.Point(199, 395);
             this.uxDateTimePickerRecentDate.Name = "uxDateTimePickerRecentDate";
             this.uxDateTimePickerRecentDate.Size = new System.Drawing.Size(304, 26);
             this.uxDateTimePickerRecentDate.TabIndex = 64;
